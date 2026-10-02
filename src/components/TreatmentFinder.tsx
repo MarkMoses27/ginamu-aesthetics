@@ -32,7 +32,7 @@ const options = [
 ];
 
 export default function TreatmentFinder() {
-  const [active, setActive] = useState(0);
+  const [active, setActive] = useState<number | null>(null);
   const cardRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
@@ -98,10 +98,6 @@ export default function TreatmentFinder() {
             ))}
           </div>
 
-          <div className="finderRecommendation" aria-live="polite">
-            <span>Recommended</span>
-            <strong>{options[active].services}</strong>
-          </div>
 
           <a className="finderLink" href="#services">
             Explore all treatments <span aria-hidden="true">→</span>
