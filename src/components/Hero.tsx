@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 
 const links = ["Treatments", "Rituals", "About", "Journal", "Contact"];
 const decode = (value: string) => atob(value);
+const bookingUrl =
+  "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20treatment.%20Please%20help%20me%20with%20availability.";
 
 const slides = [
   {
@@ -145,7 +147,13 @@ export default function Hero() {
             ))}
           </div>
 
-          <a className="navCta editorialCta" href="#book">
+          <a
+            className="navCta editorialCta"
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your ritual on WhatsApp"
+          >
             Book your ritual
           </a>
 
@@ -188,7 +196,10 @@ export default function Hero() {
 
           <a
             className="mobileMenuCta"
-            href="#book"
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your ritual on WhatsApp"
             onClick={() => setMenuOpen(false)}
           >
             Book your ritual
@@ -208,7 +219,13 @@ export default function Hero() {
         </p>
 
         <div className="heroActions editorialActions">
-          <a className="primaryButton heroPrimary" href="#book">
+          <a
+            className="primaryButton heroPrimary"
+            href={bookingUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Book your ritual on WhatsApp"
+          >
             Book your ritual
           </a>
           <a className="heroSecondary" href="#treatments">
