@@ -23,6 +23,7 @@ const slides = [
 export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -37,6 +38,18 @@ export default function Hero() {
     }, 6200);
     return () => window.clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setMenuOpen(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKeyDown);
+    };
+  }, [menuOpen]);
 
   return (
     <section className="hero heroEditorial" id="top">
@@ -77,12 +90,46 @@ export default function Hero() {
             Book your ritual
           </a>
 
-          <button className="menuButton" type="button" aria-label="Open menu">
+          <button
+            className={`menuButton ${menuOpen ? "isOpen" : ""}`}
+            type="button"
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            aria-controls="mobile-menu"
+            onClick={() => setMenuOpen((open) => !open)}
+          >
             <span />
             <span />
           </button>
         </nav>
       </header>
+
+      <div
+        id="mobile-menu"
+        className={`mobileMenu ${menuOpen ? "isOpen" : ""}`}
+        aria-hidden={!menuOpen}
+      >
+        <div className="mobileMenuInner">
+          <div className="mobileMenuLinks">
+            {links.map((link) => (
+              <a
+                key={link}
+                href={`#${link.toLowerCase()}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link}
+              </a>
+            ))}
+          </div>
+          <a
+            className="mobileMenuCta"
+            href="#book"
+            onClick={() => setMenuOpen(false)}
+          >
+            Book your ritual
+          </a>
+        </div>
+      </div>
 
       <div className="heroContent">
         <h1 className="editorialTitle">
@@ -120,10 +167,6 @@ export default function Hero() {
         ))}
       </div>
 
-      <div className="heroBottom editorialBottom">
-        <span className="scrollLabel">Scroll</span>
-        <span className="scrollLine" aria-hidden="true" />
-      </div>
     </section>
   );
 }
