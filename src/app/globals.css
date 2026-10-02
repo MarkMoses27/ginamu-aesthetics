@@ -732,3 +732,318 @@ button:focus-visible {
     transform: scaleX(1);
   }
 }
+
+
+/* Treatment finder */
+.finderSection {
+  position: relative;
+  padding: clamp(76px, 8vw, 118px) clamp(18px, 7vw, 112px) clamp(92px, 10vw, 150px);
+  background:
+    radial-gradient(circle at 18% 10%, rgba(110,31,47,.045), transparent 30%),
+    var(--cream);
+}
+
+.finderCard {
+  position: relative;
+  max-width: 1120px;
+  min-height: 545px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 20px;
+  isolation: isolate;
+  box-shadow: 0 28px 62px rgba(45, 27, 30, .16);
+  cursor: none;
+}
+
+.finderImage {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 61% 50%;
+  filter: saturate(.78) contrast(.96) brightness(.84);
+  transform: scale(1.025);
+  transition: transform 1.4s cubic-bezier(.2,.7,.2,1);
+}
+
+.finderCard:hover .finderImage {
+  transform: scale(1.055);
+}
+
+.finderOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(90deg, rgba(48,29,27,.76) 0%, rgba(56,38,30,.58) 42%, rgba(67,49,37,.23) 70%, rgba(50,34,30,.10) 100%),
+    linear-gradient(180deg, rgba(27,18,18,.08), rgba(27,18,18,.24));
+}
+
+.finderContent {
+  position: relative;
+  z-index: 2;
+  width: min(650px, 62%);
+  min-height: 545px;
+  padding: clamp(42px, 5vw, 66px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+}
+
+.finderKicker {
+  margin: 0 0 22px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #e0ad67;
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .20em;
+  text-transform: uppercase;
+}
+
+.finderKicker > span {
+  width: 28px;
+  height: 1px;
+  background: currentColor;
+  opacity: .82;
+}
+
+.finderContent h2 {
+  margin: 0;
+  max-width: 620px;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(54px, 5.2vw, 82px);
+  line-height: .93;
+  letter-spacing: -.045em;
+  font-weight: 390;
+  text-wrap: balance;
+}
+
+.finderContent h2 em {
+  color: #d8a35a;
+  font-weight: 350;
+}
+
+.finderLead {
+  max-width: 560px;
+  margin: 24px 0 0;
+  color: rgba(255,250,245,.84);
+  font-size: 15px;
+  line-height: 1.58;
+}
+
+.finderOptions {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.finderOptions button {
+  min-height: 38px;
+  padding: 0 16px;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 999px;
+  background: rgba(255,255,255,.04);
+  color: var(--white);
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 550;
+  backdrop-filter: blur(3px);
+  transition:
+    background .22s ease,
+    border-color .22s ease,
+    color .22s ease,
+    transform .22s ease;
+}
+
+.finderOptions button.active {
+  border-color: #d8a35a;
+  background: #d8a35a;
+  color: #29191d;
+}
+
+.finderRecommendation {
+  min-height: 42px;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 7px 12px;
+  color: rgba(255,250,245,.84);
+}
+
+.finderRecommendation span {
+  color: rgba(255,250,245,.55);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.finderRecommendation strong {
+  font-size: 12px;
+  line-height: 1.45;
+  font-weight: 500;
+}
+
+.finderLink {
+  width: max-content;
+  margin-top: 14px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(255,255,255,.6);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  transition: gap .22s ease, opacity .22s ease;
+}
+
+.finderCursor {
+  position: absolute;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255,255,255,.82);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity .18s ease,
+    width .22s ease,
+    height .22s ease,
+    border-color .22s ease;
+  will-change: transform;
+}
+
+.finderCursor span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1f1718;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.36);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .finderOptions button:hover {
+    border-color: rgba(255,255,255,.82);
+    background: rgba(255,255,255,.12);
+    transform: translateY(-1px);
+  }
+
+  .finderOptions button.active:hover {
+    border-color: #e2b36e;
+    background: #e2b36e;
+  }
+
+  .finderLink:hover {
+    gap: 17px;
+    opacity: .82;
+  }
+}
+
+@media (max-width: 900px) {
+  .finderSection {
+    padding-inline: 20px;
+  }
+
+  .finderCard {
+    min-height: 620px;
+    cursor: auto;
+  }
+
+  .finderImage {
+    object-position: 60% 50%;
+  }
+
+  .finderOverlay {
+    background:
+      linear-gradient(180deg, rgba(30,18,18,.24) 0%, rgba(34,21,20,.34) 35%, rgba(34,21,20,.78) 100%),
+      linear-gradient(90deg, rgba(36,22,21,.30), rgba(36,22,21,.10));
+  }
+
+  .finderContent {
+    width: 100%;
+    min-height: 620px;
+    padding: 48px 36px 40px;
+    justify-content: flex-end;
+  }
+
+  .finderContent h2 {
+    max-width: 620px;
+    font-size: clamp(52px, 9vw, 76px);
+  }
+
+  .finderLead {
+    max-width: 540px;
+  }
+
+  .finderCursor {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .finderSection {
+    padding: 64px 14px 92px;
+  }
+
+  .finderCard {
+    min-height: 650px;
+    border-radius: 16px;
+  }
+
+  .finderContent {
+    min-height: 650px;
+    padding: 38px 22px 30px;
+  }
+
+  .finderKicker {
+    margin-bottom: 18px;
+    font-size: 9px;
+  }
+
+  .finderContent h2 {
+    font-size: clamp(46px, 13.8vw, 62px);
+    line-height: .95;
+  }
+
+  .finderLead {
+    margin-top: 18px;
+    font-size: 13.5px;
+  }
+
+  .finderOptions {
+    margin-top: 18px;
+    gap: 7px;
+  }
+
+  .finderOptions button {
+    min-height: 36px;
+    padding-inline: 13px;
+    font-size: 10.5px;
+  }
+
+  .finderRecommendation {
+    margin-top: 16px;
+  }
+
+  .finderRecommendation strong {
+    font-size: 11px;
+  }
+
+  .finderLink {
+    margin-top: 10px;
+  }
+}
