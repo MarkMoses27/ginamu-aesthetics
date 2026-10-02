@@ -1,9 +1,15 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 const links = ["Treatments", "Rituals", "About", "Journal", "Contact"];
+const decode = (value: string) => atob(value);
+
+const heroImages = {
+  red: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9mNDRlODAwNi1jNWYyLTQ5YzctODY3OS1jMjRkMWU0MjU3ZmQuanBn"),
+  flower: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9lNzMzZjc4OS01MTU4LTQzN2UtOGVmZS1kZTEwYmQ1YTg4M2IuanBn"),
+  cream: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi8xM2QyOTcwNS0xM2UwLTRlNWUtYjA3OC1mZDE0OTY5ZmMxNmQuanBn"),
+};
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -44,9 +50,7 @@ export default function Hero() {
       <header className={`navWrap ${scrolled ? "navScrolled" : ""}`}>
         <nav className="nav" aria-label="Main navigation">
           <a className="brand" href="#top" aria-label="Ginamu Aesthetics home">
-            <span className="brandMark">
-              <Image src="/ginamu-logo.webp" alt="" width={80} height={80} priority />
-            </span>
+            <span className="brandMark" aria-hidden="true">GA</span>
             <span className="brandType">
               <strong>GINAMU</strong>
               <small>AESTHETICS</small>
@@ -108,32 +112,16 @@ export default function Hero() {
 
         <div className="heroVisual" aria-label="Ginamu beauty editorial">
           <div className="mainPortrait imageReveal">
-            <Image
-              src="/images/hero-red.webp"
-              alt="Beauty portrait"
-              fill
-              priority
-              sizes="(max-width: 900px) 80vw, 42vw"
-            />
+            <img src={heroImages.red} alt="Beauty portrait" />
             <div className="portraitWash" />
           </div>
 
           <div className="floatingCard flowerCard imageReveal delay1">
-            <Image
-              src="/images/hero-flower.webp"
-              alt="Beauty portrait with floral styling"
-              fill
-              sizes="(max-width: 900px) 28vw, 16vw"
-            />
+            <img src={heroImages.flower} alt="Beauty portrait with floral styling" />
           </div>
 
           <div className="floatingCard creamCard imageReveal delay2">
-            <Image
-              src="/images/hero-cream.webp"
-              alt="Skincare portrait"
-              fill
-              sizes="(max-width: 900px) 26vw, 14vw"
-            />
+            <img src={heroImages.cream} alt="Skincare portrait" />
           </div>
 
           <div className="ritualStamp" aria-hidden="true">
