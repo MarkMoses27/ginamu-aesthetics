@@ -102,17 +102,23 @@ button { font: inherit; }
   transition: all .35s ease;
 }
 
-.navScrolled { padding-top: 10px; }
+.navScrolled {
+  padding: 0;
+  background: rgba(245,239,231,.96);
+  backdrop-filter: blur(16px) saturate(115%);
+  color: var(--ink);
+  box-shadow: 0 8px 28px rgba(31,12,17,.07);
+  border-bottom: 1px solid rgba(67,19,29,.08);
+}
 
 .navScrolled .editorialNav {
-  height: 64px;
-  padding-inline: 18px;
-  border: 1px solid rgba(63,22,30,.12);
-  border-radius: 999px;
-  background: rgba(245,239,231,.91);
-  backdrop-filter: blur(18px);
+  height: 76px;
+  padding-inline: clamp(24px, 4vw, 68px);
+  border: 0;
+  border-radius: 0;
+  background: transparent;
   color: var(--ink);
-  box-shadow: 0 16px 40px rgba(31,12,17,.10);
+  box-shadow: none;
 }
 
 .brand {
@@ -429,6 +435,8 @@ button { font: inherit; }
 
 @media (max-width: 820px) {
   .navWrap { padding-inline: 16px; }
+  .navWrap.navScrolled { padding-inline: 0; }
+  .navScrolled .editorialNav { padding-inline: 18px; height: 68px; }
   .editorialNav { height: 70px; }
   .editorialCta { display: none; }
   .brandWord { font-size: 19px; }
