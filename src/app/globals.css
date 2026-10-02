@@ -5,8 +5,11 @@
 :root {
   --maroon: #6e1f2f;
   --maroon-deep: #43131d;
+  --maroon-soft: #a96f7b;
+  --rose-mist: #d8bcc2;
+  --ash: #687377;
+  --ash-soft: #aab2b5;
   --cream: #f4eee6;
-  --gold: #d2a35f;
   --ink: #211719;
   --white: #fffaf5;
 }
@@ -39,7 +42,7 @@ button { font: inherit; }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid #e0ad67;
+  outline: 2px solid var(--rose-mist);
   outline-offset: 4px;
 }
 
@@ -105,7 +108,7 @@ button:focus-visible {
   top: 16vh;
   border-radius: 50%;
   z-index: -2;
-  background: radial-gradient(circle, rgba(215,163,95,.15), transparent 66%);
+  background: radial-gradient(circle, rgba(110,31,47,.16), transparent 66%);
   filter: blur(12px);
   pointer-events: none;
 }
@@ -200,7 +203,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(176,119,58,.96);
+  background: var(--maroon);
   color: var(--white);
   font-family: "General Sans", "DM Sans", sans-serif;
   font-size: 11px;
@@ -332,7 +335,7 @@ button:focus-visible {
 
 .editorialTitle span {
   display: block;
-  color: #e0ad67;
+  color: var(--rose-mist);
   font-style: italic;
   font-weight: 360;
   font-size: .84em;
@@ -365,7 +368,7 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #b7773a;
+  background: var(--maroon);
   color: var(--white);
   font-size: 11px;
   font-weight: 700;
@@ -418,7 +421,7 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: #e0ad67;
+  background: var(--rose-mist);
   transform-origin: left center;
   animation: progress 6.2s linear both;
 }
@@ -459,7 +462,7 @@ button:focus-visible {
   margin-left: auto;
   font-size: 17px;
   line-height: 1.7;
-  color: #67575b;
+  color: var(--ash);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -467,12 +470,12 @@ button:focus-visible {
 
   .editorialCta:hover {
     transform: translateY(-2px);
-    background: #d9a867;
+    background: var(--maroon-soft);
   }
 
   .heroPrimary:hover {
     transform: translateY(-3px);
-    background: #d49a58;
+    background: var(--maroon-soft);
   }
 
   .heroSecondary:hover { opacity: .72; }
@@ -798,7 +801,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   gap: 14px;
-  color: #e0ad67;
+  color: var(--rose-mist);
   font-family: "General Sans", "DM Sans", sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -825,7 +828,7 @@ button:focus-visible {
 }
 
 .finderContent h2 em {
-  color: #d8a35a;
+  color: var(--rose-mist);
   font-weight: 350;
 }
 
@@ -863,9 +866,9 @@ button:focus-visible {
 }
 
 .finderOptions button.active {
-  border-color: #d8a35a;
-  background: #d8a35a;
-  color: #29191d;
+  border-color: var(--rose-mist);
+  background: var(--maroon);
+  color: var(--white);
 }
 
 .finderRecommendation {
@@ -879,7 +882,7 @@ button:focus-visible {
 }
 
 .finderRecommendation span {
-  color: rgba(255,250,245,.55);
+  color: rgba(244,238,230,.62);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: .14em;
@@ -931,7 +934,7 @@ button:focus-visible {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #1f1718;
+  background: var(--maroon-deep);
   box-shadow: 0 0 0 1px rgba(255,255,255,.36);
 }
 
@@ -943,8 +946,8 @@ button:focus-visible {
   }
 
   .finderOptions button.active:hover {
-    border-color: #e2b36e;
-    background: #e2b36e;
+    border-color: var(--maroon-soft);
+    background: var(--maroon-soft);
   }
 
   .finderLink:hover {
