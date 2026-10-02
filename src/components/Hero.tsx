@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const links = ["Treatments", "Rituals", "About", "Journal", "Contact"];
 const decode = (value: string) => atob(value);
@@ -8,15 +8,15 @@ const decode = (value: string) => atob(value);
 const slides = [
   {
     image: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9mNDRlODAwNi1jNWYyLTQ5YzctODY3OS1jMjRkMWU0MjU3ZmQuanBn"),
-    position: "68% 42%",
+    className: "slideBeauty",
   },
   {
     image: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi80MWYwYTllNy00MWM1LTQwNGItYjU2Yi1hOGY1ZmFjZTRlNjUuanBn"),
-    position: "62% 50%",
+    className: "slideFacial",
   },
   {
     image: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9kMDlhYWRkNS1kNDZmLTQxOGEtYjY0Zi0zNzkyMjMyZmYxZDYuanBn"),
-    position: "58% 50%",
+    className: "slideBody",
   },
 ];
 
@@ -24,6 +24,9 @@ export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [reduceMotion, setReduceMotion] = useState(false);
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -33,21 +36,72 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    const timer = window.setInterval(() => {
-      setActive((current) => (current + 1) % slides.length);
-    }, 6200);
-    return () => window.clearInterval(timer);
+    const media = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const syncPreference = () => setReduceMotion(media.matches);
+    syncPreference();
+    media.addEventListener("change", syncPreference);
+    return () => media.removeEventListener("change", syncPreference);
   }, []);
 
   useEffect(() => {
+    if (reduceMotion || menuOpen) return;
+
+    const timer = window.setInterval(() => {
+      if (!document.hidden) {
+        setActive((current) => (current + 1) % slides.length);
+      }
+    }, 6200);
+
+    return () => window.clearInterval(timer);
+  }, [reduceMotion, menuOpen]);
+
+  useEffect(() => {
     document.body.style.overflow = menuOpen ? "hidden" : "";
+
+    if (menuOpen) {
+      window.setTimeout(() => firstMenuLinkRef.current?.focus(), 80);
+    }
+
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setMenuOpen(false);
+      if (event.key === "Escape" && menuOpen) {
+        setMenuOpen(false);
+        menuButtonRef.current?.focus();
+        return;
+      }
+
+      if (event.key !== "Tab" || !menuOpen) return;
+
+      const focusables = Array.from(
+        document.querySelectorAll<HTMLElement>(
+          ".menuButton, #mobile-menu a[href]"
+        )
+      ).filter((element) => element.offsetParent !== null);
+
+      if (!focusables.length) return;
+
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
+
+    const onResize = () => {
+      if (window.innerWidth > 1100) setMenuOpen(false);
+    };
+
     window.addEventListener("keydown", onKeyDown);
+    window.addEventListener("resize", onResize);
+
     return () => {
       document.body.style.overflow = "";
       window.removeEventListener("keydown", onKeyDown);
+      window.removeEventListener("resize", onResize);
     };
   }, [menuOpen]);
 
@@ -56,13 +110,16 @@ export default function Hero() {
       <div className="heroSlides" aria-hidden="true">
         {slides.map((slide, index) => (
           <div
-            className={`heroSlide ${index === active ? "isActive" : ""}`}
+            className={`heroSlide ${slide.className} ${index === active ? "isActive" : ""}`}
             key={slide.image}
           >
             <img
               src={slide.image}
               alt=""
-              style={{ objectPosition: slide.position }}
+              loading="eager"
+              decoding="async"
+              fetchPriority={index === 0 ? "high" : "auto"}
+              draggable={false}
             />
           </div>
         ))}
@@ -71,7 +128,9 @@ export default function Hero() {
       <div className="heroOverlay" aria-hidden="true" />
       <div className="heroGlow" aria-hidden="true" />
 
-      <header className={`navWrap ${scrolled ? "navScrolled" : ""}`}>
+      <header
+        className={`navWrap ${scrolled ? "navScrolled" : ""} ${menuOpen ? "navMenuOpen" : ""}`}
+      >
         <nav className="nav editorialNav" aria-label="Main navigation">
           <a className="brand" href="#top" aria-label="Ginamu Aesthetics home">
             <span className="brandWord">GINAMU</span>
@@ -91,6 +150,7 @@ export default function Hero() {
           </a>
 
           <button
+            ref={menuButtonRef}
             className={`menuButton ${menuOpen ? "isOpen" : ""}`}
             type="button"
             aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -108,11 +168,15 @@ export default function Hero() {
         id="mobile-menu"
         className={`mobileMenu ${menuOpen ? "isOpen" : ""}`}
         aria-hidden={!menuOpen}
+        role="dialog"
+        aria-modal="true"
+        aria-label="Main menu"
       >
         <div className="mobileMenuInner">
           <div className="mobileMenuLinks">
-            {links.map((link) => (
+            {links.map((link, index) => (
               <a
+                ref={index === 0 ? firstMenuLinkRef : undefined}
                 key={link}
                 href={`#${link.toLowerCase()}`}
                 onClick={() => setMenuOpen(false)}
@@ -121,6 +185,7 @@ export default function Hero() {
               </a>
             ))}
           </div>
+
           <a
             className="mobileMenuCta"
             href="#book"
@@ -166,7 +231,6 @@ export default function Hero() {
           </button>
         ))}
       </div>
-
     </section>
   );
 }
