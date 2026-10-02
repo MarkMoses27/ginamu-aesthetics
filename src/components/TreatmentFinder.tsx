@@ -2,110 +2,336 @@
 
 import { useRef, useState } from "react";
 
-const decode = (value: string) => atob(value);
+type Goal = {
+  label: string;
+  treatment: string;
+  note: string;
+};
 
-const finderImage = decode(
-  "aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9kMDlhYWRkNS1kNDZmLTQxOGEtYjY0Zi0zNzkyMjMyZmYxZDYuanBn"
-);
+type RitualCategory = {
+  label: string;
+  descriptor: string;
+  image: string;
+  goals: Goal[];
+};
 
-const options = [
+const bookingNumber = "254743364717";
+
+const categories: RitualCategory[] = [
   {
     label: "Skin & Glow",
-    services: "Facials · Skin Analysis · Skin Tag Removal",
+    descriptor: "Facials · analysis · skin refinement",
+    image:
+      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/13d29705-13e0-4e5e-b078-fd14969fc16d.jpg",
+    goals: [
+      {
+        label: "Glow & hydration",
+        treatment: "Signature Facial",
+        note: "A tailored facial ritual focused on freshness, hydration and a visibly renewed complexion.",
+      },
+      {
+        label: "Clarity & smoother texture",
+        treatment: "Targeted Facial",
+        note: "A focused skin ritual selected around texture, congestion and overall skin clarity.",
+      },
+      {
+        label: "Understand my skin",
+        treatment: "Professional Skin Analysis",
+        note: "A closer look at your skin before choosing the most suitable treatment and home-care direction.",
+      },
+      {
+        label: "Skin tag concerns",
+        treatment: "Skin Tag Removal",
+        note: "A precise consultation-led service for safe, considered skin tag removal.",
+      },
+    ],
   },
   {
     label: "Body & Wellness",
-    services: "Lymphatic Massage · Moroccan Body Scrubs · Sauna / Steam",
+    descriptor: "Massage · body ritual · sauna & steam",
+    image:
+      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/d09aadd5-d46f-418a-b64f-3792232ff1d6.jpg",
+    goals: [
+      {
+        label: "De-bloat & feel lighter",
+        treatment: "Lymphatic Massage",
+        note: "A gentle body ritual designed to support circulation, relaxation and a lighter, less congested feeling.",
+      },
+      {
+        label: "Smooth & renew my skin",
+        treatment: "Moroccan Body Scrub",
+        note: "A deeply cleansing exfoliation ritual for smoother, softer and freshly renewed skin.",
+      },
+      {
+        label: "Relax & reset",
+        treatment: "Sauna / Steam Ritual",
+        note: "Unhurried heat therapy designed to help you decompress, unwind and reset.",
+      },
+    ],
   },
   {
     label: "Brows & Lashes",
-    services: "Microblading · Eyelash Extensions",
+    descriptor: "Microblading · lash enhancement",
+    image:
+      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/e733f789-5158-437e-8efe-de10bd5a883b.jpg",
+    goals: [
+      {
+        label: "Define my brows",
+        treatment: "Microblading",
+        note: "A precision brow service designed for natural-looking definition, structure and confidence.",
+      },
+      {
+        label: "Enhance my lashes",
+        treatment: "Eyelash Extensions",
+        note: "A refined lash enhancement tailored to your features and preferred level of softness or definition.",
+      },
+    ],
   },
   {
     label: "Nails",
-    services: "Nail Care",
+    descriptor: "Clean · polished · beautifully finished",
+    image:
+      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/f44e8006-c5f2-49c7-8679-c24d1e4257fd.jpg",
+    goals: [
+      {
+        label: "A clean, polished finish",
+        treatment: "Nail Care",
+        note: "Considered nail care with close attention to preparation, finish and the details that make the result feel complete.",
+      },
+    ],
   },
   {
     label: "Hair Removal",
-    services: "Waxing",
+    descriptor: "Smooth · maintained · confident",
+    image:
+      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg",
+    goals: [
+      {
+        label: "Smooth, maintained skin",
+        treatment: "Waxing",
+        note: "Professional waxing with careful preparation and finishing for smooth, well-maintained skin.",
+      },
+    ],
   },
 ];
 
 export default function TreatmentFinder() {
-  const [active, setActive] = useState<number | null>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const [categoryIndex, setCategoryIndex] = useState<number | null>(null);
+  const [goalIndex, setGoalIndex] = useState<number | null>(null);
+  const imagePanelRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
 
+  const category = categoryIndex === null ? null : categories[categoryIndex];
+  const goal = category && goalIndex !== null ? category.goals[goalIndex] : null;
+  const step = goal ? 3 : category ? 2 : 1;
+  const activeImage = category?.image ?? categories[0].image;
+
+  const chooseCategory = (index: number) => {
+    setCategoryIndex(index);
+    setGoalIndex(null);
+  };
+
+  const reset = () => {
+    setCategoryIndex(null);
+    setGoalIndex(null);
+  };
+
   const moveCursor = (event: React.PointerEvent<HTMLDivElement>) => {
-    if (event.pointerType !== "mouse" || !cardRef.current || !cursorRef.current) return;
+    if (
+      event.pointerType !== "mouse" ||
+      !imagePanelRef.current ||
+      !cursorRef.current
+    ) {
+      return;
+    }
 
-    const bounds = cardRef.current.getBoundingClientRect();
-    const x = event.clientX - bounds.left;
-    const y = event.clientY - bounds.top;
-
+    const bounds = imagePanelRef.current.getBoundingClientRect();
     cursorRef.current.style.opacity = "1";
-    cursorRef.current.style.transform = `translate3d(${x - 17}px, ${y - 17}px, 0)`;
+    cursorRef.current.style.transform = `translate3d(${
+      event.clientX - bounds.left - 18
+    }px, ${event.clientY - bounds.top - 18}px, 0)`;
   };
 
   const hideCursor = () => {
     if (cursorRef.current) cursorRef.current.style.opacity = "0";
   };
 
+  const bookingHref = goal
+    ? `https://wa.me/${bookingNumber}?text=${encodeURIComponent(
+        `Hi Ginamu Aesthetics, I'd like to book ${goal.treatment}. Please help me with availability.`
+      )}`
+    : `https://wa.me/${bookingNumber}?text=${encodeURIComponent(
+        "Hi Ginamu Aesthetics, I'd like help choosing and booking a treatment."
+      )}`;
+
   return (
-    <section className="finderSection" id="treatments" aria-labelledby="finder-title">
-      <div
-        className="finderCard"
-        ref={cardRef}
-        onPointerMove={moveCursor}
-        onPointerLeave={hideCursor}
-      >
-        <img
-          className="finderImage"
-          src={finderImage}
-          alt=""
-          aria-hidden="true"
-          loading="lazy"
-          decoding="async"
-          draggable={false}
-        />
-        <div className="finderOverlay" aria-hidden="true" />
+    <section
+      className="ritualFinder"
+      id="treatments"
+      aria-labelledby="ritual-finder-title"
+    >
+      <div className="ritualFinderIntro">
+        <p className="ritualEyebrow">Find your ritual</p>
+        <h2 id="ritual-finder-title">
+          A more personal place <em>to begin.</em>
+        </h2>
+        <p>
+          Two simple choices. We’ll guide you towards the Ginamu ritual that
+          best matches what you want to feel or refine.
+        </p>
+      </div>
 
-        <div className="finderContent">
-          <p className="finderKicker">
-            <span aria-hidden="true" />
-            Treatment finder
-          </p>
-
-          <h2 id="finder-title">
-            Where would you like to <em>begin?</em>
-          </h2>
-
-          <p className="finderLead">
-            Tell us what you’d like to focus on and we’ll guide you to the right ritual.
-          </p>
-
-          <div className="finderOptions" role="group" aria-label="Treatment interests">
-            {options.map((option, index) => (
-              <button
-                key={option.label}
-                type="button"
-                className={index === active ? "active" : ""}
-                aria-pressed={index === active}
-                onClick={() => setActive(index)}
-              >
-                {option.label}
-              </button>
-            ))}
+      <div className="ritualFinderShell">
+        <div className="ritualFinderPanel">
+          <div className="ritualFinderMeta">
+            <span>Ginamu treatment concierge</span>
+            <span>0{step} / 03</span>
           </div>
 
+          <div className="ritualFinderStage" key={`${step}-${categoryIndex}-${goalIndex}`}>
+            {step === 1 && (
+              <>
+                <p className="ritualStepLabel">First, choose your focus</p>
+                <h3>What would you like to care for today?</h3>
 
-          <a className="finderLink" href="#services">
-            Explore all treatments <span aria-hidden="true">→</span>
-          </a>
+                <div className="ritualChoiceList" role="list">
+                  {categories.map((item, index) => (
+                    <button
+                      key={item.label}
+                      type="button"
+                      className="ritualChoice"
+                      onClick={() => chooseCategory(index)}
+                    >
+                      <span className="ritualChoiceNo">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="ritualChoiceCopy">
+                        <strong>{item.label}</strong>
+                        <small>{item.descriptor}</small>
+                      </span>
+                      <span className="ritualChoiceArrow" aria-hidden="true">
+                        ↗
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {step === 2 && category && (
+              <>
+                <button
+                  type="button"
+                  className="ritualBack"
+                  onClick={reset}
+                >
+                  ← Change focus
+                </button>
+
+                <p className="ritualStepLabel">{category.label}</p>
+                <h3>What would you most like to achieve?</h3>
+
+                <div className="ritualGoalGrid" role="list">
+                  {category.goals.map((item, index) => (
+                    <button
+                      key={item.label}
+                      type="button"
+                      className="ritualGoal"
+                      onClick={() => setGoalIndex(index)}
+                    >
+                      <span>{item.label}</span>
+                      <span aria-hidden="true">→</span>
+                    </button>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {step === 3 && category && goal && (
+              <div className="ritualResult">
+                <button
+                  type="button"
+                  className="ritualBack"
+                  onClick={() => setGoalIndex(null)}
+                >
+                  ← Back
+                </button>
+
+                <p className="ritualStepLabel">Your Ginamu ritual</p>
+                <h3>{goal.treatment}</h3>
+                <p className="ritualResultText">{goal.note}</p>
+
+                <div className="ritualResultRule" />
+
+                <div className="ritualResultMeta">
+                  <span>Selected focus</span>
+                  <strong>
+                    {category.label} · {goal.label}
+                  </strong>
+                </div>
+
+                <div className="ritualResultActions">
+                  <a
+                    className="ritualBook"
+                    href={bookingHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book this ritual
+                    <span aria-hidden="true">↗</span>
+                  </a>
+                  <button type="button" className="ritualRestart" onClick={reset}>
+                    Start again
+                  </button>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="ritualFinderFooter">
+            <span>Prefer a human recommendation?</span>
+            <a href={bookingHref} target="_blank" rel="noopener noreferrer">
+              Ask Ginamu on WhatsApp
+            </a>
+          </div>
         </div>
 
-        <div className="finderCursor" ref={cursorRef} aria-hidden="true">
-          <span />
+        <div
+          className="ritualFinderVisual"
+          ref={imagePanelRef}
+          onPointerMove={moveCursor}
+          onPointerLeave={hideCursor}
+        >
+          {categories.map((item, index) => (
+            <img
+              key={item.image}
+              src={item.image}
+              alt=""
+              aria-hidden="true"
+              draggable={false}
+              loading={index === 0 ? "eager" : "lazy"}
+              className={
+                (categoryIndex ?? 0) === index
+                  ? "ritualVisualImage active"
+                  : "ritualVisualImage"
+              }
+            />
+          ))}
+
+          <div className="ritualVisualShade" aria-hidden="true" />
+
+          <div className="ritualVisualCaption">
+            <span>Beauty · Aesthetics · Wellbeing</span>
+            <p>A ritual shaped around you.</p>
+          </div>
+
+          <div className="ritualVisualMark" aria-hidden="true">
+            GA
+          </div>
+
+          <div className="ritualCursor" ref={cursorRef} aria-hidden="true">
+            <span />
+          </div>
         </div>
       </div>
     </section>
