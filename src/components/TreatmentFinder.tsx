@@ -117,6 +117,7 @@ const categories: RitualCategory[] = [
 
 export default function TreatmentFinder() {
   const [categoryIndex, setCategoryIndex] = useState<number | null>(null);
+  const [hoveredCategory, setHoveredCategory] = useState<number | null>(null);
   const [goalIndex, setGoalIndex] = useState<number | null>(null);
   const imagePanelRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
@@ -124,7 +125,8 @@ export default function TreatmentFinder() {
   const category = categoryIndex === null ? null : categories[categoryIndex];
   const goal = category && goalIndex !== null ? category.goals[goalIndex] : null;
   const step = goal ? 3 : category ? 2 : 1;
-  const activeImage = category?.image ?? categories[0].image;
+  const visualIndex = hoveredCategory ?? categoryIndex ?? 0;
+  const visualCategory = categories[visualIndex];
 
   const chooseCategory = (index: number) => {
     setCategoryIndex(index);
@@ -201,6 +203,10 @@ export default function TreatmentFinder() {
                       type="button"
                       className="ritualChoice"
                       onClick={() => chooseCategory(index)}
+                      onMouseEnter={() => setHoveredCategory(index)}
+                      onMouseLeave={() => setHoveredCategory(null)}
+                      onFocus={() => setHoveredCategory(index)}
+                      onBlur={() => setHoveredCategory(null)}
                     >
                       <span className="ritualChoiceNo">
                         {String(index + 1).padStart(2, "0")}
@@ -311,7 +317,7 @@ export default function TreatmentFinder() {
               draggable={false}
               loading={index === 0 ? "eager" : "lazy"}
               className={
-                (categoryIndex ?? 0) === index
+                visualIndex === index
                   ? "ritualVisualImage active"
                   : "ritualVisualImage"
               }
@@ -320,9 +326,9 @@ export default function TreatmentFinder() {
 
           <div className="ritualVisualShade" aria-hidden="true" />
 
-          <div className="ritualVisualCaption">
-            <span>Beauty · Aesthetics · Wellbeing</span>
-            <p>A ritual shaped around you.</p>
+          <div className="ritualVisualCaption" key={visualCategory.label}>
+            <span>{visualCategory.label}</span>
+            <p>{visualCategory.descriptor}</p>
           </div>
 
           <div className="ritualVisualMark" aria-hidden="true">
