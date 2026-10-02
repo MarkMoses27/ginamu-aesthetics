@@ -88,8 +88,13 @@ a { color: inherit; text-decoration: none; }
   position: relative;
   width:48px; height:48px; border-radius:50%; overflow:hidden;
   display:grid; place-items:center; background:rgba(255,255,255,.5);
+  border:1px solid rgba(100,30,43,.18);
+  color:var(--maroon);
+  font-family:"Fraunces",serif;
+  font-size:16px;
+  font-style:italic;
+  letter-spacing:-.08em;
 }
-.brandMark img { width:61px; height:61px; object-fit:contain; transform:translateY(1px); }
 .brandType { line-height:.9; display:flex; flex-direction:column; gap:4px; }
 .brandType strong { font-family:"Fraunces",serif; letter-spacing:.08em; font-weight:560; font-size:14px; }
 .brandType small { color:var(--ash); letter-spacing:.2em; font-size:7.5px; }
@@ -273,7 +278,6 @@ a { color: inherit; text-decoration: none; }
   .nav { height:58px; padding-left:7px; }
   .navCta { display:none; }
   .brandMark { width:42px; height:42px; }
-  .brandMark img { width:54px; height:54px; }
   .heroGrid {
     min-height:auto; padding:112px 18px 84px; display:flex; flex-direction:column;
     gap:40px; align-items:stretch;
