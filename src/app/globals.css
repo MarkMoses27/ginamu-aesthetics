@@ -169,8 +169,8 @@ button { font: inherit; }
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(212,164,95,.92);
-  color: #2a171b;
+  background: rgba(176,119,58,.96);
+  color: #fffaf5;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
@@ -235,7 +235,10 @@ button { font: inherit; }
   color: #e0ad67;
   font-style: italic;
   font-weight: 360;
-  margin-left: clamp(16px, 3.6vw, 58px);
+  font-size: .90em;
+  line-height: .86;
+  margin-left: clamp(14px, 2.7vw, 42px);
+  margin-top: .05em;
 }
 
 .editorialCopy {
@@ -262,8 +265,8 @@ button { font: inherit; }
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: #d5a35f;
-  color: #2a171b;
+  background: #b7773a;
+  color: #fffaf5;
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
