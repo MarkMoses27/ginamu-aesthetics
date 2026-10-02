@@ -1,60 +1,35 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const links = ["Treatments", "Rituals", "About", "Journal", "Contact"];
 const decode = (value: string) => atob(value);
 
-const heroImages = {
-  red: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9mNDRlODAwNi1jNWYyLTQ5YzctODY3OS1jMjRkMWU0MjU3ZmQuanBn"),
-  flower: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9lNzMzZjc4OS01MTU4LTQzN2UtOGVmZS1kZTEwYmQ1YTg4M2IuanBn"),
-  cream: decode("aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi8xM2QyOTcwNS0xM2UwLTRlNWUtYjA3OC1mZDE0OTY5ZmMxNmQuanBn"),
-};
+const heroImage = decode(
+  "aHR0cHM6Ly9kMm9sN29lNTFtcjRuOS5jbG91ZGZyb250Lm5ldC91c2VyXzNIdWVUZzI1Q3VGcnVOODZTM3k0eXlza1FsWi9mNDRlODAwNi1jNWYyLTQ5YzctODY3OS1jMjRkMWU0MjU3ZmQuanBn"
+);
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 28);
+    const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    const hero = heroRef.current;
-    if (!hero) return;
-
-    let raf = 0;
-    const onMove = (event: PointerEvent) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const rect = hero.getBoundingClientRect();
-        hero.style.setProperty("--mx", `${((event.clientX - rect.left) / rect.width) * 100}%`);
-        hero.style.setProperty("--my", `${((event.clientY - rect.top) / rect.height) * 100}%`);
-      });
-    };
-
-    hero.addEventListener("pointermove", onMove);
-    return () => {
-      hero.removeEventListener("pointermove", onMove);
-      cancelAnimationFrame(raf);
-    };
-  }, []);
-
   return (
-    <section ref={heroRef} className="hero" id="top">
-      <div className="livingLight" aria-hidden="true" />
+    <section className="hero heroEditorial" id="top">
+      <img className="heroBackdrop" src={heroImage} alt="" aria-hidden="true" />
+      <div className="heroOverlay" aria-hidden="true" />
+      <div className="heroGlow" aria-hidden="true" />
 
       <header className={`navWrap ${scrolled ? "navScrolled" : ""}`}>
-        <nav className="nav" aria-label="Main navigation">
+        <nav className="nav editorialNav" aria-label="Main navigation">
           <a className="brand" href="#top" aria-label="Ginamu Aesthetics home">
-            <span className="brandMark" aria-hidden="true">GA</span>
-            <span className="brandType">
-              <strong>GINAMU</strong>
-              <small>AESTHETICS</small>
-            </span>
+            <span className="brandWord">GINAMU</span>
+            <span className="brandSub">AESTHETICS</span>
           </a>
 
           <div className="navLinks">
@@ -65,8 +40,8 @@ export default function Hero() {
             ))}
           </div>
 
-          <a className="navCta" href="#book">
-            Book your ritual <span aria-hidden="true">↗</span>
+          <a className="navCta editorialCta" href="#book">
+            Book your ritual
           </a>
 
           <button className="menuButton" type="button" aria-label="Open menu">
@@ -76,65 +51,45 @@ export default function Hero() {
         </nav>
       </header>
 
-      <div className="heroGrid">
-        <div className="heroCopy">
-          <p className="eyebrow">WESTLANDS · NAIROBI</p>
-          <h1>
-            A ritual of
-            <span>beauty &amp; wellbeing.</span>
-          </h1>
-          <p className="heroText">
-            Elevated skin, body and beauty treatments — created to make every
-            visit feel personal, polished and memorable.
-          </p>
-
-          <div className="heroActions">
-            <a className="primaryButton" href="#book">
-              Book your ritual
-              <span className="buttonArrow" aria-hidden="true">↗</span>
-            </a>
-            <a className="textButton" href="#treatments">
-              Explore treatments <span aria-hidden="true">↓</span>
-            </a>
-          </div>
-
-          <div className="heroMeta">
-            <div>
-              <span className="metaNo">01</span>
-              <p>Bricks Court, 2nd Floor<br />Mpaka Road, Westlands</p>
-            </div>
-            <div>
-              <span className="metaNo">02</span>
-              <p>Skin · Body · Nails<br />Lashes · Brows · Wellness</p>
-            </div>
-          </div>
+      <div className="heroContent">
+        <div className="heroEyebrow">
+          <span className="eyebrowLine" />
+          <span>Beauty · Aesthetics · Wellbeing · Westlands</span>
         </div>
 
-        <div className="heroVisual" aria-label="Ginamu beauty editorial">
-          <div className="mainPortrait imageReveal">
-            <img src={heroImages.red} alt="Beauty portrait" />
-            <div className="portraitWash" />
-          </div>
+        <h1 className="editorialTitle">
+          A ritual of
+          <span>beauty &amp; wellbeing.</span>
+        </h1>
 
-          <div className="floatingCard flowerCard imageReveal delay1">
-            <img src={heroImages.flower} alt="Beauty portrait with floral styling" />
-          </div>
+        <p className="editorialCopy">
+          Elevated skin, body and beauty treatments in a refined space where
+          care, detail and visible results come first.
+        </p>
 
-          <div className="floatingCard creamCard imageReveal delay2">
-            <img src={heroImages.cream} alt="Skincare portrait" />
-          </div>
+        <div className="heroActions editorialActions">
+          <a className="primaryButton heroPrimary" href="#book">
+            Book your ritual
+          </a>
+          <a className="heroSecondary" href="#treatments">
+            Explore treatments <span aria-hidden="true">↗</span>
+          </a>
+        </div>
 
-          <div className="ritualStamp" aria-hidden="true">
-            <span>GINAMU · BEAUTY · WELLBEING ·</span>
-            <b>✦</b>
-          </div>
-          <span className="spark sparkOne" aria-hidden="true">✦</span>
-          <span className="spark sparkTwo" aria-hidden="true">✧</span>
+        <div className="heroTrust">
+          <span>Bricks Court · 2nd Floor · Mpaka Road</span>
+          <span className="trustDot">•</span>
+          <span>Westlands, Nairobi</span>
         </div>
       </div>
 
-      <div className="heroBottom">
-        <span>Scroll to discover</span>
+      <div className="heroSideNote" aria-hidden="true">
+        <span>GINAMU</span>
+        <span>01 / 01</span>
+      </div>
+
+      <div className="heroBottom editorialBottom">
+        <span>Scroll</span>
         <span className="scrollLine" aria-hidden="true" />
         <span>A ritual, not just a treatment.</span>
       </div>
