@@ -5,8 +5,6 @@
 :root {
   --maroon: #6e1f2f;
   --maroon-deep: #43131d;
-  --maroon-soft: #a96f7b;
-  --rose-mist: #d8bcc2;
   --ash: #687377;
   --ash-soft: #aab2b5;
   --cream: #f4eee6;
@@ -42,7 +40,7 @@ button { font: inherit; }
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--rose-mist);
+  outline: 2px solid var(--cream);
   outline-offset: 4px;
 }
 
@@ -335,7 +333,7 @@ button:focus-visible {
 
 .editorialTitle span {
   display: block;
-  color: var(--rose-mist);
+  color: var(--cream);
   font-style: italic;
   font-weight: 360;
   font-size: .84em;
@@ -421,7 +419,7 @@ button:focus-visible {
   content: "";
   position: absolute;
   inset: 0;
-  background: var(--rose-mist);
+  background: var(--cream);
   transform-origin: left center;
   animation: progress 6.2s linear both;
 }
@@ -470,12 +468,12 @@ button:focus-visible {
 
   .editorialCta:hover {
     transform: translateY(-2px);
-    background: var(--maroon-soft);
+    background: var(--maroon-deep);
   }
 
   .heroPrimary:hover {
     transform: translateY(-3px);
-    background: var(--maroon-soft);
+    background: var(--maroon-deep);
   }
 
   .heroSecondary:hover { opacity: .72; }
@@ -801,7 +799,7 @@ button:focus-visible {
   display: flex;
   align-items: center;
   gap: 14px;
-  color: var(--rose-mist);
+  color: var(--cream);
   font-family: "General Sans", "DM Sans", sans-serif;
   font-size: 11px;
   font-weight: 600;
@@ -828,7 +826,7 @@ button:focus-visible {
 }
 
 .finderContent h2 em {
-  color: var(--rose-mist);
+  color: var(--cream);
   font-weight: 350;
 }
 
@@ -866,7 +864,7 @@ button:focus-visible {
 }
 
 .finderOptions button.active {
-  border-color: var(--rose-mist);
+  border-color: var(--cream);
   background: var(--maroon);
   color: var(--white);
 }
@@ -946,8 +944,8 @@ button:focus-visible {
   }
 
   .finderOptions button.active:hover {
-    border-color: var(--maroon-soft);
-    background: var(--maroon-soft);
+    border-color: var(--maroon-deep);
+    background: var(--maroon-deep);
   }
 
   .finderLink:hover {
