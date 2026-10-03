@@ -83,7 +83,7 @@ export default function SignatureTreatments() {
             data-reveal="card"
             style={{ "--reveal-delay": `${Number(treatment.number) * 90}ms` } as CSSProperties}
           >
-            <div className="signatureImageWrap" data-parallax="16" data-spotlight>
+            <div className="signatureImageWrap" data-parallax="7">
               <img
                 src={treatment.image}
                 alt=""
@@ -100,7 +100,6 @@ export default function SignatureTreatments() {
 
               <a
                 className="signatureHoverAction"
-                data-magnetic
                 href={bookingHref(treatment.name)}
                 target="_blank"
                 rel="noopener noreferrer"
