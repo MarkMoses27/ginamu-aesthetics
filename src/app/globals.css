@@ -1438,3 +1438,527 @@ button:focus-visible {
     transition: none !important;
   }
 }
+
+
+/* Signature treatments */
+.signatureTreatments {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(110px, 11vw, 178px) clamp(18px, 6.5vw, 104px) clamp(120px, 12vw, 190px);
+  background:
+    radial-gradient(circle at 12% 0%, rgba(110,31,47,.05), transparent 26%),
+    linear-gradient(180deg, #f7f2ec 0%, var(--cream) 100%);
+  color: var(--ink);
+}
+
+.signatureHeader {
+  width: min(1220px, 100%);
+  margin: 0 auto clamp(66px, 8vw, 110px);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(280px, .52fr);
+  align-items: end;
+  gap: 40px clamp(56px, 8vw, 126px);
+}
+
+.signatureKicker {
+  margin: 0 0 18px;
+  color: var(--maroon);
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .23em;
+  text-transform: uppercase;
+}
+
+.signatureKicker::before {
+  content: "";
+  display: inline-block;
+  width: 34px;
+  height: 1px;
+  margin-right: 13px;
+  vertical-align: .28em;
+  background: currentColor;
+}
+
+.signatureHeader h2 {
+  max-width: 830px;
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(60px, 6.5vw, 100px);
+  line-height: .91;
+  letter-spacing: -.052em;
+  font-weight: 390;
+  text-wrap: balance;
+}
+
+.signatureHeader h2 em {
+  color: var(--maroon);
+  font-weight: 340;
+}
+
+.signatureIntro {
+  padding-bottom: 8px;
+}
+
+.signatureIntro p {
+  margin: 0;
+  color: var(--ash);
+  font-size: 14px;
+  line-height: 1.72;
+}
+
+.signatureIntro a {
+  width: max-content;
+  margin-top: 24px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(67,19,29,.28);
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  color: var(--maroon-deep);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.signatureGallery {
+  width: min(1220px, 100%);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(18px, 2.5vw, 36px);
+  row-gap: clamp(74px, 9vw, 126px);
+  align-items: start;
+}
+
+.signatureCard {
+  min-width: 0;
+}
+
+.signatureCardLarge {
+  grid-column: 1 / span 7;
+}
+
+.signatureCardTall {
+  grid-column: 9 / -1;
+  margin-top: clamp(76px, 9vw, 138px);
+}
+
+.signatureCardWide {
+  grid-column: 2 / span 5;
+}
+
+.signatureCardPortrait {
+  grid-column: 8 / span 4;
+  margin-top: clamp(-12px, -1vw, -4px);
+}
+
+.signatureImageWrap {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: #ded4cc;
+}
+
+.signatureCardLarge .signatureImageWrap {
+  aspect-ratio: 1.18 / 1;
+}
+
+.signatureCardTall .signatureImageWrap {
+  aspect-ratio: .78 / 1;
+}
+
+.signatureCardWide .signatureImageWrap {
+  aspect-ratio: 1.03 / 1;
+}
+
+.signatureCardPortrait .signatureImageWrap {
+  aspect-ratio: .82 / 1;
+}
+
+.signatureImageWrap img {
+  position: absolute;
+  inset: 0;
+  z-index: -3;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.015);
+  transition: transform 1s cubic-bezier(.2,.72,.2,1);
+}
+
+.signatureCardLarge img {
+  object-position: 50% 18%;
+}
+
+.signatureCardTall img {
+  object-position: 56% 50%;
+}
+
+.signatureCardWide img {
+  object-position: 50% 48%;
+}
+
+.signatureCardPortrait img {
+  object-position: 50% 42%;
+}
+
+.signatureImageShade {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background:
+    linear-gradient(180deg, rgba(26,11,16,.10) 0%, rgba(26,11,16,.01) 42%, rgba(26,11,16,.48) 100%);
+}
+
+.signatureImageTop {
+  position: absolute;
+  z-index: 2;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: rgba(255,250,245,.90);
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+}
+
+.signatureHoverAction {
+  position: absolute;
+  z-index: 3;
+  right: 22px;
+  bottom: 22px;
+  width: 76px;
+  height: 76px;
+  border: 1px solid rgba(255,250,245,.74);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(67,19,29,.18);
+  color: var(--white);
+  backdrop-filter: blur(8px);
+  transform: translateY(10px) scale(.92);
+  opacity: 0;
+  transition:
+    transform .35s ease,
+    opacity .35s ease,
+    background .3s ease;
+}
+
+.signatureHoverAction span:first-child {
+  font-family: "General Sans", "DM Sans", sans-serif;
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+}
+
+.signatureHoverAction span:last-child {
+  position: absolute;
+  right: 16px;
+  top: 13px;
+  font-size: 13px;
+}
+
+.signatureCardCopy {
+  padding-top: 22px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(190px, .68fr);
+  gap: 18px 34px;
+  align-items: start;
+}
+
+.signatureCardCopy h3 {
+  margin: 0;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(32px, 3vw, 47px);
+  line-height: .96;
+  letter-spacing: -.036em;
+  font-weight: 400;
+}
+
+.signatureCardCopy p {
+  margin: 3px 0 0;
+  color: var(--ash);
+  font-size: 12px;
+  line-height: 1.62;
+}
+
+.signatureCardCopy > a {
+  grid-column: 2;
+  width: max-content;
+  margin-top: 2px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(67,19,29,.26);
+  display: inline-flex;
+  gap: 12px;
+  color: var(--maroon);
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+}
+
+.signatureCardTall .signatureCardCopy,
+.signatureCardPortrait .signatureCardCopy {
+  grid-template-columns: 1fr;
+}
+
+.signatureCardTall .signatureCardCopy > a,
+.signatureCardPortrait .signatureCardCopy > a {
+  grid-column: 1;
+}
+
+.signatureMore {
+  width: min(1220px, 100%);
+  margin: clamp(110px, 13vw, 190px) auto 0;
+  padding-top: 28px;
+  border-top: 1px solid rgba(67,19,29,.16);
+  display: grid;
+  grid-template-columns: 170px minmax(0, 1fr);
+  gap: 36px;
+}
+
+.signatureMore > p {
+  margin: 7px 0 0;
+  color: var(--maroon);
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.signatureMoreList {
+  border-top: 1px solid rgba(67,19,29,.10);
+}
+
+.signatureMoreList a {
+  min-height: 76px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(67,19,29,.12);
+  display: grid;
+  grid-template-columns: 46px minmax(0,1fr) 24px;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  transition:
+    padding .28s ease,
+    background .28s ease,
+    color .28s ease;
+}
+
+.signatureMoreList a > span:first-child {
+  color: var(--ash-soft);
+  font-size: 8px;
+  font-weight: 650;
+  letter-spacing: .10em;
+}
+
+.signatureMoreList strong {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(24px, 2.2vw, 34px);
+  line-height: 1;
+  font-weight: 400;
+  letter-spacing: -.026em;
+}
+
+.signatureMoreList a > span:last-child {
+  justify-self: end;
+  color: var(--maroon);
+  font-size: 15px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .signatureCard:hover .signatureImageWrap img {
+    transform: scale(1.055);
+  }
+
+  .signatureCard:hover .signatureHoverAction {
+    opacity: 1;
+    transform: none;
+  }
+
+  .signatureHoverAction:hover {
+    background: var(--maroon);
+  }
+
+  .signatureIntro a:hover,
+  .signatureCardCopy > a:hover {
+    color: var(--maroon);
+  }
+
+  .signatureMoreList a:hover {
+    padding-left: 14px;
+    padding-right: 14px;
+    background: rgba(110,31,47,.04);
+  }
+}
+
+@media (max-width: 980px) {
+  .signatureHeader {
+    grid-template-columns: 1fr .6fr;
+    gap: 32px 48px;
+  }
+
+  .signatureCardLarge {
+    grid-column: 1 / span 7;
+  }
+
+  .signatureCardTall {
+    grid-column: 8 / -1;
+  }
+
+  .signatureCardWide {
+    grid-column: 1 / span 6;
+  }
+
+  .signatureCardPortrait {
+    grid-column: 7 / -1;
+  }
+
+  .signatureCardCopy {
+    grid-template-columns: 1fr;
+  }
+
+  .signatureCardCopy > a {
+    grid-column: 1;
+  }
+}
+
+@media (max-width: 760px) {
+  .signatureTreatments {
+    padding-inline: 18px;
+  }
+
+  .signatureHeader {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .signatureHeader h2 {
+    font-size: clamp(54px, 11vw, 78px);
+  }
+
+  .signatureIntro {
+    max-width: 520px;
+  }
+
+  .signatureGallery {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    gap: 70px 16px;
+  }
+
+  .signatureCardLarge,
+  .signatureCardTall,
+  .signatureCardWide,
+  .signatureCardPortrait {
+    grid-column: auto;
+    margin-top: 0;
+  }
+
+  .signatureCardLarge {
+    grid-column: 1 / -1;
+  }
+
+  .signatureCardTall .signatureImageWrap,
+  .signatureCardPortrait .signatureImageWrap {
+    aspect-ratio: .82 / 1;
+  }
+
+  .signatureCardCopy {
+    padding-top: 18px;
+    gap: 12px;
+  }
+
+  .signatureMore {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .signatureMore > p {
+    margin: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .signatureTreatments {
+    padding: 88px 12px 112px;
+  }
+
+  .signatureHeader {
+    margin-bottom: 52px;
+    padding-inline: 8px;
+  }
+
+  .signatureHeader h2 {
+    font-size: clamp(49px, 14.5vw, 64px);
+  }
+
+  .signatureIntro p {
+    font-size: 13px;
+  }
+
+  .signatureGallery {
+    grid-template-columns: 1fr;
+    gap: 64px;
+  }
+
+  .signatureCardLarge,
+  .signatureCardTall,
+  .signatureCardWide,
+  .signatureCardPortrait {
+    grid-column: 1;
+  }
+
+  .signatureCardLarge .signatureImageWrap,
+  .signatureCardWide .signatureImageWrap {
+    aspect-ratio: .88 / 1;
+  }
+
+  .signatureCardTall .signatureImageWrap,
+  .signatureCardPortrait .signatureImageWrap {
+    aspect-ratio: .82 / 1;
+  }
+
+  .signatureImageTop {
+    top: 17px;
+    left: 17px;
+    right: 17px;
+  }
+
+  .signatureHoverAction {
+    right: 17px;
+    bottom: 17px;
+    width: 66px;
+    height: 66px;
+    opacity: 1;
+    transform: none;
+  }
+
+  .signatureCardCopy h3 {
+    font-size: 36px;
+  }
+
+  .signatureCardCopy p {
+    font-size: 12px;
+  }
+
+  .signatureMore {
+    margin-top: 96px;
+  }
+
+  .signatureMoreList a {
+    min-height: 68px;
+  }
+
+  .signatureMoreList strong {
+    font-size: 26px;
+  }
+}
