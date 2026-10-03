@@ -279,7 +279,6 @@ export default function TreatmentFinder() {
                 <div className="ritualResultActions">
                   <a
                     className="ritualBook"
-                    data-magnetic
                     href={bookingHref}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -305,8 +304,7 @@ export default function TreatmentFinder() {
 
         <div
           className="ritualFinderVisual"
-          data-parallax="10"
-          data-spotlight
+          data-parallax="6"
           ref={imagePanelRef}
           onPointerMove={moveCursor}
           onPointerLeave={hideCursor}
