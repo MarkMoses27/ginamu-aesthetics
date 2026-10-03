@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const links = ["Treatments", "Rituals", "About", "Journal", "Contact"];
+const links = [{ label: "Treatments", id: "treatments" }, { label: "Signature rituals", id: "services" }, { label: "About", id: "about" }, { label: "Contact", id: "contact" }];
 const decode = (value: string) => atob(value);
 const bookingUrl =
   "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20treatment.%20Please%20help%20me%20with%20availability.";
@@ -141,8 +141,8 @@ export default function Hero() {
 
           <div className="navLinks">
             {links.map((link) => (
-              <a key={link} href={`#${link.toLowerCase()}`}>
-                {link}
+              <a key={link.id} href={`#${link.id}`}>
+                {link.label}
               </a>
             ))}
           </div>
@@ -185,11 +185,11 @@ export default function Hero() {
             {links.map((link, index) => (
               <a
                 ref={index === 0 ? firstMenuLinkRef : undefined}
-                key={link}
-                href={`#${link.toLowerCase()}`}
+                key={link.id}
+                href={`#${link.id}`}
                 onClick={() => setMenuOpen(false)}
               >
-                {link}
+                {link.label}
               </a>
             ))}
           </div>
