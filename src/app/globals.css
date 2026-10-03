@@ -1962,3 +1962,199 @@ button:focus-visible {
     font-size: 26px;
   }
 }
+
+
+/* Advanced motion system */
+[data-reveal] {
+  --reveal-delay: 0ms;
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  filter: blur(7px);
+  transition:
+    opacity .85s cubic-bezier(.2,.75,.2,1) var(--reveal-delay),
+    transform 1s cubic-bezier(.16,1,.3,1) var(--reveal-delay),
+    filter .9s cubic-bezier(.2,.75,.2,1) var(--reveal-delay);
+  will-change: opacity, transform, filter;
+}
+
+[data-reveal="header"] {
+  transform: translate3d(0, 44px, 0);
+}
+
+[data-reveal="card"] {
+  transform: translate3d(0, 56px, 0) scale(.985);
+}
+
+[data-reveal="row"] {
+  transform: translate3d(20px, 18px, 0);
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.signatureImageWrap::after,
+.ritualFinderVisual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  background:
+    radial-gradient(
+      circle at var(--spot-x, 50%) var(--spot-y, 50%),
+      rgba(255,255,255,.16) 0%,
+      rgba(255,255,255,.07) 13%,
+      transparent 34%
+    );
+  mix-blend-mode: soft-light;
+  transition: opacity .5s ease;
+}
+
+.signatureImageWrap.spotlight-active::after,
+.ritualFinderVisual.spotlight-active::after {
+  opacity: 1;
+}
+
+.signatureImageWrap img {
+  transform:
+    translate3d(0, var(--parallax-y, 0px), 0)
+    scale(1.06);
+  transition:
+    transform 1.05s cubic-bezier(.16,1,.3,1),
+    filter .55s ease;
+  will-change: transform;
+}
+
+.ritualVisualImage {
+  transform:
+    translate3d(0, var(--parallax-y, 0px), 0)
+    scale(1.065);
+  will-change: transform, opacity;
+}
+
+.ritualVisualImage.active {
+  transform:
+    translate3d(0, var(--parallax-y, 0px), 0)
+    scale(1.035);
+}
+
+[data-magnetic] {
+  --mag-x: 0px;
+  --mag-y: 0px;
+  will-change: transform;
+}
+
+.signatureHoverAction {
+  transform:
+    translate3d(var(--mag-x), calc(10px + var(--mag-y)), 0)
+    scale(.92);
+}
+
+.ritualBook {
+  transform: translate3d(var(--mag-x), var(--mag-y), 0);
+}
+
+.signatureImageTop {
+  transition:
+    transform .6s cubic-bezier(.16,1,.3,1),
+    opacity .45s ease;
+}
+
+.signatureCardCopy h3,
+.signatureCardCopy p,
+.signatureCardCopy > a {
+  transition:
+    transform .55s cubic-bezier(.16,1,.3,1),
+    color .3s ease,
+    opacity .3s ease;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .signatureCard:hover .signatureImageWrap img {
+    transform:
+      translate3d(0, var(--parallax-y, 0px), 0)
+      scale(1.105);
+  }
+
+  .signatureCard:hover .signatureImageTop {
+    transform: translateY(-3px);
+  }
+
+  .signatureCard:hover .signatureCardCopy h3 {
+    transform: translateX(4px);
+  }
+
+  .signatureHoverAction {
+    transition:
+      transform .18s ease-out,
+      opacity .35s ease,
+      background .3s ease;
+  }
+
+  .signatureCard:hover .signatureHoverAction {
+    opacity: 1;
+    transform: translate3d(var(--mag-x), var(--mag-y), 0) scale(1);
+  }
+
+  .ritualBook {
+    transition:
+      transform .18s ease-out,
+      background .25s ease;
+  }
+
+  .ritualBook:hover {
+    transform: translate3d(var(--mag-x), calc(var(--mag-y) - 2px), 0);
+  }
+}
+
+@media (max-width: 820px) {
+  [data-reveal] {
+    transform: translate3d(0, 24px, 0);
+    filter: blur(4px);
+  }
+
+  [data-reveal="card"] {
+    transform: translate3d(0, 32px, 0);
+  }
+
+  .signatureImageWrap img {
+    transform:
+      translate3d(0, var(--parallax-y, 0px), 0)
+      scale(1.075);
+  }
+
+  .ritualVisualImage {
+    transform:
+      translate3d(0, var(--parallax-y, 0px), 0)
+      scale(1.075);
+  }
+
+  .ritualVisualImage.active {
+    transform:
+      translate3d(0, var(--parallax-y, 0px), 0)
+      scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+
+  .signatureImageWrap img,
+  .ritualVisualImage,
+  [data-magnetic] {
+    transform: none !important;
+  }
+
+  .signatureImageWrap::after,
+  .ritualFinderVisual::after {
+    display: none !important;
+  }
+}
