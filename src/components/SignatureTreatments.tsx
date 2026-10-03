@@ -1,3 +1,5 @@
+import type { CSSProperties } from "react";
+
 const bookingNumber = "254743364717";
 
 const treatments = [
@@ -56,7 +58,7 @@ const bookingHref = (name: string) =>
 export default function SignatureTreatments() {
   return (
     <section className="signatureTreatments" id="services" aria-labelledby="signature-title">
-      <div className="signatureHeader">
+      <div className="signatureHeader" data-reveal="header">
         <div>
           <p className="signatureKicker">Signature rituals</p>
           <h2 id="signature-title">
@@ -78,8 +80,10 @@ export default function SignatureTreatments() {
           <article
             className={`signatureCard ${treatment.className}`}
             key={treatment.name}
+            data-reveal="card"
+            style={{ "--reveal-delay": `${Number(treatment.number) * 90}ms` } as CSSProperties}
           >
-            <div className="signatureImageWrap">
+            <div className="signatureImageWrap" data-parallax="16" data-spotlight>
               <img
                 src={treatment.image}
                 alt=""
@@ -96,6 +100,7 @@ export default function SignatureTreatments() {
 
               <a
                 className="signatureHoverAction"
+                data-magnetic
                 href={bookingHref(treatment.name)}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -121,11 +126,13 @@ export default function SignatureTreatments() {
         ))}
       </div>
 
-      <div className="signatureMore" id="all-treatments">
+      <div className="signatureMore" id="all-treatments" data-reveal="more">
         <p>More at Ginamu</p>
         <div className="signatureMoreList">
           {moreTreatments.map((item, index) => (
             <a
+              data-reveal="row"
+              style={{ "--reveal-delay": `${index * 60}ms` } as CSSProperties}
               href={bookingHref(item)}
               target="_blank"
               rel="noopener noreferrer"
