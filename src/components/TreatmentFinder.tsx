@@ -172,7 +172,7 @@ export default function TreatmentFinder() {
       id="treatments"
       aria-labelledby="ritual-finder-title"
     >
-      <div className="ritualFinderIntro">
+      <div className="ritualFinderIntro" data-reveal="header">
         <p className="ritualEyebrow">Find your ritual</p>
         <h2 id="ritual-finder-title">
           A more personal place <em>to begin.</em>
@@ -183,7 +183,7 @@ export default function TreatmentFinder() {
         </p>
       </div>
 
-      <div className="ritualFinderShell">
+      <div className="ritualFinderShell" data-reveal="shell">
         <div className="ritualFinderPanel">
           <div className="ritualFinderMeta">
             <span>Ginamu treatment concierge</span>
@@ -279,6 +279,7 @@ export default function TreatmentFinder() {
                 <div className="ritualResultActions">
                   <a
                     className="ritualBook"
+                    data-magnetic
                     href={bookingHref}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -304,6 +305,8 @@ export default function TreatmentFinder() {
 
         <div
           className="ritualFinderVisual"
+          data-parallax="10"
+          data-spotlight
           ref={imagePanelRef}
           onPointerMove={moveCursor}
           onPointerLeave={hideCursor}
