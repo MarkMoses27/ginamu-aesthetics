@@ -45,10 +45,9 @@ export default function SiteMotion() {
 
       const heroContext = gsap.context(() => {
         const entrance = gsap.timeline({ defaults: { ease: "power4.out" } });
-        entrance.fromTo(".heroLineInner", { yPercent: 115, rotate: 3 }, { yPercent: 0, rotate: 0, duration: 1.35, stagger: .12 }, .1)
-          .fromTo(".heroEyebrow", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8 }, .25)
+        entrance.fromTo(".editorialTitle", { y: 35, clipPath: "inset(0 0 100% 0)" }, { y: 0, clipPath: "inset(0 0 0% 0)", duration: 1.35 }, .1)
           .fromTo(".heroSlides", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.55, ease: "power4.inOut" }, 0)
-          .fromTo(".editorialCopy, .editorialActions, .heroBottom, .heroImageLabel, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
+          .fromTo(".editorialCopy, .editorialActions, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
         gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.to(".heroContent", { y: -65, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.utils.toArray<HTMLElement>(".ginamuAbout, .ginamuContact").forEach(section => {

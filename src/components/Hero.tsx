@@ -25,9 +25,9 @@ const slides = [
 export default function Hero() {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
-  const [paused, setPaused] = useState(false);
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   const firstMenuLinkRef = useRef<HTMLAnchorElement>(null);
 
@@ -209,12 +209,9 @@ export default function Hero() {
       </div>
 
       <div className="heroContent">
-        <p className="heroEyebrow">Ginamu Aesthetics · Westlands, Nairobi</p>
-        <h1 className="editorialTitle" aria-label="The art of feeling beautifully yourself.">
-          <span className="heroLine"><span className="heroLineInner">The art of</span></span>
-          <span className="heroLine"><span className="heroLineInner">feeling</span></span>
-          <span className="heroLine heroLineItalic"><span className="heroLineInner">beautifully</span></span>
-          <span className="heroLine heroLineItalic"><span className="heroLineInner">yourself.</span></span>
+        <h1 className="editorialTitle">
+          The art of feeling
+          <span>beautifully yourself.</span>
         </h1>
 
         <p className="editorialCopy">
@@ -238,8 +235,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="heroImageLabel" aria-live="polite"><span>0{active + 1} / 03</span><span>{["Beauty & self-care", "Skin & glow", "Body & wellbeing"][active]}</span></div>
-      <div className="heroBottom"><span>A Ritual of Beauty &amp; Wellbeing.</span><a href="#treatments">Discover your treatment</a></div>
       <div className="sliderControls" aria-label="Hero slides">
         {slides.map((_, index) => (
           <button
@@ -253,7 +248,7 @@ export default function Hero() {
             <span />
           </button>
         ))}
-        <button type="button" className="heroPause" onClick={() => setPaused(p => !p)} aria-label={paused ? "Play image slideshow" : "Pause image slideshow"}>{paused ? "Play" : "Pause"}</button>
+        <button className="heroPause" type="button" aria-label={paused ? "Play image slideshow" : "Pause image slideshow"} onClick={() => setPaused(value => !value)}>{paused ? "Play" : "Pause"}</button>
       </div>
     </section>
   );
