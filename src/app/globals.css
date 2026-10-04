@@ -2106,3 +2106,22 @@ section[id] { scroll-margin-top: 100px; }
  .heroSlide { transition: none; clip-path: none; }
  .heroContent, .heroSlides, .editorialTitle { transform: none !important; clip-path: none !important; }
 }
+
+/* Final hero polish: breathing room, shared alignment, gentler image motion. */
+.heroSlide { transform: scale(1.025); }
+.heroSlide.isActive { transform: scale(1); }
+@media(min-width:821px) {
+ .editorialTitle { font-size: clamp(74px,8.1vw,132px); line-height: .90; }
+ .editorialTitle span { line-height: .97; margin-top: .035em; }
+ .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: clamp(32px,10.5vw,150px); }
+ .navWrap:not(.navScrolled) .editorialNav { max-width: none; }
+}
+@media(min-width:821px) and (max-width:1100px) {
+ .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: 56px; }
+ .editorialTitle { font-size: clamp(70px,10vw,106px); }
+}
+@media(max-width:820px) {
+ .editorialTitle { line-height: .90; }
+ .editorialTitle span { line-height: .98; margin-top: .04em; }
+ .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: 24px; }
+}
