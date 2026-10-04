@@ -5,6 +5,7 @@ import { useEffect } from "react";
 export default function SiteMotion() {
   useEffect(() => {
     let cleanup = () => {};
+    let cancelled = false;
 
     const setup = async () => {
       const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -16,6 +17,7 @@ export default function SiteMotion() {
         import("lenis"),
       ]);
 
+      if (cancelled) return;
       const ScrollTrigger = scrollModule.ScrollTrigger;
       const Lenis = lenisModule.default;
 
@@ -41,6 +43,18 @@ export default function SiteMotion() {
         gsap.ticker.lagSmoothing(0);
       }
 
+      const heroContext = gsap.context(() => {
+        const entrance = gsap.timeline({ defaults: { ease: "power4.out" } });
+        entrance.fromTo(".heroLineInner", { yPercent: 115, rotate: 3 }, { yPercent: 0, rotate: 0, duration: 1.35, stagger: .12 }, .1)
+          .fromTo(".heroEyebrow", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: .8 }, .25)
+          .fromTo(".heroSlides", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.55, ease: "power4.inOut" }, 0)
+          .fromTo(".editorialCopy, .editorialActions, .heroBottom, .heroImageLabel, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
+        gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
+        gsap.to(".heroContent", { y: -65, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
+        gsap.utils.toArray<HTMLElement>(".ginamuAbout, .ginamuContact").forEach(section => {
+          gsap.fromTo(section.querySelectorAll("h2, .aboutCopy, .aboutPrinciples > div, .contactDetails > div"), { y: 35, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .1, duration: 1, scrollTrigger: { trigger: section, start: "top 75%", once: true } });
+        });
+      });
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 821px)", () => {
@@ -334,6 +348,7 @@ export default function SiteMotion() {
         document.querySelectorAll<HTMLElement>(".signatureImageWrap").forEach((wrap) => {
           (wrap as any).__ginamuCleanup?.();
         });
+        heroContext.revert();
         mm.revert();
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         if (lenis) {
@@ -343,9 +358,9 @@ export default function SiteMotion() {
       };
     };
 
-    setup();
+    setup().catch(() => cleanup());
 
-    return () => cleanup();
+    return () => { cancelled = true; cleanup(); };
   }, []);
 
   return null;
