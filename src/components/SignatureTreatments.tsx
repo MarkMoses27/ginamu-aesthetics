@@ -1,3 +1,4 @@
+import MotionWords from "./MotionWords";
 import type { CSSProperties } from "react";
 
 const bookingNumber = "254743364717";
@@ -63,7 +64,7 @@ export default function SignatureTreatments() {
         <div>
           <p className="signatureKicker">Signature rituals</p>
           <h2 id="signature-title">
-            Treatments worth <em>returning to.</em>
+            <MotionWords>Treatments worth</MotionWords>{" "}<em><MotionWords>returning to.</MotionWords></em>
           </h2>
         </div>
 
@@ -129,7 +130,7 @@ export default function SignatureTreatments() {
       <div className="signatureMore" id="all-treatments" data-reveal="more">
         <div className="signatureMoreIntro">
           <p className="signatureKicker">Beyond the signature</p>
-          <h2>Complete<br /><em>your ritual.</em></h2>
+          <h2><MotionWords>Complete</MotionWords><br /><em><MotionWords>your ritual.</MotionWords></em></h2>
           <p className="signatureMoreCopy">Explore the finishing touches and quieter moments that make your visit your own.</p>
           <span className="signatureMoreHint">Select a service to find out more</span>
         </div>

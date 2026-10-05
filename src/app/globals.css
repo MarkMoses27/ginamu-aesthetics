@@ -331,7 +331,7 @@ button:focus-visible {
   animation: titleIn 1.05s cubic-bezier(.2,.7,.2,1) .10s both;
 }
 
-.editorialTitle span {
+.editorialTitle > span:not(.motionWordClip) {
   display: block;
   color: var(--cream);
   font-style: italic;
@@ -582,7 +582,7 @@ button:focus-visible {
     line-height: .82;
   }
 
-  .editorialTitle span {
+  .editorialTitle > span:not(.motionWordClip) {
     margin-left: 8px;
     font-size: .86em;
   }
@@ -2108,7 +2108,7 @@ section[id] { scroll-margin-top: 100px; }
 .heroSlide.isActive { transform: scale(1); }
 @media(min-width:821px) {
  .editorialTitle { font-size: clamp(74px,8.1vw,132px); line-height: .90; }
- .editorialTitle span { line-height: .97; margin-top: .035em; }
+ .editorialTitle > span:not(.motionWordClip) { line-height: .97; margin-top: .035em; }
  .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: clamp(32px,10.5vw,150px); }
  .navWrap:not(.navScrolled) .editorialNav { max-width: none; }
 }
@@ -2118,7 +2118,7 @@ section[id] { scroll-margin-top: 100px; }
 }
 @media(max-width:820px) {
  .editorialTitle { line-height: .90; }
- .editorialTitle span { line-height: .98; margin-top: .04em; }
+ .editorialTitle > span:not(.motionWordClip) { line-height: .98; margin-top: .04em; }
  .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: 24px; }
 }
 
@@ -2220,3 +2220,8 @@ section[id] { scroll-margin-top: 100px; }
 @media(max-width:760px) { .footerGrid { grid-template-columns: 1fr 1fr; gap: 32px; } .footerIdentity { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 24px; } .footerLogo { margin: 0; } .footerContactStrip { gap: 28px; padding-block: 30px; } }
 @media(max-width:560px) { .ginamuFooter.premiumFooter { padding: 0; } .footerContactStrip { grid-template-columns: 1fr; gap: 26px; } .footerContactItem h3 { font-size: 20px; margin-bottom: 7px; } .footerContactIcon { flex-basis: 46px; width: 46px; height: 46px; } .footerInner { padding-top: 34px; } .footerIdentity { gap: 14px; } .footerLogo { width: 130px; height: 130px; } .ginamuFooter .footerMotto { font-size: 22px; } .footerGrid { grid-template-columns: 1fr; gap: 28px; } .footerColumn { padding-top: 0; } .footerIdentity { grid-column: auto; } .footerBase { margin-top: 32px; } }
 @media(prefers-reduced-motion:reduce) { .footerContactIcon { transition: none; } }
+
+/* Word masks retain the heading’s typography and natural wrapping. */
+.motionWordClip { display: inline-block; vertical-align: baseline; overflow: hidden; padding: .13em .08em .16em; margin: -.13em -.08em -.16em; perspective: 700px; }
+.motionWord { display: inline-block; transform-origin: 50% 100%; }
+@media(prefers-reduced-motion:reduce) { .motionWord { transform: none!important; opacity: 1!important; visibility: visible!important; } }

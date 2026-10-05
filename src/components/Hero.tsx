@@ -1,5 +1,6 @@
 "use client";
 
+import MotionWords from "./MotionWords";
 import { useEffect, useRef, useState } from "react";
 
 const links = [{ label: "Treatments", id: "treatments" }, { label: "Signature rituals", id: "services" }, { label: "About", id: "about" }, { label: "Contact", id: "contact" }];
@@ -210,8 +211,8 @@ export default function Hero() {
 
       <div className="heroContent">
         <h1 className="editorialTitle">
-          The art of feeling
-          <span>beautifully yourself.</span>
+          <MotionWords>The art of feeling</MotionWords>
+          <span><MotionWords>beautifully yourself.</MotionWords></span>
         </h1>
 
         <p className="editorialCopy">

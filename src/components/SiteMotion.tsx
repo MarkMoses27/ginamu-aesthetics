@@ -45,67 +45,27 @@ export default function SiteMotion() {
 
       const heroContext = gsap.context(() => {
         const entrance = gsap.timeline({ defaults: { ease: "power4.out" } });
-        entrance.fromTo(".editorialTitle", { y: 35, clipPath: "inset(0 0 100% 0)" }, { y: 0, clipPath: "inset(0 0 0% 0)", duration: 1.35 }, .1)
+        entrance.fromTo(".editorialTitle .motionWord", { yPercent: 115, rotateX: 18, autoAlpha: 0 }, { yPercent: 0, rotateX: 0, autoAlpha: 1, duration: 1.2, stagger: .09, clearProps: "transform,opacity,visibility" }, .25)
           .fromTo(".heroSlides", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.55, ease: "power4.inOut" }, 0)
           .fromTo(".editorialCopy, .editorialActions, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
         gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.to(".heroContent", { y: -65, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
-        gsap.utils.toArray<HTMLElement>(".ginamuAbout, .ginamuContact").forEach(section => {
-          gsap.fromTo(section.querySelectorAll("h2, .aboutCopy, .aboutPrinciples > div, .contactAction"), { y: 35, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .1, duration: 1, scrollTrigger: { trigger: section, start: "top 75%", once: true } });
+        document.querySelectorAll<HTMLElement>(".ritualFinderIntro, .signatureHeader, .ginamuAbout, .ginamuContact, .signatureMoreIntro").forEach(section => {
+          const title = section.querySelector("h2");
+          const words = title?.querySelectorAll(".motionWord");
+          const eyebrow = section.querySelector(".ritualEyebrow, .signatureKicker, .sectionLabel");
+          const copy = section.querySelector(".signatureIntro, .aboutCopy, .contactAction, .signatureMoreCopy, :scope > p:last-child");
+          const tl = gsap.timeline({ scrollTrigger: { trigger: section, start: "top 82%", once: true } });
+          if (eyebrow) tl.fromTo(eyebrow, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .65, ease: "power3.out" }, 0);
+          if (words?.length) tl.fromTo(words, { yPercent: 115, rotateX: 14, autoAlpha: 0 }, { yPercent: 0, rotateX: 0, autoAlpha: 1, duration: 1.05, stagger: .075, ease: "power4.out", clearProps: "transform,opacity,visibility" }, .12);
+          if (copy) tl.fromTo(copy, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .8, ease: "power3.out" }, .6);
+          const principles = section.querySelectorAll(".aboutPrinciples > div");
+          if (principles.length) tl.fromTo(principles, { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .12, duration: .85, ease: "power3.out" }, .75);
         });
       });
       const mm = gsap.matchMedia();
 
       mm.add("(min-width: 821px)", () => {
-        const headerTimelines: gsap.core.Timeline[] = [];
-
-        document.querySelectorAll<HTMLElement>(".ritualFinderIntro, .signatureHeader").forEach((header) => {
-          const eyebrow = header.querySelector(".ritualEyebrow, .signatureKicker");
-          const title = header.querySelector("h2");
-          const copy = header.querySelector(".signatureIntro, :scope > p:last-child");
-
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: header,
-              start: "top 78%",
-              once: true,
-            },
-          });
-
-          if (eyebrow) {
-            tl.fromTo(
-              eyebrow,
-              { y: 16, autoAlpha: 0 },
-              { y: 0, autoAlpha: 1, duration: 0.55, ease: "power2.out" }
-            );
-          }
-
-          if (title) {
-            tl.fromTo(
-              title,
-              { yPercent: 26, clipPath: "inset(0 0 100% 0)" },
-              {
-                yPercent: 0,
-                clipPath: "inset(0 0 0% 0)",
-                duration: 1.05,
-                ease: "power4.out",
-              },
-              "-=0.18"
-            );
-          }
-
-          if (copy) {
-            tl.fromTo(
-              copy,
-              { y: 22, autoAlpha: 0 },
-              { y: 0, autoAlpha: 1, duration: 0.72, ease: "power2.out" },
-              "-=0.52"
-            );
-          }
-
-          headerTimelines.push(tl);
-        });
-
         const finderShell = document.querySelector<HTMLElement>(".ritualFinderShell");
         if (finderShell) {
           const panel = finderShell.querySelector<HTMLElement>(".ritualFinderPanel");
@@ -298,30 +258,10 @@ export default function SiteMotion() {
           };
         });
 
-        return () => {
-          headerTimelines.forEach((tl) => tl.kill());
-        };
+
       });
 
       mm.add("(max-width: 820px)", () => {
-        gsap.utils.toArray<HTMLElement>(".ritualFinderIntro, .signatureHeader").forEach((el) => {
-          gsap.fromTo(
-            el,
-            { y: 24, autoAlpha: 0 },
-            {
-              y: 0,
-              autoAlpha: 1,
-              duration: 0.72,
-              ease: "power3.out",
-              scrollTrigger: {
-                trigger: el,
-                start: "top 88%",
-                once: true,
-              },
-            }
-          );
-        });
-
         gsap.utils.toArray<HTMLElement>(".ritualFinderShell, .signatureCard, .signatureMore").forEach((el) => {
           gsap.fromTo(
             el,

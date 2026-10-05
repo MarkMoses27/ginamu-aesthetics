@@ -1,5 +1,6 @@
 "use client";
 
+import MotionWords from "./MotionWords";
 import { useRef, useState } from "react";
 
 type Goal = {
@@ -175,7 +176,7 @@ export default function TreatmentFinder() {
       <div className="ritualFinderIntro" data-reveal="header">
         <p className="ritualEyebrow">Find your ritual</p>
         <h2 id="ritual-finder-title">
-          A more personal place <em>to begin.</em>
+          <MotionWords>A more personal place</MotionWords>{" "}<em><MotionWords>to begin.</MotionWords></em>
         </h2>
         <p>
           Not sure what to book? Choose your focus and goal for a suggested
