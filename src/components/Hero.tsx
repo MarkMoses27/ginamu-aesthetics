@@ -210,8 +210,8 @@ export default function Hero() {
       </div>
 
       <div className="heroContent">
-        <h1 className="editorialTitle">
-          <MotionWords>The art of feeling</MotionWords>
+        <h1 className="editorialTitle" aria-label="The art of feeling beautifully yourself.">
+          <MotionWords>The art of feeling</MotionWords>{" "}
           <span><MotionWords>beautifully yourself.</MotionWords></span>
         </h1>
 

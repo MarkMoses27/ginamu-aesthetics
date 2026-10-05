@@ -175,7 +175,7 @@ export default function TreatmentFinder() {
     >
       <div className="ritualFinderIntro" data-reveal="header">
         <p className="ritualEyebrow">Find your ritual</p>
-        <h2 id="ritual-finder-title">
+        <h2 id="ritual-finder-title" aria-label="A more personal place to begin.">
           <MotionWords>A more personal place</MotionWords>{" "}<em><MotionWords>to begin.</MotionWords></em>
         </h2>
         <p>

@@ -45,7 +45,7 @@ export default function SiteMotion() {
 
       const heroContext = gsap.context(() => {
         const entrance = gsap.timeline({ defaults: { ease: "power4.out" } });
-        entrance.fromTo(".editorialTitle .motionWord", { yPercent: 115, rotateX: 18, autoAlpha: 0 }, { yPercent: 0, rotateX: 0, autoAlpha: 1, duration: 1.2, stagger: .09, clearProps: "transform,opacity,visibility" }, .25)
+        entrance.fromTo(".editorialTitle .motionWord", { yPercent: 115, rotateX: 18, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.2, stagger: .09, clearProps: "transform,opacity,visibility" }, .25)
           .fromTo(".heroSlides", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.55, ease: "power4.inOut" }, 0)
           .fromTo(".editorialCopy, .editorialActions, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
         gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
@@ -57,7 +57,7 @@ export default function SiteMotion() {
           const copy = section.querySelector(".signatureIntro, .aboutCopy, .contactAction, .signatureMoreCopy, :scope > p:last-child");
           const tl = gsap.timeline({ scrollTrigger: { trigger: section, start: "top 82%", once: true } });
           if (eyebrow) tl.fromTo(eyebrow, { autoAlpha: 0, y: 12 }, { autoAlpha: 1, y: 0, duration: .65, ease: "power3.out" }, 0);
-          if (words?.length) tl.fromTo(words, { yPercent: 115, rotateX: 14, autoAlpha: 0 }, { yPercent: 0, rotateX: 0, autoAlpha: 1, duration: 1.05, stagger: .075, ease: "power4.out", clearProps: "transform,opacity,visibility" }, .12);
+          if (words?.length) tl.fromTo(words, { yPercent: 115, rotateX: 14, opacity: 0 }, { yPercent: 0, rotateX: 0, opacity: 1, duration: 1.05, stagger: .075, ease: "power4.out", clearProps: "transform,opacity,visibility" }, .12);
           if (copy) tl.fromTo(copy, { y: 18, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .8, ease: "power3.out" }, .6);
           const principles = section.querySelectorAll(".aboutPrinciples > div");
           if (principles.length) tl.fromTo(principles, { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .12, duration: .85, ease: "power3.out" }, .75);

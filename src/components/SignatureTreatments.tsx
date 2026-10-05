@@ -63,7 +63,7 @@ export default function SignatureTreatments() {
       <div className="signatureHeader" data-reveal="header">
         <div>
           <p className="signatureKicker">Signature rituals</p>
-          <h2 id="signature-title">
+          <h2 id="signature-title" aria-label="Treatments worth returning to.">
             <MotionWords>Treatments worth</MotionWords>{" "}<em><MotionWords>returning to.</MotionWords></em>
           </h2>
         </div>
@@ -130,7 +130,7 @@ export default function SignatureTreatments() {
       <div className="signatureMore" id="all-treatments" data-reveal="more">
         <div className="signatureMoreIntro">
           <p className="signatureKicker">Beyond the signature</p>
-          <h2><MotionWords>Complete</MotionWords><br /><em><MotionWords>your ritual.</MotionWords></em></h2>
+          <h2 aria-label="Complete your ritual."><MotionWords>Complete</MotionWords><br /><em><MotionWords>your ritual.</MotionWords></em></h2>
           <p className="signatureMoreCopy">Explore the finishing touches and quieter moments that make your visit your own.</p>
           <span className="signatureMoreHint">Select a service to find out more</span>
         </div>
