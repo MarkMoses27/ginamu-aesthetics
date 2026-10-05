@@ -2225,3 +2225,37 @@ section[id] { scroll-margin-top: 100px; }
 .motionWordClip { display: inline-block; vertical-align: baseline; overflow: hidden; padding: .13em .08em .16em; margin: -.13em -.08em -.16em; perspective: 700px; }
 .motionWord { display: inline-block; transform-origin: 50% 100%; }
 @media(prefers-reduced-motion:reduce) { .motionWord { transform: none!important; opacity: 1!important; visibility: visible!important; } }
+
+/* Keep animated headings within a real layout budget, including short screens. */
+.heroEditorial { height: auto; }
+.heroContent {
+  height: auto;
+  min-height: max(720px, 100svh);
+  width: min(1050px, 78vw);
+  padding-top: 140px;
+  padding-bottom: 120px;
+}
+.editorialTitle { font-size: clamp(64px, 7vw, 108px); line-height: 1; text-wrap: initial; }
+.editorialTitle > span:not(.motionWordClip) { font-size: .78em; line-height: 1.06; margin-top: .10em; margin-left: 0; }
+.editorialCopy { margin-top: 28px; }
+.heroActions { flex-shrink: 0; }
+.sliderControls { bottom: 32px; }
+@media (max-width:1100px) and (min-width:821px) {
+  .heroContent { width: 88vw; }
+  .editorialTitle { font-size: clamp(64px, 7.8vw, 86px); }
+}
+@media (min-width:821px) and (max-height:720px) {
+  .editorialTitle { font-size: clamp(60px, 6.4vw, 90px); }
+}
+@media (max-width:820px) {
+  .heroContent { width: 100%; min-height: max(700px, 100svh); padding: clamp(220px,30vh,300px) 24px 100px; }
+  .editorialTitle { font-size: clamp(48px, 10.5vw, 76px); max-width: 100%; }
+  .editorialTitle > span:not(.motionWordClip) { font-size: .82em; margin-top: .08em; }
+  .editorialCopy { margin-top: 22px; }
+  .sliderControls { left: 24px; bottom: 24px; }
+}
+@media (max-width:520px) {
+  .heroContent { padding-inline: 18px; min-height: max(680px, 100svh); }
+  .editorialTitle { font-size: clamp(43px, 11.5vw, 60px); }
+  .sliderControls { left: 18px; }
+}
