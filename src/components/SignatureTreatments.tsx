@@ -7,6 +7,7 @@ const bookingNumber = "254743364717";
 const treatments = [
   {
     number: "01",
+    guide: "/treatments/facials-skin",
     name: "Skin Analysis",
     category: "Skin · Consultation",
     copy: "Understand your skin and discuss a suitable treatment and home care routine.",
@@ -17,6 +18,7 @@ const treatments = [
   },
   {
     number: "02",
+    guide: "/treatments/facials-skin",
     name: "Facials",
     category: "Skin · Glow",
     copy: "Facial care selected around your skin’s hydration, texture and appearance.",
@@ -27,6 +29,7 @@ const treatments = [
   },
   {
     number: "03",
+    guide: "/treatments/body-wellness",
     name: "Moroccan Body Scrub",
     category: "Body · Renewal",
     copy: "An exfoliating body scrub for a softer, smoother skin finish.",
@@ -37,6 +40,7 @@ const treatments = [
   },
   {
     number: "04",
+    guide: "/treatments/brows-lashes",
     name: "Microblading",
     category: "Brows · Definition",
     copy: "Brow shape and definition planned around your features and preferred look.",
@@ -110,12 +114,8 @@ export default function SignatureTreatments() {
             <div className="signatureCardCopy">
               <div className="signatureNamePrice"><h3>{treatment.name}</h3><span>{treatment.price}</span></div>
               <p>{treatment.copy}</p>
-              <a
-                href={bookingHref(treatment.name)}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Book this treatment <span aria-hidden="true">→</span>
+              <a href={treatment.guide} aria-label={`Explore ${treatment.name} treatments and prices`}>
+                Explore treatment <span aria-hidden="true">→</span>
               </a>
             </div>
           </article>

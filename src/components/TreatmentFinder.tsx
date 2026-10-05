@@ -10,6 +10,7 @@ type Goal = {
 };
 
 type RitualCategory = {
+  guide: string;
   label: string;
   descriptor: string;
   image: string;
@@ -21,23 +22,24 @@ const bookingNumber = "254743364717";
 const categories: RitualCategory[] = [
   {
     label: "Skin & Glow",
+    guide: "/treatments/facials-skin",
     descriptor: "Facials · analysis · skin refinement",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/ba27b39b-94dd-4880-8354-a8cbdf91c8e7.png",
     goals: [
       {
         label: "Glow & hydration",
-        treatment: "Signature Facial",
-        note: "A tailored facial ritual focused on freshness, hydration and a visibly renewed complexion.",
+        treatment: "Hydrating facial",
+        note: "Explore the hydrating facial, or ask our team about advanced hydration. Confirm the appointment details before booking.",
       },
       {
         label: "Clarity & smoother texture",
-        treatment: "Targeted Facial",
-        note: "A focused skin ritual selected around texture, congestion and overall skin clarity.",
+        treatment: "Classic cleansing facial",
+        note: "Explore our classic cleansing facial and ask our team whether it suits your preferences.",
       },
       {
         label: "Understand my skin",
-        treatment: "Professional Skin Analysis",
+        treatment: "Skin analysis",
         note: "A closer look at your skin before choosing the most suitable treatment and home-care direction.",
       },
       {
@@ -49,14 +51,15 @@ const categories: RitualCategory[] = [
   },
   {
     label: "Body & Wellness",
+    guide: "/treatments/body-wellness",
     descriptor: "Massage · body ritual · sauna & steam",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/d09aadd5-d46f-418a-b64f-3792232ff1d6.jpg",
     goals: [
       {
-        label: "De-bloat & feel lighter",
+        label: "Make time for a massage",
         treatment: "Lymphatic Massage",
-        note: "A gentle body ritual designed to support circulation, relaxation and a lighter, less congested feeling.",
+        note: "Choose a 60- or 90-minute lymphatic massage and ask our team about availability and preparation.",
       },
       {
         label: "Smooth & renew my skin",
@@ -65,13 +68,14 @@ const categories: RitualCategory[] = [
       },
       {
         label: "Relax & reset",
-        treatment: "Sauna / Steam Ritual",
-        note: "Unhurried heat therapy designed to help you decompress, unwind and reset.",
+        treatment: "Sauna & steam bath",
+        note: "Choose a sauna or steam bath session. Each is priced per hour; confirm availability with our team.",
       },
     ],
   },
   {
     label: "Brows & Lashes",
+    guide: "/treatments/brows-lashes",
     descriptor: "Microblading · lash enhancement",
     image:
       "/images/brow-detail.webp",
@@ -90,6 +94,7 @@ const categories: RitualCategory[] = [
   },
   {
     label: "Nails",
+    guide: "/treatments/nail-care",
     descriptor: "Clean · polished · beautifully finished",
     image:
       "/images/nail-care.webp",
@@ -103,6 +108,7 @@ const categories: RitualCategory[] = [
   },
   {
     label: "Hair Removal",
+    guide: "/treatments/waxing",
     descriptor: "Smooth · maintained · confident",
     image:
       "/images/smooth-skin.webp",
@@ -277,6 +283,7 @@ export default function TreatmentFinder() {
                   </strong>
                 </div>
 
+                <a className="ritualGuideLink" href={category.guide}>View treatments &amp; prices <span aria-hidden="true">↗</span></a>
                 <div className="ritualResultActions">
                   <a
                     className="ritualBook"
