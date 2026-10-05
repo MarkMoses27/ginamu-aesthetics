@@ -29,6 +29,8 @@ export default function VisitGinamu() {
         <div className="contactDetails">
           <div><h3>Find us</h3><p>Bricks Court, 2nd Floor<br />Mpaka Road, Westlands<br />Nairobi, Kenya</p><a href="https://www.google.com/maps/search/?api=1&query=Bricks+Court+Mpaka+Road+Westlands+Nairobi" target="_blank" rel="noopener noreferrer">View location on Google Maps</a></div>
           <div><h3>Get in touch</h3><a href="tel:+254743364717">0743 364 717</a><a href="mailto:ginamuaestheticspa@gmail.com">ginamuaestheticspa@gmail.com</a></div>
+          <div><h3>Opening hours</h3><p>Monday–Saturday: 7:30 AM–6:30 PM<br />Sunday: Closed</p></div>
+          <div><h3>Follow Ginamu</h3><a href="https://www.instagram.com/ginamuaesthetics/" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://www.facebook.com/ginamuaesthetics/" target="_blank" rel="noopener noreferrer">Facebook</a><a href="https://www.tiktok.com/@ginamuaesthetics" target="_blank" rel="noopener noreferrer">TikTok</a></div>
           <div><h3>Before you visit</h3><p>Contact us to confirm your preferred treatment, appointment time and price.</p></div>
         </div>
       </section>
