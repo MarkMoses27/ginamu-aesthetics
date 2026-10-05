@@ -13,7 +13,7 @@ export default function VisitGinamu() {
           <div className="aboutCopy">
             <p>A Ritual of Beauty &amp; Wellbeing. Ginamu brings skin care, body treatments and beauty services together at Bricks Court in Westlands.</p>
             <p>Come for one treatment or make time for a longer visit. Speak with our team to plan the services you would like to enjoy.</p>
-            <a className="aboutLink" href={bookingUrl} target="_blank" rel="noopener noreferrer">Talk to us about your visit</a>
+            <a className="aboutLink" href="/about">Discover more about Ginamu ↗</a>
           </div>
         </div>
         <div className="aboutPrinciples">

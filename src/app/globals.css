@@ -2347,3 +2347,79 @@ section[id] { scroll-margin-top: 100px; }
  .signatureMenuLink{flex-direction:column;align-items:flex-start;margin-top:42px;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.treatmentPage *,.menuTreatment::details-content{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* About Ginamu: an editorial introduction with a generous photographic hero. */
+.aboutPage { background: #f7f5f2; }
+.aboutPage a:focus-visible { outline: 2px solid var(--maroon); outline-offset: 6px; }
+.aboutPageHero { position: relative; isolation: isolate; min-height: 740px; min-height: max(740px, 92svh); display: flex; align-items: flex-end; overflow: hidden; color: #fffaf5; padding: 190px clamp(24px, 6vw, 96px) 92px; }
+.aboutHeroImage { object-fit: cover; object-position: center 38%; z-index: -3; }
+.aboutHeroShade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(90deg, rgba(31,11,18,.82), rgba(31,11,18,.46) 54%, rgba(31,11,18,.14)), linear-gradient(0deg, rgba(31,11,18,.25), transparent 60%); }
+.aboutHeroContent { width: 100%; max-width: 1440px; margin: 0 auto; }
+.aboutEyebrow { margin: 0 0 30px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; font-weight: 500; }
+.aboutHeroContent h1 { font-family: "Fraunces", serif; font-size: clamp(54px, 6.5vw, 98px); font-weight: 300; line-height: 1.08; letter-spacing: -.035em; max-width: 1050px; margin: 0 0 30px; }
+.aboutPage em { font-weight: inherit; }
+.aboutHeroContent > p:not(.aboutEyebrow) { font-size: 16px; line-height: 1.8; max-width: 440px; margin-bottom: 32px; }
+.aboutHeroExplore { display: inline-flex; align-items: center; gap: 40px; border-bottom: 1px solid rgba(255,250,245,.55); padding: 12px 0; font-size: 13px; }
+.aboutPage .aboutHeroExplore:focus-visible { outline-color: #fffaf5; }
+.aboutHeroCaption { position: absolute; right: clamp(24px, 6vw, 96px); bottom: 32px; font-size: 10px; text-transform: uppercase; letter-spacing: .2em; opacity: .7; }
+.aboutPageSection { padding: 100px clamp(24px, 6vw, 96px); }
+.aboutPageSection h2 { font-family: "Fraunces", serif; font-size: clamp(36px, 4vw, 62px); font-weight: 300; line-height: 1.15; letter-spacing: -.025em; margin: 0; }
+.aboutStory { scroll-margin-top: 100px; max-width: 1632px; margin: auto; }
+.aboutStory > .aboutEyebrow { color: var(--ash); }
+.aboutStoryGrid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(40px, 7vw, 112px); }
+.aboutStoryGrid h2 { color: var(--maroon); }
+.aboutStoryCopy p { margin: 0 0 22px; font-size: 15px; line-height: 1.9; color: #596367; }
+.aboutStoryCopy .aboutLead { font-family: "Fraunces", serif; font-size: 25px; line-height: 1.5; color: var(--ink); }
+.aboutTextLink { display: inline-flex; gap: 32px; align-items: center; border-bottom: 1px solid #b8a3a7; padding: 12px 0; font-size: 13px; color: var(--maroon); }
+.aboutValues { background: var(--maroon-deep); color: #fffaf5; }
+.aboutSectionHeading { max-width: 1440px; margin: auto; }
+.aboutValues .aboutEyebrow { color: #d7c2c7; }
+.aboutValueGrid { max-width: 1440px; margin: 64px auto 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 48px; }
+.aboutValue { border-top: 1px solid rgba(255,250,245,.25); padding-top: 24px; }
+.aboutValueNumber { color: #d7b4bd; font-size: 11px; letter-spacing: .12em; }
+.aboutValue h3 { font-family: "Fraunces", serif; font-size: 26px; font-weight: 300; line-height: 1.3; margin: 24px 0 16px; }
+.aboutValue p { font-size: 14px; line-height: 1.9; color: #e1d4d7; margin: 0; max-width: 380px; }
+.aboutJourney { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 7vw, 112px); max-width: 1632px; margin: auto; align-items: center; }
+.aboutJourneyVisual { position: relative; min-height: 620px; overflow: hidden; background: #d8d5d1; }
+.aboutJourneyVisual img { object-fit: cover; }
+.aboutJourneyVisual::after { content: ""; position: absolute; inset: 60% 0 0; background: linear-gradient(transparent, rgba(31,11,18,.55)); }
+.aboutJourneyVisual > span { position: absolute; bottom: 28px; left: 28px; color: white; font-family: "Fraunces", serif; font-style: italic; font-size: 27px; z-index: 1; }
+.aboutJourneyCopy > .aboutEyebrow { color: var(--ash); }
+.aboutJourneyCopy h2 { color: var(--maroon); }
+.aboutJourneySteps { list-style: none; padding: 0; margin: 44px 0 0; }
+.aboutJourneySteps li { display: grid; grid-template-columns: 28px 1fr; gap: 22px; padding: 24px 0; border-top: 1px solid #d6d3d1; }
+.aboutJourneySteps li > span { font-size: 11px; color: var(--maroon); padding-top: 5px; }
+.aboutJourneySteps h3 { font-family: "Fraunces", serif; font-weight: 400; font-size: 22px; margin: 0 0 10px; }
+.aboutJourneySteps p { margin: 0; color: #596367; font-size: 14px; line-height: 1.8; }
+.aboutInvitation { text-align: center; background: #e5e7e6; }
+.aboutInvitation h2 { color: var(--maroon); }
+.aboutInvitation > p:not(.aboutEyebrow) { font-size: 15px; line-height: 1.8; color: #596367; margin: 26px auto 32px; max-width: 470px; }
+.aboutBookButton { display: inline-flex; align-items: center; justify-content: center; gap: 36px; padding: 19px 26px; background: var(--maroon); color: #fffaf5; font-size: 13px; transition: background .25s ease; }
+.aboutBookButton:hover { background: var(--maroon-deep); }
+@media (max-width: 1100px) {
+ .aboutPageHero { min-height: 720px; padding-bottom: 76px; }
+ .aboutPageSection { padding-block: 80px; }
+ .aboutValueGrid { gap: 28px; }
+ .aboutJourneyVisual { min-height: 560px; }
+}
+@media (max-width: 760px) {
+ .aboutPageHero { min-height: 710px; min-height: max(710px, 88svh); padding: 160px 24px 70px; }
+ .aboutHeroImage { object-position: 58% center; }
+ .aboutHeroShade { background: linear-gradient(0deg, rgba(31,11,18,.87), rgba(31,11,18,.3) 90%); }
+ .aboutHeroContent h1 { font-size: clamp(44px, 9.3vw, 64px); }
+ .aboutHeroContent > p:not(.aboutEyebrow) { font-size: 14px; }
+ .aboutEyebrow { font-size: 10px; margin-bottom: 24px; line-height: 1.8; }
+ .aboutHeroCaption { bottom: 22px; }
+ .aboutPageSection { padding: 64px 24px; }
+ .aboutStoryGrid, .aboutJourney { grid-template-columns: 1fr; gap: 32px; }
+ .aboutStoryCopy .aboutLead { font-size: 23px; }
+ .aboutValueGrid { grid-template-columns: 1fr; gap: 32px; margin-top: 40px; }
+ .aboutValue h3 { margin-top: 18px; }
+ .aboutValue p { max-width: none; }
+ .aboutJourneyVisual { min-height: 420px; }
+ .aboutJourneySteps { margin-top: 28px; }
+ .aboutBookButton { gap: 24px; width: 100%; max-width: 360px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .aboutPage *, .aboutPage *::before, .aboutPage *::after { animation: none !important; transition: none !important; }
+}
