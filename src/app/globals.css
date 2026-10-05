@@ -2186,7 +2186,6 @@ section[id] { scroll-margin-top: 100px; }
 @media(max-width:520px) { .signatureMore { padding-inline: 8px; } .serviceDetail summary { gap: 10px; grid-template-columns: 24px minmax(0,1fr) 32px; padding-block: 22px; } .serviceExpanded { padding: 0 0 24px 34px; } .signatureMoreList .serviceHeading strong { font-size: 25px; } }
 @media(prefers-reduced-motion:reduce) { .serviceExpanded { animation: none; } .serviceToggle,.serviceToggle::after,.serviceDetail summary { transition: none; } }
 
-.footerBase .footerPhotoCredit { font-size: 11px; opacity: .7; }
 @supports (interpolate-size: allow-keywords) {
   .serviceDetail { interpolate-size: allow-keywords; }
   .serviceDetail::details-content { block-size: 0; overflow: clip; transition: block-size .45s ease, content-visibility .45s; transition-behavior: allow-discrete; }

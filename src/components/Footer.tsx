@@ -57,7 +57,7 @@ export default function Footer() {
             <a className="footerBooking" href="https://wa.me/254743364717" target="_blank" rel="noopener noreferrer">Book an appointment <Icon name="arrow" /></a>
           </div>
         </div>
-      <div className="footerBase"><small>© {new Date().getFullYear()} Ginamu Aesthetics. All rights reserved.</small><a className="footerPhotoCredit" href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Selected photography by Freepik</a><a href="https://m3techs.co.ke" target="_blank" rel="noopener noreferrer">Website by <span>M3Techs</span> ↗</a></div>
+      <div className="footerBase"><small>© {new Date().getFullYear()} Ginamu Aesthetics. All rights reserved.</small><a href="https://m3techs.co.ke" target="_blank" rel="noopener noreferrer">Website by <span>M3Techs</span> ↗</a></div>
       </div>
     </footer>
   );
