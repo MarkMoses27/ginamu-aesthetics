@@ -249,7 +249,7 @@ export default function SiteMotion() {
           }
         });
 
-        const moreRows = gsap.utils.toArray<HTMLElement>(".signatureMoreList a");
+        const moreRows = gsap.utils.toArray<HTMLElement>(".signatureMoreList .serviceDetail");
         if (moreRows.length) {
           gsap.fromTo(
             moreRows,
@@ -341,9 +341,12 @@ export default function SiteMotion() {
         });
       });
 
+      const refreshOnToggle = () => ScrollTrigger.refresh();
+      document.querySelectorAll<HTMLDetailsElement>(".serviceDetail").forEach(detail => detail.addEventListener("toggle", refreshOnToggle));
       ScrollTrigger.refresh();
 
       cleanup = () => {
+        document.querySelectorAll<HTMLDetailsElement>(".serviceDetail").forEach(detail => detail.removeEventListener("toggle", refreshOnToggle));
         document.querySelectorAll<HTMLElement>(".signatureImageWrap").forEach((wrap) => {
           (wrap as any).__ginamuCleanup?.();
         });

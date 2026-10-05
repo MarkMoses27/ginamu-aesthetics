@@ -42,7 +42,7 @@ const categories: RitualCategory[] = [
       {
         label: "Skin tag concerns",
         treatment: "Skin Tag Removal",
-        note: "A precise consultation-led service for safe, considered skin tag removal.",
+        note: "Begin with a consultation to discuss assessment, suitability and next steps.",
       },
     ],
   },
@@ -73,7 +73,7 @@ const categories: RitualCategory[] = [
     label: "Brows & Lashes",
     descriptor: "Microblading · lash enhancement",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/e733f789-5158-437e-8efe-de10bd5a883b.jpg",
+      "/images/brow-detail.webp",
     goals: [
       {
         label: "Define my brows",
@@ -91,7 +91,7 @@ const categories: RitualCategory[] = [
     label: "Nails",
     descriptor: "Clean · polished · beautifully finished",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/f44e8006-c5f2-49c7-8679-c24d1e4257fd.jpg",
+      "/images/nail-care.webp",
     goals: [
       {
         label: "A clean, polished finish",
@@ -104,7 +104,7 @@ const categories: RitualCategory[] = [
     label: "Hair Removal",
     descriptor: "Smooth · maintained · confident",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg",
+      "/images/smooth-skin.webp",
     goals: [
       {
         label: "Smooth, maintained skin",
@@ -178,8 +178,8 @@ export default function TreatmentFinder() {
           A more personal place <em>to begin.</em>
         </h2>
         <p>
-          Two simple choices. We’ll guide you towards the Ginamu ritual that
-          best matches what you want to feel or refine.
+          Not sure what to book? Choose your focus and goal for a suggested
+          treatment, then speak with our team.
         </p>
       </div>
 
@@ -196,7 +196,7 @@ export default function TreatmentFinder() {
                 <p className="ritualStepLabel">First, choose your focus</p>
                 <h3>What would you like to care for today?</h3>
 
-                <div className="ritualChoiceList" role="list">
+                <div className="ritualChoiceList" >
                   {categories.map((item, index) => (
                     <button
                       key={item.label}
@@ -237,7 +237,7 @@ export default function TreatmentFinder() {
                 <p className="ritualStepLabel">{category.label}</p>
                 <h3>What would you most like to achieve?</h3>
 
-                <div className="ritualGoalGrid" role="list">
+                <div className="ritualGoalGrid" >
                   {category.goals.map((item, index) => (
                     <button
                       key={item.label}
@@ -317,6 +317,7 @@ export default function TreatmentFinder() {
               aria-hidden="true"
               draggable={false}
               loading={index === 0 ? "eager" : "lazy"}
+              style={item.label === "Hair Removal" ? { objectFit: "contain", background: "#e7e7e7" } : undefined}
               className={
                 visualIndex === index
                   ? "ritualVisualImage active"

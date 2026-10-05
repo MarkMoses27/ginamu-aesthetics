@@ -7,7 +7,7 @@ const treatments = [
     number: "01",
     name: "Skin Analysis",
     category: "Skin · Consultation",
-    copy: "A considered first step — understanding your skin before choosing what it truly needs.",
+    copy: "Understand your skin and discuss a suitable treatment and home care routine.",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/ba27b39b-94dd-4880-8354-a8cbdf91c8e7.png",
     className: "signatureCardLarge",
@@ -16,7 +16,7 @@ const treatments = [
     number: "02",
     name: "Signature Facials",
     category: "Skin · Glow",
-    copy: "Tailored facial rituals designed around hydration, clarity, texture and visible radiance.",
+    copy: "Facial care selected around your skin’s hydration, texture and appearance.",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg",
     className: "signatureCardTall",
@@ -25,7 +25,7 @@ const treatments = [
     number: "03",
     name: "Moroccan Body Scrub",
     category: "Body · Renewal",
-    copy: "A deeply cleansing body ritual that leaves skin feeling polished, soft and renewed.",
+    copy: "An exfoliating body scrub for a softer, smoother skin finish.",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/d09aadd5-d46f-418a-b64f-3792232ff1d6.jpg",
     className: "signatureCardWide",
@@ -34,20 +34,21 @@ const treatments = [
     number: "04",
     name: "Microblading",
     category: "Brows · Definition",
-    copy: "Precision brow artistry shaped around your features for natural-looking definition.",
+    copy: "Brow shape and definition planned around your features and preferred look.",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/e733f789-5158-437e-8efe-de10bd5a883b.jpg",
+      "/images/brow-detail.webp",
     className: "signatureCardPortrait",
   },
 ];
 
 const moreTreatments = [
-  "Lymphatic Massage",
-  "Eyelash Extensions",
-  "Nail Care",
-  "Sauna / Steam",
-  "Waxing",
-  "Skin Tag Removal",
+  { name: "Lymphatic Massage", note: "A gentle pause for your body.", copy: "Discuss your preferences with our team before choosing your massage session." },
+  { name: "Eyelash Extensions", note: "Soft volume. Your preferred finish.", copy: "Choose a lash look with guidance on shape, upkeep and appointment preparation." },
+  { name: "Nail Care", note: "The details, beautifully finished.", copy: "From everyday grooming to a polished finish, ask our team about available nail services." },
+  { name: "Sauna / Steam", note: "Warmth and a moment to unwind.", copy: "Ask about available sauna and steam sessions and how to prepare for your visit." },
+  { name: "Waxing", note: "Smooth skin, considered preparation.", copy: "Tell us the area you would like treated. We’ll help you plan your appointment and aftercare." },
+  { name: "Skin Tag Removal", note: "Begin with a consultation.", copy: "Speak with our team about assessment, suitability and what to expect before arranging treatment." },
+  { name: "Skin Care Products", note: "Continue your routine at home.", copy: "Ask about available products and guidance for your skin care routine. Our team can confirm stock and prices." },
 ];
 
 const bookingHref = (name: string) =>
@@ -68,10 +69,10 @@ export default function SignatureTreatments() {
 
         <div className="signatureIntro">
           <p>
-            Thoughtful beauty and wellbeing rituals, chosen for the way they
-            make you look, feel and carry yourself afterwards.
+            Explore four of our featured treatments, from your first skin
+            consultation to body care and brow definition.
           </p>
-          <a href="#all-treatments">Explore every treatment <span aria-hidden="true">↗</span></a>
+          <a href="#all-treatments">Discover more services <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -118,7 +119,7 @@ export default function SignatureTreatments() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                Book this ritual <span aria-hidden="true">→</span>
+                Book this treatment <span aria-hidden="true">→</span>
               </a>
             </div>
           </article>
@@ -126,21 +127,25 @@ export default function SignatureTreatments() {
       </div>
 
       <div className="signatureMore" id="all-treatments" data-reveal="more">
-        <p>More at Ginamu</p>
+        <div className="signatureMoreIntro">
+          <p className="signatureKicker">Beyond the signature</p>
+          <h2>Complete<br /><em>your ritual.</em></h2>
+          <p className="signatureMoreCopy">Explore the finishing touches and quieter moments that make your visit your own.</p>
+          <span className="signatureMoreHint">Select a service to find out more</span>
+        </div>
         <div className="signatureMoreList">
           {moreTreatments.map((item, index) => (
-            <a
-              data-reveal="row"
-              style={{ "--reveal-delay": `${index * 60}ms` } as CSSProperties}
-              href={bookingHref(item)}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={item}
-            >
-              <span>{String(index + 5).padStart(2, "0")}</span>
-              <strong>{item}</strong>
-              <span aria-hidden="true">↗</span>
-            </a>
+            <details className="serviceDetail" name="ginamu-services" key={item.name}>
+              <summary>
+                <span className="serviceNumber">{String(index + 5).padStart(2, "0")}</span>
+                <span className="serviceHeading"><strong>{item.name}</strong><span>{item.note}</span></span>
+                <span className="serviceToggle" aria-hidden="true" />
+              </summary>
+              <div className="serviceExpanded">
+                <p>{item.copy}</p>
+                <a href={bookingHref(item.name)} target="_blank" rel="noopener noreferrer">{item.name === "Skin Care Products" ? "Ask about products" : `Book ${item.name}`}</a>
+              </div>
+            </details>
           ))}
         </div>
       </div>

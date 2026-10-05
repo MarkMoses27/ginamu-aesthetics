@@ -44,7 +44,7 @@ export default function Footer() {
           <a className="footerBackTop" href="#top">Back to top ↑</a>
         </div>
       </div>
-      <div className="footerBase"><small>© {new Date().getFullYear()} Ginamu Aesthetics. All rights reserved.</small><a href="https://m3techs.co.ke" target="_blank" rel="noopener noreferrer">Website by <span>M3Techs</span> ↗</a></div>
+      <div className="footerBase"><small>© {new Date().getFullYear()} Ginamu Aesthetics. All rights reserved.</small><a className="footerPhotoCredit" href="https://www.freepik.com" target="_blank" rel="noopener noreferrer">Selected photography by Freepik</a><a href="https://m3techs.co.ke" target="_blank" rel="noopener noreferrer">Website by <span>M3Techs</span> ↗</a></div>
     </footer>
   );
 }

@@ -10,15 +10,15 @@ export default function VisitGinamu() {
         <div className="aboutLayout">
           <h2 id="about-title">Beauty begins<br />with <em>being understood.</em></h2>
           <div className="aboutCopy">
-            <p>Your skin, your features, your pace. At Ginamu Aesthetics, every visit begins with a conversation about what you need and the result you have in mind.</p>
-            <p>Explore skin care, body treatments and beauty services in Westlands, with guidance to help you choose where to begin.</p>
+            <p>A Ritual of Beauty &amp; Wellbeing. Ginamu brings skin care, body treatments and beauty services together at Bricks Court in Westlands.</p>
+            <p>Come for one treatment or make time for a longer visit. Speak with our team to plan the services you would like to enjoy.</p>
             <a className="aboutLink" href={bookingUrl} target="_blank" rel="noopener noreferrer">Talk to us about your visit</a>
           </div>
         </div>
         <div className="aboutPrinciples">
-          <div><span>01</span><h3>Start with a consultation</h3><p>Tell us what you would like to address before choosing your treatment.</p></div>
-          <div><span>02</span><h3>Care for the whole you</h3><p>Skin, body, brows, lashes and nails, brought together in one destination.</p></div>
-          <div><span>03</span><h3>Keep the conversation going</h3><p>Ask about preparation, your appointment and suitable home care.</p></div>
+          <div><span>01</span><h3>Before your visit</h3><p>Ask about preparation and share any questions when booking.</p></div>
+          <div><span>02</span><h3>During your appointment</h3><p>Discuss your preferences and the finish you have in mind with your therapist.</p></div>
+          <div><span>03</span><h3>After your treatment</h3><p>Ask about aftercare and products to support your home routine.</p></div>
         </div>
       </section>
       <section className="ginamuContact" id="contact" aria-labelledby="contact-title">
