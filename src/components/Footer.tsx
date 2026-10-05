@@ -18,7 +18,7 @@ export default function Footer() {
     <footer className="ginamuFooter premiumFooter">
       <div className="footerGrid">
         <div className="footerIdentity">
-          <a href="#top" aria-label="Ginamu Aesthetics home"><img className="footerLogo" src="/ginamu-logo.png" alt="Ginamu Aesthetics" width="160" height="160" /></a>
+          <a href="#top" aria-label="Ginamu Aesthetics home"><img className="footerLogo" src="/ginamu-logo.png" alt="Ginamu Aesthetics" width="180" height="180" /></a>
           <p className="footerMotto">A Ritual of Beauty<br />&amp; Wellbeing.</p>
           <div className="footerSocials" aria-label="Ginamu social profiles">
             <a href="https://www.instagram.com/ginamuaesthetics/" target="_blank" rel="noopener noreferrer" aria-label="Ginamu on Instagram"><Icon name="instagram" /></a>
@@ -32,7 +32,7 @@ export default function Footer() {
           <a className="footerBooking" href="https://wa.me/254743364717" target="_blank" rel="noopener noreferrer">Book an appointment <Icon name="arrow" /></a>
         </div>
         <div className="footerColumn">
-          <h3>Find your ritual</h3>
+          <h3>Visit Ginamu</h3>
           <a className="footerDetail" href="https://www.google.com/maps/search/?api=1&query=Bricks+Court+Mpaka+Road+Westlands+Nairobi" target="_blank" rel="noopener noreferrer"><Icon name="pin" /><span>Bricks Court, 2nd Floor<br />Mpaka Road, Westlands<br />Nairobi, Kenya</span></a>
           <a className="footerDetail" href="tel:+254743364717"><Icon name="phone" /><span>0743 364 717</span></a>
           <a className="footerEmail" href="mailto:ginamuaestheticspa@gmail.com">ginamuaestheticspa@gmail.com</a>
