@@ -51,7 +51,7 @@ export default function SiteMotion() {
         gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.to(".heroContent", { y: -65, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.utils.toArray<HTMLElement>(".ginamuAbout, .ginamuContact").forEach(section => {
-          gsap.fromTo(section.querySelectorAll("h2, .aboutCopy, .aboutPrinciples > div, .contactDetails > div"), { y: 35, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .1, duration: 1, scrollTrigger: { trigger: section, start: "top 75%", once: true } });
+          gsap.fromTo(section.querySelectorAll("h2, .aboutCopy, .aboutPrinciples > div, .contactAction"), { y: 35, autoAlpha: 0 }, { y: 0, autoAlpha: 1, stagger: .1, duration: 1, scrollTrigger: { trigger: section, start: "top 75%", once: true } });
         });
       });
       const mm = gsap.matchMedia();
