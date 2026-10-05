@@ -12,6 +12,13 @@ export default function ContactBooking() {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     const value = (key: string) => String(data.get(key) || "").trim();
+    const nameInput = event.currentTarget.elements.namedItem("name") as HTMLInputElement;
+    nameInput.setCustomValidity("");
+    if (!value("name")) {
+      nameInput.setCustomValidity("Please enter your name.");
+      nameInput.reportValidity();
+      return;
+    }
     const dateInput = event.currentTarget.elements.namedItem("date") as HTMLInputElement;
     dateInput.setCustomValidity("");
     if (value("date") && new Date(`${value("date")}T12:00:00Z`).getUTCDay() === 0) {
@@ -29,7 +36,7 @@ export default function ContactBooking() {
   return <div className="contactBookingCard"><p className="contactEyebrow">Appointment enquiry</p><h3>Tell us what you have in mind.</h3><p>Share your preferences, then send your enquiry on WhatsApp.</p>
     <p className="contactBookingHours">Mon–Sat · 7:30 AM–6:30 PM <span>Sunday closed</span></p>
     <form onSubmit={submit} className="contactBookingForm">
-      <div className="contactField"><label htmlFor="booking-name">Your name <span aria-hidden="true">*</span></label><input id="booking-name" name="name" autoComplete="given-name" required maxLength={80} placeholder="Your first name" /></div>
+      <div className="contactField"><label htmlFor="booking-name">Your name <span aria-hidden="true">*</span></label><input id="booking-name" name="name" autoComplete="given-name" required maxLength={80} onChange={event => event.currentTarget.setCustomValidity("")} placeholder="Your first name" /></div>
       <div className="contactField"><label htmlFor="booking-treatment">Treatment interest <span aria-hidden="true">*</span></label><select id="booking-treatment" name="treatment" required defaultValue=""><option value="" disabled>Choose a treatment category</option>{categories.map(category => <option key={category}>{category}</option>)}</select></div>
       <div className="contactFormPair"><div className="contactField"><label htmlFor="booking-date">Preferred date <small>(optional)</small></label><input id="booking-date" name="date" type="date" min={today || undefined} onChange={event => event.currentTarget.setCustomValidity("")} /></div><div className="contactField"><label htmlFor="booking-time">Preferred time <small>(optional)</small></label><select id="booking-time" name="time" defaultValue=""><option value="">No preference</option><option>Morning</option><option>Afternoon</option></select></div></div>
       <div className="contactField"><label htmlFor="booking-message">Anything else? <small>(optional)</small></label><textarea id="booking-message" name="message" rows={3} maxLength={1000} placeholder="Tell us which service you’re interested in, or ask a question." /></div>

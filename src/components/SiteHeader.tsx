@@ -16,11 +16,11 @@ export default function SiteHeader({ solid = false, onMenuChange }: { solid?: bo
   }, []);
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = menuOpen ? "hidden" : "";
-
-    if (menuOpen) {
-      window.setTimeout(() => firstMenuLinkRef.current?.focus(), 80);
-    }
+    const focusTimer = menuOpen
+      ? window.setTimeout(() => firstMenuLinkRef.current?.focus(), 80)
+      : undefined;
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === "Escape" && menuOpen) {
@@ -59,7 +59,8 @@ export default function SiteHeader({ solid = false, onMenuChange }: { solid?: bo
     window.addEventListener("resize", onResize);
 
     return () => {
-      document.body.style.overflow = "";
+      window.clearTimeout(focusTimer);
+      document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", onKeyDown);
       window.removeEventListener("resize", onResize);
     };

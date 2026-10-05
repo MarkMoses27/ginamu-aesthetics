@@ -2583,3 +2583,19 @@ section[id] { scroll-margin-top: 100px; }
  .serviceRelated a { font-size: 13px; line-height: 1.6; }
 }
 @media (prefers-reduced-motion: reduce) { .servicePage *, .servicePage *::before, .servicePage *::after { animation: none !important; transition: none !important; } }
+
+/* Keep navigation and enquiry controls usable on narrow and short screens. */
+.mobileMenu { overflow-y: auto; overscroll-behavior-y: contain; }
+.mobileMenuInner { gap: 32px; }
+.menuCategoryGuide { min-height: 44px; align-items: center; }
+@media (max-width: 760px) {
+ .contactField input, .contactField select, .contactField textarea { font-size: 16px; }
+ .contactBookingSection > *, .contactVisitSection > *, .serviceIntroduction > *, .serviceFaq > * { min-width: 0; }
+ .servicePriceRow > a { min-height: 44px; align-items: center; }
+ .serviceRelated a { min-height: 44px; }
+}
+@media (max-width: 420px) {
+ .contactVisitInfo { grid-template-columns: 1fr; gap: 24px; }
+ .contactVisitInfo address, .contactVisitInfo p { font-size: 13px; }
+ .servicePriceRow { grid-template-columns: minmax(0, 1fr) minmax(80px, 105px); }
+}
