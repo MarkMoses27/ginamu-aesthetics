@@ -2423,3 +2423,84 @@ section[id] { scroll-margin-top: 100px; }
 @media (prefers-reduced-motion: reduce) {
  .aboutPage *, .aboutPage *::before, .aboutPage *::after { animation: none !important; transition: none !important; }
 }
+
+/* Contact: clear channels, a WhatsApp enquiry and a practical visit guide. */
+.contactPage { background: #f7f5f2; }
+.contactPage a:focus-visible, .contactPage button:focus-visible { outline: 2px solid var(--maroon); outline-offset: 5px; }
+.contactPageHero { display: grid; grid-template-columns: 1.7fr 1fr; gap: 60px; align-items: end; padding: 164px clamp(24px, 6vw, 96px) 72px; background: #e5e7e6; }
+.contactEyebrow { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .16em; line-height: 1.8; margin: 0 0 24px; color: var(--ash); }
+.contactPage h1, .contactPage h2, .contactBookingCard h3 { font-family: "Fraunces", serif; font-weight: 300; line-height: 1.1; letter-spacing: -.03em; }
+.contactPage h1 { font-size: clamp(48px, 5.8vw, 84px); margin: 0; color: var(--maroon); }
+.contactPage em { font-weight: inherit; }
+.contactHeroAside { max-width: 310px; justify-self: end; padding-bottom: 8px; }
+.contactHeroAside > p { font-size: 16px; color: #596367; line-height: 1.8; margin: 0 0 26px; }
+.contactTextLink { display: inline-flex; align-items: center; gap: 30px; color: var(--maroon); border-bottom: 1px solid #b2a0a4; padding-bottom: 9px; font-size: 13px; line-height: 1.7; }
+.contactBookingSection { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(48px, 8vw, 120px); padding: 80px clamp(24px, 6vw, 96px) 96px; max-width: 1632px; margin: auto; scroll-margin-top: 100px; }
+.contactPage h2 { font-size: clamp(36px, 4vw, 56px); color: var(--maroon); margin: 0 0 26px; }
+.contactIntro { color: #596367; font-size: 15px; line-height: 1.9; max-width: 430px; margin: 0 0 38px; }
+.contactChannelList { border-top: 1px solid #d5d0cd; }
+.contactChannelList > a { display: grid; grid-template-columns: 46px minmax(0, 1fr) 16px; gap: 18px; align-items: center; padding: 24px 0; border-bottom: 1px solid #d5d0cd; transition: color .25s; }
+.contactChannelList > a:hover { color: var(--maroon); }
+.contactChannelIcon { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid #d5c4c8; border-radius: 50%; color: var(--maroon); }
+.contactChannelIcon svg { width: 20px; height: 20px; }
+.contactChannelList small { display: block; color: #697377; font-size: 10px; text-transform: uppercase; letter-spacing: .12em; margin-bottom: 8px; }
+.contactChannelList strong { display: block; font-size: 17px; font-weight: 400; line-height: 1.5; }
+.contactChannelList .contactEmail { font-size: clamp(13px, 1.35vw, 17px); overflow-wrap: anywhere; }
+.contactChannelArrow { color: var(--maroon); font-size: 16px; }
+.contactBookingCard { padding: 36px clamp(24px, 3vw, 44px); background: #eeebe7; border: 1px solid #dfd9d4; }
+.contactBookingCard .contactEyebrow { margin-bottom: 18px; }
+.contactBookingCard h3 { font-size: 32px; color: var(--maroon); margin: 0 0 16px; }
+.contactBookingCard > p:not(.contactEyebrow) { font-size: 13px; line-height: 1.8; color: #596367; margin: 0 0 28px; }
+.contactBookingForm { display: grid; gap: 22px; }
+.contactField { display: flex; flex-direction: column; gap: 9px; min-width: 0; }
+.contactField label { font-size: 12px; font-weight: 500; }
+.contactField label small { color: #697377; font-weight: 400; font-size: 10px; }
+.contactField label > span { color: var(--maroon); }
+.contactField input, .contactField select, .contactField textarea { width: 100%; min-width: 0; border: 1px solid #cac4bf; border-radius: 0; background: #faf9f7; color: var(--ink); padding: 13px 14px; font: inherit; font-size: 14px; min-height: 48px; }
+.contactField textarea { resize: vertical; min-height: 100px; }
+.contactField input:focus, .contactField select:focus, .contactField textarea:focus { outline: 2px solid var(--maroon); outline-offset: 2px; }
+.contactField input::placeholder, .contactField textarea::placeholder { color: #778084; opacity: 1; }
+.contactFormPair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+.contactBookingForm button { display: flex; justify-content: space-between; align-items: center; border: 0; background: var(--maroon); color: #fffaf5; padding: 18px 22px; font-size: 13px; min-height: 54px; transition: background .25s; }
+.contactBookingForm button:hover { background: var(--maroon-deep); }
+.contactBookingForm .contactFormNote { font-size: 11px; line-height: 1.8; color: #697377; margin: -8px 0 0; }
+.contactVisitSection { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(48px, 8vw, 120px); padding: 88px clamp(24px, 6vw, 96px); background: #e5e7e6; align-items: center; }
+.contactVisitInfo { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 38px 0 32px; }
+.contactVisitInfo > div { display: flex; align-items: flex-start; gap: 12px; }
+.contactVisitInfo svg { width: 20px; height: 20px; flex-shrink: 0; color: var(--maroon); }
+.contactVisitInfo h3 { font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; margin: 2px 0 14px; }
+.contactVisitInfo address, .contactVisitInfo p { font-style: normal; font-size: 13px; color: #596367; line-height: 1.9; margin: 0; }
+.contactVisitInfo strong { font-weight: 500; color: var(--ink); }
+.contactVisitInfo .contactClosed { margin-top: 7px; }
+.contactMap { min-height: 460px; display: flex; flex-direction: column; background: #dadcdb; border: 1px solid #c9cdcb; }
+.contactMap iframe { display: block; width: 100%; height: 410px; border: 0; }
+.contactMap > a { display: flex; justify-content: space-between; gap: 20px; background: #f7f5f2; padding: 20px 24px; font-size: 12px; color: var(--maroon); }
+.contactMenuPrompt { padding: 50px 24px; display: flex; align-items: center; justify-content: center; gap: 40px; }
+.contactMenuPrompt p { font-family: "Fraunces", serif; font-size: 26px; margin: 0; }
+@media (max-width: 1100px) {
+ .contactPageHero { gap: 32px; }
+ .contactBookingSection, .contactVisitSection { gap: 40px; }
+ .contactVisitInfo { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+ .contactPageHero { grid-template-columns: 1fr; padding: 132px 24px 48px; gap: 28px; }
+ .contactPage h1 { font-size: clamp(43px, 9vw, 64px); }
+ .contactHeroAside { justify-self: start; max-width: none; padding: 0; }
+ .contactHeroAside > p { font-size: 14px; margin-bottom: 18px; }
+ .contactBookingSection, .contactVisitSection { grid-template-columns: 1fr; padding: 56px 24px; gap: 40px; }
+ .contactIntro { max-width: none; }
+ .contactChannelList .contactEmail { font-size: 14px; }
+ .contactBookingCard { padding: 28px 22px; }
+ .contactBookingCard h3 { font-size: 30px; }
+ .contactField input, .contactField select, .contactField textarea { font-size: 16px; }
+ .contactFormPair { grid-template-columns: 1fr; }
+ .contactVisitInfo { grid-template-columns: 1fr 1fr; gap: 16px; }
+ .contactVisitInfo > div { gap: 9px; }
+ .contactVisitInfo address, .contactVisitInfo p { font-size: 12px; }
+ .contactMap { min-height: 360px; }
+ .contactMap iframe { height: 320px; }
+ .contactMenuPrompt { flex-direction: column; align-items: flex-start; gap: 20px; padding: 40px 24px; }
+}
+@media (prefers-reduced-motion: reduce) {
+ .contactPage *, .contactPage *::before, .contactPage *::after { animation: none !important; transition: none !important; }
+}

@@ -1,6 +1,6 @@
 type IconName = "instagram" | "facebook" | "tiktok" | "pin" | "phone" | "clock" | "arrow" | "mail";
 
-function Icon({ name }: { name: IconName }) {
+export function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, React.ReactNode> = {
     instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></>,
     facebook: <path d="M14 21v-8h3l.5-4H14V7c0-1.2.5-2 2-2h2V2h-3c-3 0-5 2-5 5v2H7v4h3v8" />,
@@ -14,10 +14,10 @@ function Icon({ name }: { name: IconName }) {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{paths[name]}</svg>;
 }
 
-export default function Footer() {
+export default function Footer({ showContactStrip = true }: { showContactStrip?: boolean }) {
   return (
     <footer className="ginamuFooter premiumFooter">
-      <div className="footerContactStrip" aria-label="Ginamu contact information">
+      {showContactStrip && <div className="footerContactStrip" aria-label="Ginamu contact information">
         <a className="footerContactItem" href="https://www.google.com/maps/search/?api=1&query=Bricks+Court+Mpaka+Road+Westlands+Nairobi" target="_blank" rel="noopener noreferrer">
           <span className="footerContactIcon"><Icon name="pin" /></span>
           <div><h3>Location</h3><p>Bricks Court, 2nd Floor<br />Mpaka Road, Westlands<br />Nairobi, Kenya</p></div>
@@ -34,7 +34,7 @@ export default function Footer() {
           <span className="footerContactIcon"><Icon name="mail" /></span>
           <div><h3>Email</h3><p className="footerContactEmail">ginamuaestheticspa<wbr />@gmail.com</p></div>
         </a>
-      </div>
+      </div>}
       <div className="footerInner">
         <div className="footerGrid">
           <div className="footerIdentity">
@@ -43,7 +43,7 @@ export default function Footer() {
           </div>
           <div className="footerColumn">
             <h3>Explore Ginamu</h3>
-            <nav aria-label="Footer navigation"><a href="/treatments">Treatments &amp; prices</a><a href="/about">About Ginamu</a><a href="/#contact">Book your visit</a></nav>
+            <nav aria-label="Footer navigation"><a href="/treatments">Treatments &amp; prices</a><a href="/about">About Ginamu</a><a href="/contact">Contact &amp; booking</a></nav>
             <a className="footerBackTop" href="#top">Back to top ↑</a>
           </div>
           <div className="footerColumn footerConnect">
