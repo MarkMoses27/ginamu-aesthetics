@@ -26,7 +26,8 @@ export default function ContactBooking() {
     lines.push("Please confirm availability and help me plan my visit.");
     window.location.assign(`https://wa.me/254743364717?text=${encodeURIComponent(lines.join("\n"))}`);
   };
-  return <div className="contactBookingCard"><p className="contactEyebrow">Appointment enquiry</p><h3>Tell us what you have in mind.</h3><p>Fill in a few details, then continue on WhatsApp to send your enquiry. Our team will confirm your appointment.</p>
+  return <div className="contactBookingCard"><p className="contactEyebrow">Appointment enquiry</p><h3>Tell us what you have in mind.</h3><p>Share your preferences, then send your enquiry on WhatsApp.</p>
+    <p className="contactBookingHours">Mon–Sat · 7:30 AM–6:30 PM <span>Sunday closed</span></p>
     <form onSubmit={submit} className="contactBookingForm">
       <div className="contactField"><label htmlFor="booking-name">Your name <span aria-hidden="true">*</span></label><input id="booking-name" name="name" autoComplete="given-name" required maxLength={80} placeholder="Your first name" /></div>
       <div className="contactField"><label htmlFor="booking-treatment">Treatment interest <span aria-hidden="true">*</span></label><select id="booking-treatment" name="treatment" required defaultValue=""><option value="" disabled>Choose a treatment category</option>{categories.map(category => <option key={category}>{category}</option>)}</select></div>

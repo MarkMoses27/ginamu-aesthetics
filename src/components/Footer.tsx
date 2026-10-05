@@ -1,7 +1,8 @@
-type IconName = "instagram" | "facebook" | "tiktok" | "pin" | "phone" | "clock" | "arrow" | "mail";
+type IconName = "instagram" | "facebook" | "tiktok" | "pin" | "phone" | "clock" | "arrow" | "mail" | "whatsapp";
 
 export function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, React.ReactNode> = {
+    whatsapp: <><path d="M20.5 11.6a8.5 8.5 0 0 1-12.7 7.5L3 20.5l1.4-4.7a8.5 8.5 0 1 1 16.1-4.2Z" /><path d="m8.2 7.5 1.6 2.4-1 1.4a8 8 0 0 0 3.9 3.9l1.4-1 2.4 1.6c-.5 1.8-2 2-3.4 1.4a12 12 0 0 1-6.3-6.3c-.6-1.4-.4-2.9 1.4-3.4Z" /></>,
     instagram: <><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r=".8" fill="currentColor" stroke="none" /></>,
     facebook: <path d="M14 21v-8h3l.5-4H14V7c0-1.2.5-2 2-2h2V2h-3c-3 0-5 2-5 5v2H7v4h3v8" />,
     tiktok: <path d="M14 3v12a4 4 0 1 1-4-4M14 3c.4 4 2.6 6 6 6" />,

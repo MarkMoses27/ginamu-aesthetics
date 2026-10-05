@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 import treatments from "@/data/treatments.json";
+import { treatmentCategories } from "@/data/treatment-categories";
 
 const categories = [
  { id: "skin", title: "Facials & Skin", note: "Care that begins with your skin.", number: "01" },
@@ -41,7 +42,7 @@ export default function TreatmentMenu() {
    <div className="menuGroups" ref={menuRef} key={category}>
     <p className="menuResultCount" role="status" aria-live="polite">{shown} treatments · {category === "all" ? "The complete menu" : categories.find(c => c.id === category)?.title}</p>
     {categories.filter(item => category === "all" || item.id === category).map(group => <section className="menuGroup" key={group.id} aria-labelledby={`category-${group.id}`}>
-     <div className="menuGroupHeader"><span className="menuGroupNumber">{group.number}</span><div><h3 id={`category-${group.id}`}>{group.title}</h3><p>{group.note}</p></div></div>
+     <div className="menuGroupHeader"><span className="menuGroupNumber">{group.number}</span><div><h3 id={`category-${group.id}`}>{group.title}</h3><p>{group.note}</p><a className="menuCategoryGuide" href={`/treatments/${treatmentCategories.find(item => item.id === group.id)!.slug}`}>Explore {group.title.toLowerCase()} <span aria-hidden="true">↗</span></a></div></div>
      <div className="menuRows">{treatments.filter(item => item.category === group.id).map((item, index) => <details className="menuTreatment" name="ginamu-treatment-details" key={item.id} style={{ "--row-delay": `${index * 45}ms` } as CSSProperties}>
       <summary><span className="menuTreatmentName">{item.name}{item.duration && <small>{item.duration}</small>}</span><span className="menuTreatmentPrice">{item.price}</span><span className="menuTreatmentToggle" aria-hidden="true" /></summary>
       <div className="menuTreatmentDetails"><p>{item.name === "Skin tag removal" ? "Pricing is confirmed after assessment. Contact our team to arrange a consultation." : item.name === "Skin care products" ? "Ask our team about available products, stock and individual prices." : descriptions[item.category]}</p><a href={book(`${item.name}${item.duration ? ` (${item.duration})` : ""}`)} target="_blank" rel="noopener noreferrer" aria-label={`Enquire about ${item.name}${item.duration ? ` ${item.duration}` : ""} on WhatsApp`}>{item.name === "Skin care products" ? "Ask about products" : item.name === "Skin tag removal" ? "Arrange an assessment" : "Book this treatment"}<span aria-hidden="true">↗</span></a></div>

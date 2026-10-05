@@ -17,7 +17,7 @@ export default function ContactPage() {
     <section className="contactBookingSection" id="booking" aria-labelledby="booking-title" data-contact-reveal>
       <div className="contactDetails"><p className="contactEyebrow">Let’s connect</p><h2 id="booking-title" aria-label="A conversation away."><MotionWords>A conversation</MotionWords>{" "}<em><MotionWords>away.</MotionWords></em></h2><p className="contactIntro">Choose how you’d like to reach us. Our team can help with treatment questions and appointment availability.</p>
         <div className="contactChannelList">
-          <a href="https://wa.me/254743364717" target="_blank" rel="noopener noreferrer"><span className="contactChannelIcon"><Icon name="arrow" /></span><span><small>WhatsApp</small><strong>Chat with our team</strong></span><span className="contactChannelArrow" aria-hidden="true">↗</span></a>
+          <a href="https://wa.me/254743364717" target="_blank" rel="noopener noreferrer"><span className="contactChannelIcon"><Icon name="whatsapp" /></span><span><small>WhatsApp</small><strong>Chat with our team</strong></span><span className="contactChannelArrow" aria-hidden="true">↗</span></a>
           <a href="tel:+254743364717"><span className="contactChannelIcon"><Icon name="phone" /></span><span><small>Call us</small><strong>0743 364 717</strong></span><span className="contactChannelArrow" aria-hidden="true">↗</span></a>
           <a href="mailto:ginamuaestheticspa@gmail.com"><span className="contactChannelIcon"><Icon name="mail" /></span><span><small>Email</small><strong className="contactEmail">ginamuaestheticspa<wbr />@gmail.com</strong></span><span className="contactChannelArrow" aria-hidden="true">↗</span></a>
         </div>
