@@ -1,4 +1,4 @@
-type IconName = "instagram" | "facebook" | "tiktok" | "pin" | "phone" | "clock" | "arrow";
+type IconName = "instagram" | "facebook" | "tiktok" | "pin" | "phone" | "clock" | "arrow" | "mail";
 
 function Icon({ name }: { name: IconName }) {
   const paths: Record<IconName, React.ReactNode> = {
@@ -7,6 +7,7 @@ function Icon({ name }: { name: IconName }) {
     tiktok: <path d="M14 3v12a4 4 0 1 1-4-4M14 3c.4 4 2.6 6 6 6" />,
     pin: <><path d="M20 10c0 6-8 11-8 11S4 16 4 10a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="2.5" /></>,
     phone: <path d="m6 3 3 4-2 3c2 4 3 5 7 7l3-2 4 3c0 3-2 4-4 3C9 19 5 15 3 7c-1-2 0-4 3-4Z" />,
+    mail: <><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 6 9 7 9-7" /></>,
     clock: <><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></>,
     arrow: <path d="M5 12h14m-5-5 5 5-5 5" />,
   };
@@ -35,7 +36,7 @@ export default function Footer() {
           <h3>Visit Ginamu</h3>
           <a className="footerDetail" href="https://www.google.com/maps/search/?api=1&query=Bricks+Court+Mpaka+Road+Westlands+Nairobi" target="_blank" rel="noopener noreferrer"><Icon name="pin" /><span>Bricks Court, 2nd Floor<br />Mpaka Road, Westlands<br />Nairobi, Kenya</span></a>
           <a className="footerDetail" href="tel:+254743364717"><Icon name="phone" /><span>0743 364 717</span></a>
-          <a className="footerEmail" href="mailto:ginamuaestheticspa@gmail.com">ginamuaestheticspa@gmail.com</a>
+          <a className="footerDetail" href="mailto:ginamuaestheticspa@gmail.com"><Icon name="mail" /><span style={{ minWidth: 0, overflowWrap: "anywhere" }}>ginamuaestheticspa<wbr />@gmail.com</span></a>
         </div>
         <div className="footerColumn">
           <h3>Opening hours</h3>
