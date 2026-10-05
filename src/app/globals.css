@@ -2125,3 +2125,35 @@ section[id] { scroll-margin-top: 100px; }
  .editorialTitle span { line-height: .98; margin-top: .04em; }
  .navWrap:not(.navScrolled):not(.navMenuOpen) { padding-inline: 24px; }
 }
+
+/* Ginamu footer */
+.ginamuFooter.premiumFooter { display:block; padding:72px clamp(24px,6.5vw,104px) 26px; background:#3c111d; color:#f7f3f0; }
+.footerGrid { display:grid; grid-template-columns:1.15fr 1fr 1.25fr .9fr; gap:clamp(24px,4vw,64px); }
+.footerLogo { width:156px; height:156px; object-fit:contain; filter:brightness(0) invert(1); margin:-18px 0 0 -18px; }
+.ginamuFooter .footerMotto { font-family:"Fraunces",Georgia,serif; font-style:italic; font-size:25px; line-height:1.3; margin:12px 0 24px; }
+.footerColumn h3 { font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:#c5b4b9; margin:0 0 28px; font-weight:500; }
+.ginamuFooter .footerColumn nav { display:flex; flex-direction:column; gap:16px; margin:0; font-size:15px; }
+.footerColumn a { text-decoration:none; }
+.footerSocials { display:flex; gap:10px; }
+.footerSocials a { display:grid; place-items:center; width:44px; height:44px; border:1px solid #89616c; border-radius:50%; transition:background .3s,transform .3s,border-color .3s; }
+.footerSocials svg { width:19px; height:19px; }
+.footerSocials a:hover { background:#fffaf5; color:#641e2b; border-color:#fffaf5; transform:translateY(-3px); }
+.footerDetail { display:flex; align-items:flex-start; gap:12px; font-size:15px; line-height:1.75; margin-bottom:20px; }
+.footerDetail svg { width:19px; height:19px; flex-shrink:0; margin-top:4px; color:#c5b4b9; }
+.ginamuFooter .footerDetail p { font-family:inherit; font-style:normal; font-size:15px; line-height:1.75; margin:0 0 16px; }
+.footerDetail strong { font-weight:400; }
+.footerClosed { color:#c5b4b9; }
+.footerEmail { display:block; font-size:13px; overflow-wrap:anywhere; line-height:1.7; }
+.footerBooking { display:flex; align-items:center; gap:12px; font-size:14px; margin-top:28px; padding-bottom:12px; border-bottom:1px solid #89616c; width:fit-content; }
+.footerBooking svg { width:20px; height:20px; transition:transform .3s; }
+.footerBooking:hover svg { transform:translateX(5px); }
+.footerBackTop { display:inline-block; color:#c5b4b9; font-size:13px; margin-top:8px; }
+.footerColumn nav a:hover,.footerEmail:hover,.footerBackTop:hover { text-decoration:underline; text-underline-offset:6px; }
+.footerBase { display:flex; justify-content:space-between; gap:20px; align-items:center; border-top:1px solid #70414e; padding-top:24px; margin-top:58px; }
+.ginamuFooter .footerBase small { border:0; padding:0; flex-basis:auto; color:#c5b4b9; font-size:12px; }
+.footerBase a { color:#c5b4b9; font-size:12px; text-decoration:none; }
+.footerBase a span { color:#f7f3f0; }
+.premiumFooter a:focus-visible { outline:2px solid #fff; outline-offset:5px; }
+@media(max-width:1050px) { .footerGrid { grid-template-columns:1fr 1fr; gap:44px; } }
+@media(max-width:560px) { .ginamuFooter.premiumFooter { padding-top:48px; } .footerGrid { grid-template-columns:1fr; gap:36px; } .footerColumn h3 { margin-bottom:18px; } .footerBase { flex-direction:column; align-items:flex-start; margin-top:36px; } }
+@media(prefers-reduced-motion:reduce) { .premiumFooter * { transition:none!important; } }

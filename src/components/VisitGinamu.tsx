@@ -1,3 +1,5 @@
+import Footer from "./Footer";
+
 const bookingUrl = "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20consultation.";
 
 export default function VisitGinamu() {
@@ -34,12 +36,7 @@ export default function VisitGinamu() {
           <div><h3>Before you visit</h3><p>Contact us to confirm your preferred treatment, appointment time and price.</p></div>
         </div>
       </section>
-      <footer className="ginamuFooter">
-        <a className="footerWordmark" href="#top">GINAMU<span>AESTHETICS</span></a>
-        <p>A Ritual of Beauty &amp; Wellbeing.</p>
-        <nav aria-label="Footer navigation"><a href="#services">Treatments</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
-        <small>© {new Date().getFullYear()} Ginamu Aesthetics</small>
-      </footer>
+      <Footer />
     </>
   );
 }
