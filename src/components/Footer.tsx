@@ -38,12 +38,12 @@ export default function Footer() {
       <div className="footerInner">
         <div className="footerGrid">
           <div className="footerIdentity">
-            <a href="#top" aria-label="Ginamu Aesthetics home"><img className="footerLogo" src="/ginamu-logo.png" alt="Ginamu Aesthetics" width="180" height="180" /></a>
+            <a href="/#top" aria-label="Ginamu Aesthetics home"><img className="footerLogo" src="/ginamu-logo.png" alt="Ginamu Aesthetics" width="180" height="180" /></a>
             <p className="footerMotto">A Ritual of Beauty<br />&amp; Wellbeing.</p>
           </div>
           <div className="footerColumn">
             <h3>Explore Ginamu</h3>
-            <nav aria-label="Footer navigation"><a href="#services">Our treatments</a><a href="#about">The Ginamu approach</a><a href="#contact">Book your visit</a></nav>
+            <nav aria-label="Footer navigation"><a href="/treatments">Treatments &amp; prices</a><a href="/#about">The Ginamu approach</a><a href="/#contact">Book your visit</a></nav>
             <a className="footerBackTop" href="#top">Back to top ↑</a>
           </div>
           <div className="footerColumn footerConnect">

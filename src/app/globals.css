@@ -2259,3 +2259,91 @@ section[id] { scroll-margin-top: 100px; }
   .editorialTitle { font-size: clamp(43px, 11.5vw, 60px); }
   .sliderControls { left: 18px; }
 }
+
+/* Ginamu's dedicated treatment menu. */
+.signatureNamePrice{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+.signatureNamePrice>span{color:var(--maroon);font-size:15px;font-weight:600}
+.signatureMenuLink{display:flex;align-items:center;justify-content:space-between;gap:24px;border-top:1px solid #d1c8c4;margin-top:72px;padding-top:30px}
+.signatureMenuLink p{color:var(--ash);font-size:15px}
+.signatureMenuLink a{color:var(--maroon);font-weight:600;border-bottom:1px solid currentColor;padding-bottom:7px}
+.treatmentPage{background:#f7f5f2}
+.treatmentPage a:focus-visible,.treatmentPage button:focus-visible,.treatmentPage summary:focus-visible{outline:2px solid var(--maroon);outline-offset:5px}
+.menuHero{display:grid;grid-template-columns:1.55fr 1fr;padding:150px clamp(24px,7vw,110px) 80px;gap:clamp(36px,6vw,96px);max-width:1640px;margin:auto}
+.menuHeroCopy{padding-block:18px;align-self:center}
+.menuBreadcrumb{color:var(--ash);font-size:12px;display:inline-flex;gap:12px;margin-bottom:52px}
+.menuEyebrow{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--maroon);margin:0 0 22px}
+.menuHero h1{font-family:"Fraunces",Georgia,serif;font-weight:400;font-size:clamp(50px,5.4vw,84px);letter-spacing:-.055em;line-height:1.05;margin:0}
+.menuHero h1 em{color:var(--maroon);font-weight:350}
+.menuHero h1 .motionWord{animation:menuWordIn 1s cubic-bezier(.2,.7,.2,1) both}
+.menuHero h1 .motionWordClip:nth-child(2) .motionWord{animation-delay:.08s}
+.menuHero h1 .motionWordClip:nth-child(3) .motionWord{animation-delay:.16s}
+.menuHero h1 em .motionWord{animation-delay:.24s}
+.menuHeroDescription{color:#626164;font-size:16px;line-height:1.8;max-width:480px;margin:30px 0 0}
+.menuHeroActions{display:flex;flex-wrap:wrap;align-items:center;gap:28px;margin-top:32px}
+.menuPrimary{display:inline-flex;justify-content:center;align-items:center;gap:28px;background:var(--maroon);color:var(--white);min-height:52px;padding:15px 24px;border-radius:99px;font-size:13px;font-weight:600;transition:background .25s,transform .25s}
+.menuPrimary:hover{background:var(--maroon-deep);transform:translateY(-2px)}
+.menuDownload{display:inline-flex;align-items:center;gap:10px;font-size:13px;padding-block:12px;border-bottom:1px solid #bcb4b4}
+.menuDownload svg{width:17px;height:17px}
+.menuFileType{font-size:9px;letter-spacing:.1em;color:var(--ash)}
+.menuHeroVisual{position:relative;min-height:480px;overflow:hidden;background:#d8d4d1}
+.menuHeroVisual img{object-fit:cover;object-position:48% center}
+.menuImageCaption{position:absolute;bottom:0;left:0;right:0;display:flex;justify-content:space-between;padding:42px 20px 20px;color:white;font-size:10px;letter-spacing:.05em;background:linear-gradient(transparent,#0007)}
+.treatmentMenu{max-width:1640px;margin:auto;padding:64px clamp(24px,7vw,110px) 96px;scroll-margin-top:90px}
+.menuToolbar{display:flex;align-items:flex-end;justify-content:space-between;gap:28px;padding-bottom:42px;border-bottom:1px solid #d9d2d0;margin-bottom:44px}
+.menuToolbar h2,.menuHelp h2{font-family:"Fraunces",Georgia,serif;font-size:clamp(38px,3.6vw,58px);line-height:1.1;letter-spacing:-.045em;font-weight:400;margin:0}
+.menuToolbar h2 em,.menuHelp h2 em{color:var(--maroon);font-weight:350}
+.menuToolbar>p{color:#6d6769;font-size:13px;line-height:1.7;margin:0}
+.menuLayout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:start}
+.menuCategoryNav{position:sticky;top:108px;display:flex;flex-direction:column;gap:4px}
+.menuCategoryNav button{display:flex;text-align:left;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding:14px 16px;background:transparent;border:0;color:#62585c;font-size:13px;transition:background .25s,color .25s}
+.menuCategoryNav button span{font-size:10px;opacity:.65}
+.menuCategoryNav button[aria-pressed="true"]{background:var(--maroon);color:var(--white)}
+.menuCategoryNav button:hover:not([aria-pressed="true"]){background:#e9e3e2;color:var(--maroon)}
+.menuAsideDownload{margin-top:30px;padding-top:20px;border-top:1px solid #d9d2d0;font-size:12px;color:var(--ash);display:flex;justify-content:space-between;gap:10px}
+.menuResultCount{color:var(--ash);font-size:11px;letter-spacing:.04em;margin:0 0 28px}
+.menuGroup{margin-bottom:58px}
+.menuGroup:last-child{margin-bottom:0}
+.menuGroupHeader{display:flex;align-items:baseline;gap:22px;margin-bottom:22px}
+.menuGroupNumber{font-size:11px;color:var(--ash)}
+.menuGroup h3{margin:0;font-family:"Fraunces",Georgia,serif;font-size:clamp(30px,2.7vw,42px);font-weight:400;letter-spacing:-.035em}
+.menuGroupHeader p{color:var(--ash);font-size:12px;margin:8px 0 0}
+.menuTreatment{border-bottom:1px solid #d9d2d0}
+.menuTreatment:first-child{border-top:1px solid #d9d2d0}
+.menuTreatment summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto 28px;align-items:center;gap:22px;padding:24px 0;transition:color .25s}
+.menuTreatment summary::-webkit-details-marker{display:none}
+.menuTreatment summary:hover,.menuTreatment[open] summary{color:var(--maroon)}
+.menuTreatmentName{font-size:16px;line-height:1.45}
+.menuTreatmentName small{display:block;font-size:11px;color:var(--ash);margin-top:5px}
+.menuTreatmentPrice{font-size:14px;font-weight:500;text-align:right;max-width:210px;line-height:1.5}
+.menuTreatmentToggle{width:26px;height:26px;border:1px solid #c5babc;border-radius:50%;position:relative;transition:transform .4s,background .3s}
+.menuTreatmentToggle::before,.menuTreatmentToggle::after{content:"";position:absolute;background:currentColor;width:8px;height:1px;left:8px;top:12px}
+.menuTreatmentToggle::after{transform:rotate(90deg);transition:transform .3s}
+.menuTreatment[open] .menuTreatmentToggle{transform:rotate(180deg);background:#ece3e5}
+.menuTreatment[open] .menuTreatmentToggle::after{transform:rotate(0)}
+.menuTreatmentDetails{padding:0 50px 26px 0;display:flex;align-items:flex-start;justify-content:space-between;gap:30px;animation:menuDetailsIn .4s ease both}
+.menuTreatmentDetails p{margin:0;color:#6a6265;font-size:13px;line-height:1.8;max-width:410px}
+.menuTreatmentDetails a{color:var(--maroon);font-size:12px;font-weight:600;display:inline-flex;gap:14px;white-space:nowrap;border-bottom:1px solid #b8a0a6;padding-bottom:5px}
+.menuInView .menuTreatment{animation:menuRowIn .7s cubic-bezier(.2,.7,.2,1) both;animation-delay:var(--row-delay)}
+.menuHelp{padding:80px 24px 90px;text-align:center;background:#ece8e7}
+.menuHelp>p:not(.menuEyebrow){margin:24px auto 30px;max-width:440px;font-size:14px;line-height:1.8;color:#6a6265}
+@keyframes menuWordIn{from{opacity:0;transform:translateY(110%) rotateX(12deg)}to{opacity:1;transform:none}}
+@keyframes menuRowIn{from{opacity:.4;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes menuDetailsIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@supports(interpolate-size:allow-keywords){.menuTreatment{interpolate-size:allow-keywords}.menuTreatment::details-content{height:0;overflow:clip;transition:height .4s ease,content-visibility .4s allow-discrete}.menuTreatment[open]::details-content{height:auto}}
+@media(max-width:1100px){.menuHero{grid-template-columns:1.4fr 1fr;gap:36px}.menuHeroActions{gap:16px}.menuHeroVisual{min-height:440px}.menuLayout{grid-template-columns:190px minmax(0,1fr);gap:36px}.menuTreatmentDetails{flex-direction:column;gap:16px}}
+@media(max-width:760px){
+ .menuHero{grid-template-columns:1fr;padding:110px 24px 44px;gap:36px}.menuHeroCopy{padding:0}.menuBreadcrumb{margin-bottom:32px}
+ .menuHero h1{font-size:clamp(45px,8vw,64px)}.menuHeroDescription{font-size:14px;margin-top:22px}
+ .menuHeroVisual{min-height:320px}.menuHeroVisual img{object-position:50% 44%}
+ .menuToolbar{align-items:flex-start;flex-direction:column;gap:20px;padding-bottom:28px;margin-bottom:28px}
+ .treatmentMenu{padding:44px 24px 60px;scroll-margin-top:80px}.menuLayout{grid-template-columns:1fr;gap:30px}
+ .menuCategoryNav{position:static;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px}
+ .menuCategoryNav button{border:1px solid #d9d2d0;font-size:12px;padding:12px}
+ .menuAsideDownload{grid-column:1/-1;margin-top:8px;padding-top:16px}.menuGroup{margin-bottom:44px}.menuGroupHeader{gap:14px}
+ .menuTreatment summary{grid-template-columns:minmax(0,1fr) minmax(80px,auto) 24px;gap:12px;padding:22px 0}
+ .menuTreatmentName{font-size:14px}.menuTreatmentPrice{font-size:12px;max-width:130px}
+ .menuTreatmentToggle{width:24px;height:24px}.menuTreatmentToggle::before,.menuTreatmentToggle::after{left:7px;top:11px}
+ .menuTreatmentDetails{padding-right:0}.menuHelp{padding:60px 24px}
+ .signatureMenuLink{flex-direction:column;align-items:flex-start;margin-top:42px;gap:12px}
+}
+@media(prefers-reduced-motion:reduce){.treatmentPage *,.menuTreatment::details-content{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

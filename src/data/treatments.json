@@ -1,0 +1,289 @@
+[
+  {
+    "id": "skin-1",
+    "name": "Skin analysis",
+    "price": "KSh 1,000",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "skin-2",
+    "name": "Classic cleansing facial",
+    "price": "KSh 3,500",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "skin-3",
+    "name": "Hydrating facial",
+    "price": "KSh 4,500",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "skin-4",
+    "name": "Advanced hydration facial",
+    "price": "KSh 7,000",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "body-5",
+    "name": "Lymphatic massage",
+    "price": "KSh 5,000",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-6",
+    "name": "Lymphatic massage",
+    "price": "KSh 6,500",
+    "category": "body",
+    "duration": "90 min"
+  },
+  {
+    "id": "body-7",
+    "name": "Steam bath",
+    "price": "KSh 4,500 per hour",
+    "category": "body",
+    "duration": null
+  },
+  {
+    "id": "body-8",
+    "name": "Sauna",
+    "price": "KSh 5,000 per hour",
+    "category": "body",
+    "duration": null
+  },
+  {
+    "id": "body-9",
+    "name": "Moroccan body scrub",
+    "price": "KSh 4,500",
+    "category": "body",
+    "duration": null
+  },
+  {
+    "id": "body-10",
+    "name": "Moroccan scrub and steam",
+    "price": "KSh 5,500",
+    "category": "body",
+    "duration": null
+  },
+  {
+    "id": "skin-11",
+    "name": "Skin tag removal",
+    "price": "Quote after assessment",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "skin-12",
+    "name": "Skin care products",
+    "price": "Priced per product",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "nails-13",
+    "name": "Classic manicure",
+    "price": "KSh 1,200",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-14",
+    "name": "Classic pedicure",
+    "price": "KSh 2,000",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-15",
+    "name": "Gel application only",
+    "price": "KSh 1,200",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-16",
+    "name": "Gel manicure",
+    "price": "KSh 2,200",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-17",
+    "name": "Gel pedicure",
+    "price": "KSh 3,000",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-18",
+    "name": "Acrylic full set",
+    "price": "From KSh 4,000",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-19",
+    "name": "Acrylic infill",
+    "price": "From KSh 2,500",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-20",
+    "name": "Gel removal",
+    "price": "KSh 500",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-21",
+    "name": "Acrylic removal",
+    "price": "KSh 1,000",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-22",
+    "name": "Nail art",
+    "price": "From KSh 200 per nail",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "brows-23",
+    "name": "Classic lash extensions",
+    "price": "KSh 3,500",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-24",
+    "name": "Hybrid lash extensions",
+    "price": "KSh 4,500",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-25",
+    "name": "Volume lash extensions",
+    "price": "KSh 5,500",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-26",
+    "name": "Lash refill",
+    "price": "From KSh 2,000",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-27",
+    "name": "Lash removal",
+    "price": "KSh 700",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-28",
+    "name": "Microblading",
+    "price": "KSh 15,000",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "brows-29",
+    "name": "Microblading touch-up",
+    "price": "KSh 5,000",
+    "category": "brows",
+    "duration": null
+  },
+  {
+    "id": "waxing-30",
+    "name": "Upper lip waxing",
+    "price": "KSh 500",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-31",
+    "name": "Chin waxing",
+    "price": "KSh 500",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-32",
+    "name": "Underarms waxing",
+    "price": "KSh 800",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-33",
+    "name": "Half arms waxing",
+    "price": "KSh 900",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-34",
+    "name": "Full arms waxing",
+    "price": "KSh 1,500",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-35",
+    "name": "Half legs waxing",
+    "price": "KSh 1,800",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-36",
+    "name": "Full legs waxing",
+    "price": "KSh 3,000",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-37",
+    "name": "Bikini line waxing",
+    "price": "KSh 1,500",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-38",
+    "name": "Brazilian waxing",
+    "price": "KSh 3,000",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-39",
+    "name": "Chest waxing",
+    "price": "KSh 2,000",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-40",
+    "name": "Back waxing",
+    "price": "From KSh 3,000",
+    "category": "waxing",
+    "duration": null
+  },
+  {
+    "id": "waxing-41",
+    "name": "Full body waxing",
+    "price": "From KSh 8,000",
+    "category": "waxing",
+    "duration": null
+  }
+]

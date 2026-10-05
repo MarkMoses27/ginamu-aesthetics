@@ -1,3 +1,4 @@
+import prices from "@/data/treatments.json";
 import MotionWords from "./MotionWords";
 import type { CSSProperties } from "react";
 
@@ -12,15 +13,17 @@ const treatments = [
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/ba27b39b-94dd-4880-8354-a8cbdf91c8e7.png",
     className: "signatureCardLarge",
+    price: prices.find(item => item.name === "Skin analysis")!.price,
   },
   {
     number: "02",
-    name: "Signature Facials",
+    name: "Facials",
     category: "Skin · Glow",
     copy: "Facial care selected around your skin’s hydration, texture and appearance.",
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg",
     className: "signatureCardTall",
+    price: "From " + prices.find(item => item.name === "Classic cleansing facial")!.price,
   },
   {
     number: "03",
@@ -30,6 +33,7 @@ const treatments = [
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/d09aadd5-d46f-418a-b64f-3792232ff1d6.jpg",
     className: "signatureCardWide",
+    price: prices.find(item => item.name === "Moroccan body scrub")!.price,
   },
   {
     number: "04",
@@ -39,17 +43,8 @@ const treatments = [
     image:
       "/images/brow-detail.webp",
     className: "signatureCardPortrait",
+    price: prices.find(item => item.name === "Microblading")!.price,
   },
-];
-
-const moreTreatments = [
-  { name: "Lymphatic Massage", note: "A gentle pause for your body.", copy: "Discuss your preferences with our team before choosing your massage session." },
-  { name: "Eyelash Extensions", note: "Soft volume. Your preferred finish.", copy: "Choose a lash look with guidance on shape, upkeep and appointment preparation." },
-  { name: "Nail Care", note: "The details, beautifully finished.", copy: "From everyday grooming to a polished finish, ask our team about available nail services." },
-  { name: "Sauna / Steam", note: "Warmth and a moment to unwind.", copy: "Ask about available sauna and steam sessions and how to prepare for your visit." },
-  { name: "Waxing", note: "Smooth skin, considered preparation.", copy: "Tell us the area you would like treated. We’ll help you plan your appointment and aftercare." },
-  { name: "Skin Tag Removal", note: "Begin with a consultation.", copy: "Speak with our team about assessment, suitability and what to expect before arranging treatment." },
-  { name: "Skin Care Products", note: "Continue your routine at home.", copy: "Ask about available products and guidance for your skin care routine. Our team can confirm stock and prices." },
 ];
 
 const bookingHref = (name: string) =>
@@ -73,7 +68,7 @@ export default function SignatureTreatments() {
             Explore four of our featured treatments, from your first skin
             consultation to body care and brow definition.
           </p>
-          <a href="#all-treatments">Discover more services <span aria-hidden="true">↗</span></a>
+          <a href="/treatments">View treatments &amp; prices <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
@@ -113,7 +108,7 @@ export default function SignatureTreatments() {
             </div>
 
             <div className="signatureCardCopy">
-              <h3>{treatment.name}</h3>
+              <div className="signatureNamePrice"><h3>{treatment.name}</h3><span>{treatment.price}</span></div>
               <p>{treatment.copy}</p>
               <a
                 href={bookingHref(treatment.name)}
@@ -127,29 +122,7 @@ export default function SignatureTreatments() {
         ))}
       </div>
 
-      <div className="signatureMore" id="all-treatments" data-reveal="more">
-        <div className="signatureMoreIntro">
-          <p className="signatureKicker">Beyond the signature</p>
-          <h2 aria-label="Complete your ritual."><MotionWords>Complete</MotionWords><br /><em><MotionWords>your ritual.</MotionWords></em></h2>
-          <p className="signatureMoreCopy">Explore the finishing touches and quieter moments that make your visit your own.</p>
-          <span className="signatureMoreHint">Select a service to find out more</span>
-        </div>
-        <div className="signatureMoreList">
-          {moreTreatments.map((item, index) => (
-            <details className="serviceDetail" name="ginamu-services" key={item.name}>
-              <summary>
-                <span className="serviceNumber">{String(index + 5).padStart(2, "0")}</span>
-                <span className="serviceHeading"><strong>{item.name}</strong><span>{item.note}</span></span>
-                <span className="serviceToggle" aria-hidden="true" />
-              </summary>
-              <div className="serviceExpanded">
-                <p>{item.copy}</p>
-                <a href={bookingHref(item.name)} target="_blank" rel="noopener noreferrer">{item.name === "Skin Care Products" ? "Ask about products" : `Book ${item.name}`}</a>
-              </div>
-            </details>
-          ))}
-        </div>
-      </div>
+      <div className="signatureMenuLink"><p>Facials, body care, brows, lashes, nails and waxing.</p><a href="/treatments">Explore the complete treatment menu <span aria-hidden="true">↗</span></a></div>
     </section>
   );
 }
