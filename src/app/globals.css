@@ -2193,3 +2193,31 @@ section[id] { scroll-margin-top: 100px; }
   .serviceDetail[open]::details-content { block-size: auto; }
 }
 @media(prefers-reduced-motion:reduce) { .serviceDetail::details-content { transition: none; } }
+
+/* Contact strip above the brand footer. */
+.ginamuFooter.premiumFooter { padding: 0; }
+.footerContactStrip { display: grid; grid-template-columns: 1.2fr 1.15fr .85fr 1.15fr; gap: 28px; padding: 38px clamp(24px,6.5vw,104px); background: #505c62; }
+.footerContactItem { display: flex; align-items: flex-start; gap: 14px; min-width: 0; color: #f7f3f0; text-decoration: none; }
+.footerContactItem > div { min-width: 0; }
+.footerContactIcon { display: grid; place-items: center; flex: 0 0 48px; width: 48px; height: 48px; border-radius: 50%; background: rgba(255,255,255,.075); transition: background .3s, transform .3s; }
+.footerContactIcon svg { width: 22px; height: 22px; }
+.footerContactItem h3 { font-family: "Fraunces",Georgia,serif; font-size: 21px; line-height: 1.2; font-weight: 400; margin: 2px 0 10px; }
+.ginamuFooter .footerContactItem p { font-family: inherit; font-style: normal; font-size: 14px; line-height: 1.65; margin: 0; }
+.footerContactItem p > span { color: #d2d8db; }
+.footerContactEmail { overflow-wrap: anywhere; }
+.footerContactItem[href]:hover .footerContactIcon { background: rgba(255,255,255,.16); transform: translateY(-3px); }
+.footerContactItem[href]:hover p { text-decoration: underline; text-underline-offset: 4px; }
+.footerInner { padding: 52px clamp(24px,6.5vw,104px) 26px; }
+.footerGrid { grid-template-columns: 1.5fr 1fr 1fr; align-items: start; gap: 60px; }
+.footerIdentity { display: flex; align-items: center; gap: 24px; }
+.footerLogo { flex-shrink: 0; margin: 0; width: 160px; height: 160px; }
+.ginamuFooter .footerMotto { font-size: 26px; margin: 0; }
+.footerColumn { padding-top: 18px; }
+.footerColumn h3 { margin-bottom: 24px; }
+.ginamuFooter .footerHandle { font-family: inherit; font-style: normal; font-size: 15px; margin: 0 0 18px; }
+.footerBackTop { margin-top: 24px; }
+.footerBase { margin-top: 40px; }
+@media(max-width:1150px) { .footerContactStrip { grid-template-columns: 1fr 1fr; gap: 30px 50px; } .footerIdentity { flex-direction: column; align-items: flex-start; gap: 6px; } .footerLogo { margin-left: -18px; } .footerGrid { gap: 36px; } }
+@media(max-width:760px) { .footerGrid { grid-template-columns: 1fr 1fr; gap: 32px; } .footerIdentity { grid-column: 1 / -1; flex-direction: row; align-items: center; gap: 24px; } .footerLogo { margin: 0; } .footerContactStrip { gap: 28px; padding-block: 30px; } }
+@media(max-width:560px) { .ginamuFooter.premiumFooter { padding: 0; } .footerContactStrip { grid-template-columns: 1fr; gap: 26px; } .footerContactItem h3 { font-size: 20px; margin-bottom: 7px; } .footerContactIcon { flex-basis: 46px; width: 46px; height: 46px; } .footerInner { padding-top: 34px; } .footerIdentity { gap: 14px; } .footerLogo { width: 130px; height: 130px; } .ginamuFooter .footerMotto { font-size: 22px; } .footerGrid { grid-template-columns: 1fr; gap: 28px; } .footerColumn { padding-top: 0; } .footerIdentity { grid-column: auto; } .footerBase { margin-top: 32px; } }
+@media(prefers-reduced-motion:reduce) { .footerContactIcon { transition: none; } }
