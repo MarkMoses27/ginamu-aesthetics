@@ -1,14 +1,11 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import MotionWords from "@/components/MotionWords";
 import AboutMotion from "@/components/AboutMotion";
 
-export const metadata: Metadata = {
-  title: "About Us | Ginamu Aesthetics",
-  description: "Discover Ginamu Aesthetics in Westlands, Nairobi. Our approach to skin care, beauty and wellbeing, and what to expect when planning your visit.",
-};
+export const metadata = pageMetadata("About Us | Ginamu Aesthetics", "Discover Ginamu Aesthetics in Westlands, Nairobi. Our approach to skin care, beauty and wellbeing, and what to expect when planning your visit.", "/about");
 
 const bookingUrl = "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20plan%20my%20first%20visit.";
 const principles = [
@@ -20,7 +17,7 @@ const principles = [
 export default function AboutPage() {
   return <>
     <SiteHeader solid />
-    <main className="aboutPage" id="top">
+    <main className="aboutPage" id="main-content"><span id="top" aria-hidden="true" />
       <section className="aboutPageHero" aria-labelledby="about-page-title">
         <Image className="aboutHeroImage" src="/images/brow-detail.webp" alt="Beauty portrait with softly defined brows" fill priority sizes="100vw" />
         <div className="aboutHeroShade" aria-hidden="true" />

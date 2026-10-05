@@ -1,17 +1,14 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
 import Footer from "@/components/Footer";
 import TreatmentMenu from "@/components/TreatmentMenu";
 import MotionWords from "@/components/MotionWords";
 
-export const metadata: Metadata = {
- title: "Treatments & Prices | Ginamu Aesthetics",
- description: "Explore Ginamu Aesthetics treatment prices in Westlands, Nairobi. Facials, body care, sauna, steam bath, brows, lashes, nails and waxing. Book on WhatsApp.",
-};
+export const metadata = pageMetadata("Treatments & Prices | Ginamu Aesthetics", "Explore Ginamu Aesthetics treatment prices in Westlands, Nairobi. Facials, body care, sauna, steam bath, brows, lashes, nails and waxing. Book on WhatsApp.", "/treatments");
 
 export default function TreatmentsPage() {
- return <><SiteHeader solid /><main className="treatmentPage" id="top">
+ return <><SiteHeader solid /><main className="treatmentPage" id="main-content"><span id="top" aria-hidden="true" />
   <section className="menuHero" aria-labelledby="menu-title">
    <div className="menuHeroCopy">
     <a className="menuBreadcrumb" href="/#top">Home <span aria-hidden="true">/</span> Treatments &amp; prices</a>

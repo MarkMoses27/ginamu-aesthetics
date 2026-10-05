@@ -6,7 +6,7 @@ import SiteMotion from "@/components/SiteMotion";
 
 export default function Home() {
   return (
-    <main>
+    <main id="main-content">
       <Hero />
       <TreatmentFinder />
       <SignatureTreatments />

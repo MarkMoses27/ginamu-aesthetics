@@ -2504,3 +2504,8 @@ section[id] { scroll-margin-top: 100px; }
 @media (prefers-reduced-motion: reduce) {
  .contactPage *, .contactPage *::before, .contactPage *::after { animation: none !important; transition: none !important; }
 }
+
+.skipLink { position: fixed; z-index: 200; top: 12px; left: 12px; padding: 14px 22px; background: var(--maroon-deep); color: #fffaf5; transform: translateY(-180%); }
+.skipLink:focus { transform: translateY(0); outline: 2px solid #fffaf5; outline-offset: 3px; }
+#main-content { scroll-margin-top: 90px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }

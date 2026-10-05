@@ -1,18 +1,15 @@
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/site";
 import SiteHeader from "@/components/SiteHeader";
 import Footer, { Icon } from "@/components/Footer";
 import MotionWords from "@/components/MotionWords";
 import ContactBooking from "@/components/ContactBooking";
 import ContactMotion from "@/components/ContactMotion";
 
-export const metadata: Metadata = {
-  title: "Contact & Booking | Ginamu Aesthetics",
-  description: "Plan your visit to Ginamu Aesthetics at Bricks Court, Mpaka Road, Westlands, Nairobi. Call, email or enquire about a treatment on WhatsApp.",
-};
+export const metadata = pageMetadata("Contact & Booking | Ginamu Aesthetics", "Plan your visit to Ginamu Aesthetics at Bricks Court, Mpaka Road, Westlands, Nairobi. Call, email or enquire about a treatment on WhatsApp.", "/contact");
 const directions = "https://www.google.com/maps/search/?api=1&query=Bricks+Court+Mpaka+Road+Westlands+Nairobi";
 
 export default function ContactPage() {
-  return <><SiteHeader solid /><main className="contactPage" id="top">
+  return <><SiteHeader solid /><main className="contactPage" id="main-content"><span id="top" aria-hidden="true" />
     <section className="contactPageHero" aria-labelledby="contact-page-title">
       <div><p className="contactEyebrow">Contact Ginamu</p><h1 id="contact-page-title" aria-label="Your next ritual starts here."><MotionWords>Your next ritual</MotionWords><br /><em><MotionWords>starts here.</MotionWords></em></h1></div>
       <div className="contactHeroAside"><p>Have a treatment in mind?<br />Let’s make time for you.</p><a className="contactTextLink" href="#booking">Plan your visit <span aria-hidden="true">↓</span></a></div>
