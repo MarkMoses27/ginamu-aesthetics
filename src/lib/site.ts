@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-export const siteUrl = "https://ginamu-aesthetics.vercel.app";
+export const siteUrl = "https://ginamuaesthetics.co.ke";
 export function pageMetadata(title: string, description: string, path = "/"): Metadata {
   return {
     title, description,
