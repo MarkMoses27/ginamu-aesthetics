@@ -113,6 +113,7 @@ button:focus-visible {
 
 .navWrap {
   position: fixed;
+  color: var(--white);
   inset: 0 0 auto;
   z-index: 50;
   padding: 0 clamp(24px, 4vw, 68px);

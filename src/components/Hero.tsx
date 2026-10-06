@@ -52,6 +52,8 @@ export default function Hero() {
 
 
   return (
+    <>
+      <SiteHeader onMenuChange={setMenuOpen} />
     <section className="hero heroEditorial" id="top">
       <div className="heroSlides" aria-hidden="true">
         {slides.map((slide, index) => (
@@ -73,8 +75,6 @@ export default function Hero() {
 
       <div className="heroOverlay" aria-hidden="true" />
       <div className="heroGlow" aria-hidden="true" />
-
-      <SiteHeader onMenuChange={setMenuOpen} />
 
       <div className="heroContent">
         <h1 className="editorialTitle" aria-label="The art of feeling beautifully yourself.">
@@ -119,5 +119,6 @@ export default function Hero() {
         <button className="heroPause" type="button" aria-label={paused ? "Play image slideshow" : "Pause image slideshow"} onClick={() => setPaused(value => !value)}>{paused ? "Play" : "Pause"}</button>
       </div>
     </section>
+    </>
   );
 }

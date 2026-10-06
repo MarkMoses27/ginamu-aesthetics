@@ -72,7 +72,6 @@ export default function SignatureTreatments() {
             Explore four of our featured treatments, from your first skin
             consultation to body care and brow definition.
           </p>
-          <a href="/treatments">View treatments &amp; prices <span aria-hidden="true">↗</span></a>
         </div>
       </div>
 
