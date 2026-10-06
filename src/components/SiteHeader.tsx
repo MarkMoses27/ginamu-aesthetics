@@ -1,8 +1,16 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 const links = [{ label: "Home", href: "/#top" }, { label: "Treatments & Prices", href: "/treatments" }, { label: "About Us", href: "/about" }, { label: "Contact", href: "/contact" }];
 const bookingUrl = "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20treatment.%20Please%20help%20me%20with%20availability.";
 export default function SiteHeader({ solid = false, onMenuChange }: { solid?: boolean; onMenuChange?: (open: boolean) => void }) {
+ const pathname = usePathname();
+ const currentPage = (href: string): "page" | "true" | undefined => {
+   const route = href.split("#")[0];
+   if (pathname === route) return "page";
+   if (route === "/treatments" && pathname.startsWith("/treatments/")) return "true";
+   return undefined;
+ };
  const [scrolled, setScrolled] = useState(false);
  const [menuOpen, setMenuOpen] = useState(false);
  const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -77,7 +85,7 @@ return (<>
 
           <div className="navLinks">
             {links.map((link) => (
-              <a key={link.href} href={link.href}>
+              <a key={link.href} href={link.href} aria-current={currentPage(link.href)}>
                 {link.label}
               </a>
             ))}
@@ -124,6 +132,7 @@ return (<>
                 ref={index === 0 ? firstMenuLinkRef : undefined}
                 key={link.href}
                 href={link.href}
+                aria-current={currentPage(link.href)}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}
