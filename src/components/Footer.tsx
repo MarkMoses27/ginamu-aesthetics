@@ -27,9 +27,9 @@ export default function Footer({ showContactStrip = true }: { showContactStrip?:
           <span className="footerContactIcon"><Icon name="clock" /></span>
           <div><h3>Opening hours</h3><p>Mon–Sat, 7:30 AM–6:30 PM<br /><span>Sunday closed</span></p></div>
         </div>
-        <a className="footerContactItem" href="tel:+254743364717">
+        <a className="footerContactItem" href="tel:+254741174816">
           <span className="footerContactIcon"><Icon name="phone" /></span>
-          <div><h3>Call us</h3><p>0743 364 717</p></div>
+          <div><h3>Call us</h3><p>0741 174 816</p></div>
         </a>
         <a className="footerContactItem" href="mailto:ginamuaestheticspa@gmail.com">
           <span className="footerContactIcon"><Icon name="mail" /></span>
@@ -55,7 +55,7 @@ export default function Footer({ showContactStrip = true }: { showContactStrip?:
               <a href="https://www.facebook.com/ginamuaesthetics/" target="_blank" rel="noopener noreferrer" aria-label="Ginamu on Facebook"><Icon name="facebook" /></a>
               <a href="https://www.tiktok.com/@ginamuaesthetics" target="_blank" rel="noopener noreferrer" aria-label="Ginamu on TikTok"><Icon name="tiktok" /></a>
             </div>
-            <a className="footerBooking" href="https://wa.me/254743364717" target="_blank" rel="noopener noreferrer">Book an appointment <Icon name="arrow" /></a>
+            <a className="footerBooking" href="https://wa.me/254741174816" target="_blank" rel="noopener noreferrer">Book an appointment <Icon name="arrow" /></a>
           </div>
         </div>
       <div className="footerBase"><small>© {new Date().getFullYear()} Ginamu Aesthetics. All rights reserved.</small><a href="https://m3techs.co.ke" target="_blank" rel="noopener noreferrer">Website by <span>M3Techs</span> ↗</a></div>

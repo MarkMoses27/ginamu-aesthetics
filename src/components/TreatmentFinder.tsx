@@ -17,7 +17,7 @@ type RitualCategory = {
   goals: Goal[];
 };
 
-const bookingNumber = "254743364717";
+const bookingNumber = "254741174816";
 
 const categories: RitualCategory[] = [
   {

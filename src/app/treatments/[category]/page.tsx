@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props) {
   };
   return pageMetadata(`${searchTitles[item.id]} | Ginamu Aesthetics`, `${item.intro} Prices and bookings at Bricks Court, Mpaka Road, Westlands, Nairobi.`, `/treatments/${item.slug}`);
 }
-const book = (name: string) => `https://wa.me/254743364717?text=${encodeURIComponent(`Hi Ginamu Aesthetics, I'd like to enquire about ${name}. Please confirm availability and preparation.`)}`;
+const book = (name: string) => `https://wa.me/254741174816?text=${encodeURIComponent(`Hi Ginamu Aesthetics, I'd like to enquire about ${name}. Please confirm availability and preparation.`)}`;
 export default async function TreatmentPage({ params }: Props) {
   const { category } = await params;
   const item = treatmentCategories.find(item => item.slug === category);

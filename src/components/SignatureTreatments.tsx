@@ -2,7 +2,7 @@ import prices from "@/data/treatments.json";
 import MotionWords from "./MotionWords";
 import type { CSSProperties } from "react";
 
-const bookingNumber = "254743364717";
+const bookingNumber = "254741174816";
 
 const treatments = [
   {

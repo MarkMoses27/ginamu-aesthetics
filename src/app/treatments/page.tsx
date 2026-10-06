@@ -23,6 +23,6 @@ export default function TreatmentsPage() {
    <div className="menuHeroVisual"><Image src="/images/brow-detail.webp" alt="Close-up beauty portrait with defined brows" fill priority sizes="(max-width: 760px) 100vw, 38vw" /><div className="menuImageCaption"><span>Ginamu Aesthetics</span><span>Westlands, Nairobi</span></div></div>
   </section>
   <TreatmentMenu />
-  <section className="menuHelp" aria-labelledby="menu-help-title"><p className="menuEyebrow">A little guidance</p><h2 id="menu-help-title">Let’s find <em>your ritual.</em></h2><p>Tell us what you have in mind. We’ll help you choose a treatment and confirm availability.</p><a className="menuPrimary" href="https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20please%20help%20me%20choose%20a%20treatment." target="_blank" rel="noopener noreferrer">Speak with our team <span aria-hidden="true">↗</span></a></section>
+  <section className="menuHelp" aria-labelledby="menu-help-title"><p className="menuEyebrow">A little guidance</p><h2 id="menu-help-title">Let’s find <em>your ritual.</em></h2><p>Tell us what you have in mind. We’ll help you choose a treatment and confirm availability.</p><a className="menuPrimary" href="https://wa.me/254741174816?text=Hi%20Ginamu%20Aesthetics%2C%20please%20help%20me%20choose%20a%20treatment." target="_blank" rel="noopener noreferrer">Speak with our team <span aria-hidden="true">↗</span></a></section>
  </main><Footer /></>;
 }

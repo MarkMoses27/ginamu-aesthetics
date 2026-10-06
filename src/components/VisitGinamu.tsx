@@ -1,7 +1,7 @@
 import MotionWords from "./MotionWords";
 import Footer from "./Footer";
 
-const bookingUrl = "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20consultation.";
+const bookingUrl = "https://wa.me/254741174816?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20book%20a%20consultation.";
 
 export default function VisitGinamu() {
   return (

@@ -7,7 +7,7 @@ import AboutMotion from "@/components/AboutMotion";
 
 export const metadata = pageMetadata("About Us | Ginamu Aesthetics", "Discover Ginamu Aesthetics in Westlands, Nairobi. Our approach to skin care, beauty and wellbeing, and what to expect when planning your visit.", "/about");
 
-const bookingUrl = "https://wa.me/254743364717?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20plan%20my%20first%20visit.";
+const bookingUrl = "https://wa.me/254741174816?text=Hi%20Ginamu%20Aesthetics%2C%20I%27d%20like%20to%20plan%20my%20first%20visit.";
 const principles = [
   { title: "Your preferences, first.", copy: "A facial, a fresh set of nails or time for body care — begin with what matters to you. Share your goals and ask our team which options to consider." },
   { title: "Clarity before you book.", copy: "Browse our treatment menu and prices, then message us about availability, preparation and any questions you have. Plan your appointment with the details in hand." },

@@ -31,7 +31,7 @@ export default function ContactBooking() {
     if (value("time")) lines.push(`Preferred time: ${value("time")}.`);
     if (value("message")) lines.push(value("message"));
     lines.push("Please confirm availability and help me plan my visit.");
-    window.location.assign(`https://wa.me/254743364717?text=${encodeURIComponent(lines.join("\n"))}`);
+    window.location.assign(`https://wa.me/254741174816?text=${encodeURIComponent(lines.join("\n"))}`);
   };
   return <div className="contactBookingCard"><p className="contactEyebrow">Appointment enquiry</p><h3>Tell us what you have in mind.</h3><p>Share your preferences, then send your enquiry on WhatsApp.</p>
     <p className="contactBookingHours">Mon–Sat · 7:30 AM–6:30 PM <span>Sunday closed</span></p>

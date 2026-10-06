@@ -20,7 +20,7 @@ const categoryNotes: Record<string, string> = {
   nails: "A considered finish, down to the details.",
   waxing: "Smooth care, on your terms.",
 };
-const book = (name: string) => `https://wa.me/254743364717?text=${encodeURIComponent(`Hi Ginamu Aesthetics, I'd like to enquire about ${name}. Please help me with availability.`)}`;
+const book = (name: string) => `https://wa.me/254741174816?text=${encodeURIComponent(`Hi Ginamu Aesthetics, I'd like to enquire about ${name}. Please help me with availability.`)}`;
 
 function CategoryIcon({ id }: { id: string }) {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={categoryIcons[id]} /></svg>;

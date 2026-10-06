@@ -16,7 +16,7 @@ const business = {
   name: "Ginamu Aesthetics",
   url: siteUrl,
   logo: `${siteUrl}/ginamu-logo.png`,
-  telephone: "+254743364717",
+  telephone: "+254741174816",
   email: "ginamuaestheticspa@gmail.com",
   address: {
     "@type": "PostalAddress",
