@@ -25,7 +25,7 @@ const categories: RitualCategory[] = [
     guide: "/treatments/facials-skin",
     descriptor: "Facials · analysis · skin refinement",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/f44e8006-c5f2-49c7-8679-c24d1e4257fd.jpg",
+      "/images/facial-cucumber.jpg",
     goals: [
       {
         label: "Glow & hydration",
@@ -97,7 +97,7 @@ const categories: RitualCategory[] = [
     guide: "/treatments/nail-care",
     descriptor: "Clean · polished · beautifully finished",
     image:
-      "/images/nail-care.webp",
+      "/images/manicure.jpg",
     goals: [
       {
         label: "A clean, polished finish",

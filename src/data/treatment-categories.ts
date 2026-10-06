@@ -2,7 +2,7 @@ export const treatmentCategories = [
   {
     id: "skin", slug: "facials-skin", title: "Facials & Skin Care", headline: "Care that begins", accent: "with your skin.",
     intro: "From a first skin analysis to your next facial, explore the care that fits your routine.",
-    image: "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg", alt: "Facial treatment and skin care", position: "center",
+    image: "/images/facial-cucumber.jpg", alt: "Woman enjoying facial care surrounded by cucumber slices", position: "center 40%",
     heading: "A little attention.", headingAccent: "A ritual of your own.",
     copy: "Choose from classic cleansing, hydrating and advanced hydration facials. If you’re unsure where to begin, ask our team about skin analysis before selecting a treatment.",
     planning: "Tell us which facial interests you, or ask for guidance. Confirm what the appointment includes, the time to allow and any preparation with our team.",
@@ -34,7 +34,7 @@ export const treatmentCategories = [
   {
     id: "nails", slug: "nail-care", title: "Nail Care", headline: "A considered finish,", accent: "down to the details.",
     intro: "Manicures, pedicures, gel and acrylic options for the finish you have in mind.",
-    image: "/images/nail-care.webp", alt: "Woman applying nail polish", position: "center 45%",
+    image: "/images/manicure.jpg", alt: "Coral nail polish being applied during a manicure", position: "center",
     heading: "A fresh colour.", headingAccent: "A little expression.",
     copy: "Choose a classic manicure or pedicure, gel application, or an acrylic set. Removal, infill and nail art options are also on the menu.",
     planning: "Mention any existing gel or acrylics when booking and ask whether removal is needed. Confirm available colours, your preferred design and any additional cost.",

@@ -23,7 +23,7 @@ const treatments = [
     category: "Skin · Glow",
     copy: "Facial care selected around your skin’s hydration, texture and appearance.",
     image:
-      "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/41f0a9e7-41c5-404b-b56b-a8f5face4e65.jpg",
+      "/images/facial-mask.jpg",
     className: "signatureCardTall",
     price: "From " + prices.find(item => item.name === "Classic cleansing facial")!.price,
   },

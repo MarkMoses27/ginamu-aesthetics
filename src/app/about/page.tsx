@@ -19,7 +19,7 @@ export default function AboutPage() {
     <SiteHeader solid />
     <main className="aboutPage" id="main-content"><span id="top" aria-hidden="true" />
       <section className="aboutPageHero" aria-labelledby="about-page-title">
-        <Image className="aboutHeroImage" src="/images/brow-detail.webp" alt="Beauty portrait with softly defined brows" fill priority sizes="100vw" />
+        <Image className="aboutHeroImage" src="/images/beauty-blossom.jpg" alt="Woman holding a pink blossom beside her face" style={{ objectPosition: "center 40%" }} fill priority sizes="100vw" />
         <div className="aboutHeroShade" aria-hidden="true" />
         <div className="aboutHeroContent">
           <p className="aboutEyebrow">About Ginamu · Westlands, Nairobi</p>
@@ -49,7 +49,7 @@ export default function AboutPage() {
       </section>
 
       <section className="aboutJourney aboutPageSection" aria-labelledby="about-journey-title" data-about-reveal>
-        <div className="aboutJourneyVisual"><Image src="/images/nail-care.webp" alt="Woman applying nail polish during a moment of self-care" fill sizes="(max-width: 760px) 100vw, 45vw" /><span>Care in the details.</span></div>
+        <div className="aboutJourneyVisual"><Image src="/images/gua-sha-care.jpg" alt="Woman using a green gua sha stone during her skin care routine" fill sizes="(max-width: 760px) 100vw, 45vw" /><span>Care in the details.</span></div>
         <div className="aboutJourneyCopy"><p className="aboutEyebrow">03 / Your first visit</p><h2 id="about-journey-title" aria-label="Make it your own."><MotionWords>Make it</MotionWords>{" "}<em><MotionWords>your own.</MotionWords></em></h2>
           <ol className="aboutJourneySteps">
             <li><span>01</span><div><h3>Choose your ritual</h3><p>Explore the menu, or tell us what you would like help with.</p></div></li>
