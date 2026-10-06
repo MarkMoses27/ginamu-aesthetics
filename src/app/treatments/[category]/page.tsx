@@ -15,7 +15,14 @@ export async function generateMetadata({ params }: Props) {
   const { category } = await params;
   const item = treatmentCategories.find(item => item.slug === category);
   if (!item) notFound();
-  return pageMetadata(`${item.title} | Ginamu Aesthetics`, `${item.intro} View prices and plan your visit to Ginamu Aesthetics in Westlands, Nairobi.`, `/treatments/${item.slug}`);
+  const searchTitles: Record<string, string> = {
+    skin: "Facials & Skin Care in Westlands",
+    body: "Massage, Sauna & Steam in Westlands",
+    brows: "Microblading & Lash Extensions in Westlands",
+    nails: "Manicures & Pedicures in Westlands",
+    waxing: "Waxing in Westlands, Nairobi",
+  };
+  return pageMetadata(`${searchTitles[item.id]} | Ginamu Aesthetics`, `${item.intro} Prices and bookings at Bricks Court, Mpaka Road, Westlands, Nairobi.`, `/treatments/${item.slug}`);
 }
 const book = (name: string) => `https://wa.me/254743364717?text=${encodeURIComponent(`Hi Ginamu Aesthetics, I'd like to enquire about ${name}. Please confirm availability and preparation.`)}`;
 export default async function TreatmentPage({ params }: Props) {
