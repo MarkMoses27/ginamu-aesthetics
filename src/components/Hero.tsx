@@ -25,7 +25,6 @@ const slides = [
 
 export default function Hero() {
   const [active, setActive] = useState(0);
-  const [paused, setPaused] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [reduceMotion, setReduceMotion] = useState(false);
 
@@ -38,7 +37,7 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    if (reduceMotion || menuOpen || paused) return;
+    if (reduceMotion || menuOpen) return;
 
     const timer = window.setInterval(() => {
       if (!document.hidden) {
@@ -47,7 +46,7 @@ export default function Hero() {
     }, 6200);
 
     return () => window.clearInterval(timer);
-  }, [reduceMotion, menuOpen, paused]);
+  }, [reduceMotion, menuOpen]);
 
 
 
@@ -103,21 +102,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="sliderControls" aria-label="Hero slides">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            aria-label={`Show hero image ${index + 1}`}
-            aria-current={index === active ? "true" : undefined}
-            onClick={() => setActive(index)}
-            className={index === active ? "active" : ""}
-          >
-            <span />
-          </button>
-        ))}
-        <button className="heroPause" type="button" aria-label={paused ? "Play image slideshow" : "Pause image slideshow"} onClick={() => setPaused(value => !value)}>{paused ? "Play" : "Pause"}</button>
-      </div>
     </section>
     </>
   );
