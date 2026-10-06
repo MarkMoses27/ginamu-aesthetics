@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata = {
   ...pageMetadata("Ginamu Aesthetics | Beauty & Wellbeing in Westlands", "Ginamu Aesthetics — a ritual of beauty & wellbeing at Bricks Court, Mpaka Road, Westlands, Nairobi."),
   metadataBase: new URL(siteUrl),
+  icons: {
+    icon: { url: "/ginamu-logo.png", type: "image/png" },
+    shortcut: "/ginamu-logo.png",
+    apple: "/ginamu-logo.png",
+  },
 };
 const business = {
   "@context": "https://schema.org",
