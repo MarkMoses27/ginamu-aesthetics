@@ -2316,6 +2316,10 @@ section[id] { scroll-margin-top: 100px; }
 .menuTreatmentName{font-size:16px;line-height:1.45}
 .menuTreatmentName small{display:block;font-size:11px;color:var(--ash);margin-top:5px}
 .menuTreatmentPrice{font-size:14px;font-weight:500;text-align:right;max-width:210px;line-height:1.5}
+.menuTreatmentPrice{font-variant-numeric:tabular-nums}
+.treatmentPage :is(a,button,summary):focus-visible{outline:2px solid var(--maroon);outline-offset:5px}
+.menuTreatmentDetails a{min-height:44px;align-items:center;white-space:normal}
+.menuAsideDownload{min-height:44px;align-items:center}
 .menuTreatmentToggle{width:26px;height:26px;border:1px solid #c5babc;border-radius:50%;position:relative;transition:transform .4s,background .3s}
 .menuTreatmentToggle::before,.menuTreatmentToggle::after{content:"";position:absolute;background:currentColor;width:8px;height:1px;left:8px;top:12px}
 .menuTreatmentToggle::after{transform:rotate(90deg);transition:transform .3s}
@@ -2348,6 +2352,13 @@ section[id] { scroll-margin-top: 100px; }
  .signatureMenuLink{flex-direction:column;align-items:flex-start;margin-top:42px;gap:12px}
 }
 @media(prefers-reduced-motion:reduce){.treatmentPage *,.menuTreatment::details-content{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(max-width:420px){
+ .menuTreatment summary{grid-template-columns:minmax(0,1fr) 24px;column-gap:16px;row-gap:6px}
+ .menuTreatmentName{grid-column:1;grid-row:1}
+ .menuTreatmentPrice{grid-column:1;grid-row:2;text-align:left;max-width:none;color:var(--maroon)}
+ .menuTreatmentToggle{grid-column:2;grid-row:1/span 2;align-self:center}
+ .menuCategoryNav button{min-width:0}
+}
 
 /* About Ginamu: an editorial introduction with a generous photographic hero. */
 .aboutPage { background: #f7f5f2; }
