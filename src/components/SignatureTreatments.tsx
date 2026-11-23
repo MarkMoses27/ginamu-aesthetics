@@ -25,7 +25,7 @@ const treatments = [
     image:
       "/images/facial-mask.jpg",
     className: "signatureCardTall",
-    price: "From " + prices.find(item => item.name === "Classic cleansing facial")!.price,
+    price: "From " + prices.find(item => item.id === "skin-express")!.price,
   },
   {
     number: "03",

@@ -76,7 +76,7 @@ export default function TreatmentMenu() {
               <a className="priceServiceBook" href={book(`${item.name}${item.duration ? ` (${item.duration})` : ""}`)} target="_blank" rel="noopener noreferrer" aria-label={`${item.name === "Skin care products" ? "Ask about" : item.name === "Skin tag removal" ? "Arrange an assessment for" : "Enquire about"} ${item.name}${item.duration ? ` ${item.duration}` : ""} on WhatsApp`}><span aria-hidden="true">↗</span></a>
             </article>)}
           </div>
-          <p className="priceCategoryFootnote">{group.id === "skin" ? "Skin tag removal is quoted after assessment. Ask us about available skin care products." : group.id === "body" ? "Sauna and steam bath are priced per hour. Confirm your preferred session when booking." : "Prices marked ‘From’ depend on your chosen service. Confirm your final quote when booking."}</p>
+          <p className="priceCategoryFootnote">{group.id === "skin" ? "The final price for skin tag removal is confirmed after assessment. Ask us about available skin care products." : group.id === "body" ? "Sauna and steam bath are priced per hour. Confirm your preferred session when booking." : "Prices marked ‘From’ depend on your chosen service. Confirm your final quote when booking."}</p>
         </div>
       </section>)}
     </div>

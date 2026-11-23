@@ -7,16 +7,23 @@
     "duration": null
   },
   {
-    "id": "skin-2",
-    "name": "Classic cleansing facial",
-    "price": "KSh 3,500",
+    "id": "skin-express",
+    "name": "Express facial",
+    "price": "KSh 2,500",
     "category": "skin",
-    "duration": null
+    "duration": "30 min"
   },
   {
     "id": "skin-3",
     "name": "Hydrating facial",
     "price": "KSh 4,500",
+    "category": "skin",
+    "duration": null
+  },
+  {
+    "id": "skin-brightening",
+    "name": "Brightening facial",
+    "price": "KSh 5,500",
     "category": "skin",
     "duration": null
   },
@@ -28,51 +35,128 @@
     "duration": null
   },
   {
+    "id": "body-swedish",
+    "name": "Swedish relaxation massage",
+    "price": "KSh 4,000",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-deep-tissue",
+    "name": "Deep tissue massage",
+    "price": "KSh 5,000",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-aromatherapy",
+    "name": "Aromatherapy massage",
+    "price": "KSh 5,000",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-sports",
+    "name": "Sports massage",
+    "price": "KSh 5,500",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-hot-stone",
+    "name": "Hot stone massage",
+    "price": "KSh 6,000",
+    "category": "body",
+    "duration": "90 min"
+  },
+  {
     "id": "body-5",
-    "name": "Lymphatic massage",
+    "name": "Lymphatic drainage massage",
     "price": "KSh 5,000",
     "category": "body",
     "duration": "60 min"
   },
   {
     "id": "body-6",
-    "name": "Lymphatic massage",
+    "name": "Lymphatic drainage massage",
     "price": "KSh 6,500",
     "category": "body",
     "duration": "90 min"
   },
   {
+    "id": "body-prenatal",
+    "name": "Prenatal massage",
+    "price": "KSh 4,500",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-thai",
+    "name": "Traditional Thai massage",
+    "price": "KSh 6,500",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
+    "id": "body-back-neck-shoulder",
+    "name": "Back, neck & shoulder massage",
+    "price": "KSh 2,500",
+    "category": "body",
+    "duration": "30 min"
+  },
+  {
+    "id": "body-head-scalp",
+    "name": "Head & scalp massage",
+    "price": "KSh 2,000",
+    "category": "body",
+    "duration": "30 min"
+  },
+  {
+    "id": "body-foot-reflexology",
+    "name": "Foot reflexology",
+    "price": "KSh 3,500",
+    "category": "body",
+    "duration": "45 min"
+  },
+  {
+    "id": "body-couples",
+    "name": "Couples massage",
+    "price": "KSh 10,000 for two",
+    "category": "body",
+    "duration": "60 min"
+  },
+  {
     "id": "body-7",
     "name": "Steam bath",
-    "price": "KSh 4,500 per hour",
+    "price": "KSh 4,500",
     "category": "body",
-    "duration": null
+    "duration": "60 min"
   },
   {
     "id": "body-8",
     "name": "Sauna",
-    "price": "KSh 5,000 per hour",
+    "price": "KSh 5,000",
     "category": "body",
-    "duration": null
+    "duration": "60 min"
   },
   {
     "id": "body-9",
     "name": "Moroccan body scrub",
     "price": "KSh 4,500",
     "category": "body",
-    "duration": null
+    "duration": "45 min"
   },
   {
     "id": "body-10",
-    "name": "Moroccan scrub and steam",
+    "name": "Moroccan body scrub & steam",
     "price": "KSh 5,500",
     "category": "body",
-    "duration": null
+    "duration": "60 min"
   },
   {
     "id": "skin-11",
     "name": "Skin tag removal",
-    "price": "Quote after assessment",
+    "price": "From KSh 3,000",
     "category": "skin",
     "duration": null
   },
@@ -129,6 +213,13 @@
     "id": "nails-19",
     "name": "Acrylic infill",
     "price": "From KSh 2,500",
+    "category": "nails",
+    "duration": null
+  },
+  {
+    "id": "nails-gum-gel",
+    "name": "Gum gel extensions – full set",
+    "price": "KSh 5,000",
     "category": "nails",
     "duration": null
   },
@@ -198,7 +289,7 @@
   {
     "id": "brows-29",
     "name": "Microblading touch-up",
-    "price": "KSh 5,000",
+    "price": "KSh 3,000",
     "category": "brows",
     "duration": null
   },

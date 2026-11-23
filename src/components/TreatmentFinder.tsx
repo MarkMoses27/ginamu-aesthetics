@@ -33,9 +33,9 @@ const categories: RitualCategory[] = [
         note: "Explore the hydrating facial, or ask our team about advanced hydration. Confirm the appointment details before booking.",
       },
       {
-        label: "Clarity & smoother texture",
-        treatment: "Classic cleansing facial",
-        note: "Explore our classic cleansing facial and ask our team whether it suits your preferences.",
+        label: "A quick refresh",
+        treatment: "Express facial",
+        note: "Book a 30-minute express facial for a quick refresh.",
       },
       {
         label: "Understand my skin",
@@ -58,8 +58,8 @@ const categories: RitualCategory[] = [
     goals: [
       {
         label: "Make time for a massage",
-        treatment: "Lymphatic Massage",
-        note: "Choose a 60- or 90-minute lymphatic massage and ask our team about availability and preparation.",
+        treatment: "Lymphatic Drainage Massage",
+        note: "Choose a 60- or 90-minute lymphatic drainage massage and ask our team about availability and preparation.",
       },
       {
         label: "Smooth & renew my skin",
