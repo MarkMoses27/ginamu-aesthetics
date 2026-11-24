@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
-import treatments from "@/data/treatments.json";
+import type { Treatment } from "@/lib/treatment-content";
 import { treatmentCategories } from "@/data/treatment-categories";
 
 const categoryIcons: Record<string, string> = {
@@ -26,7 +26,7 @@ function CategoryIcon({ id }: { id: string }) {
   return <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d={categoryIcons[id]} /></svg>;
 }
 
-export default function TreatmentMenu() {
+export default function TreatmentMenu({ treatments }: { treatments: Treatment[] }) {
   const [category, setCategory] = useState("all");
   const menuRef = useRef<HTMLDivElement>(null);
 

@@ -96,8 +96,8 @@ export default function Hero() {
           >
             Book your ritual
           </a>
-          <a className="heroSecondary" href="#treatments">
-            Explore treatments
+          <a className="heroSecondary" href="#quick-prices">
+            View treatments & prices
           </a>
         </div>
       </div>

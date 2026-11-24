@@ -1,10 +1,10 @@
-import prices from "@/data/treatments.json";
+import type { Treatment } from "@/lib/treatment-content";
 import MotionWords from "./MotionWords";
 import type { CSSProperties } from "react";
 
 const bookingNumber = "254741174816";
 
-const treatments = [
+const signatureTreatments = (prices: Treatment[]) => [
   {
     number: "01",
     guide: "/treatments/facials-skin",
@@ -14,7 +14,7 @@ const treatments = [
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/ba27b39b-94dd-4880-8354-a8cbdf91c8e7.png",
     className: "signatureCardLarge",
-    price: prices.find(item => item.name === "Skin analysis")!.price,
+    price: prices.find(item => item.name === "Skin analysis")?.price ?? "Enquire",
   },
   {
     number: "02",
@@ -25,7 +25,7 @@ const treatments = [
     image:
       "/images/facial-mask.jpg",
     className: "signatureCardTall",
-    price: "From " + prices.find(item => item.id === "skin-express")!.price,
+    price: prices.find(item => item.id === "skin-express") ? "From " + prices.find(item => item.id === "skin-express")!.price : "Enquire",
   },
   {
     number: "03",
@@ -36,7 +36,7 @@ const treatments = [
     image:
       "https://d2ol7oe51mr4n9.cloudfront.net/user_3HueTg25CuFruN86S3y4yyskQlZ/d09aadd5-d46f-418a-b64f-3792232ff1d6.jpg",
     className: "signatureCardWide",
-    price: prices.find(item => item.name === "Moroccan body scrub")!.price,
+    price: prices.find(item => item.name === "Moroccan body scrub")?.price ?? "Enquire",
   },
   {
     number: "04",
@@ -47,7 +47,7 @@ const treatments = [
     image:
       "/images/brow-detail.webp",
     className: "signatureCardPortrait",
-    price: prices.find(item => item.name === "Microblading")!.price,
+    price: prices.find(item => item.name === "Microblading")?.price ?? "Enquire",
   },
 ];
 
@@ -56,7 +56,7 @@ const bookingHref = (name: string) =>
     `Hi Ginamu Aesthetics, I'd like to book ${name}. Please help me with availability.`
   )}`;
 
-export default function SignatureTreatments() {
+export default function SignatureTreatments({ prices }: { prices: Treatment[] }) {
   return (
     <section className="signatureTreatments" id="services" aria-labelledby="signature-title">
       <div className="signatureHeader" data-reveal="header">
@@ -76,7 +76,7 @@ export default function SignatureTreatments() {
       </div>
 
       <div className="signatureGallery">
-        {treatments.map((treatment) => (
+        {signatureTreatments(prices).map((treatment) => (
           <article
             className={`signatureCard ${treatment.className}`}
             key={treatment.name}
