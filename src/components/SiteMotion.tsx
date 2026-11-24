@@ -50,6 +50,24 @@ export default function SiteMotion() {
           .fromTo(".editorialCopy, .editorialActions, .sliderControls", { autoAlpha: 0, y: 20 }, { autoAlpha: 1, y: 0, duration: .8, stagger: .08 }, .9);
         gsap.to(".heroSlides", { yPercent: 10, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
         gsap.to(".heroContent", { y: -65, ease: "none", scrollTrigger: { trigger: ".heroEditorial", start: "top top", end: "bottom top", scrub: 1 } });
+        // A restrained, brand-appropriate reveal for the new service menu.
+        gsap.fromTo(
+          ".homePriceIntro > div, .homePriceLead",
+          { autoAlpha: 0, y: 22 },
+          {
+            autoAlpha: 1, y: 0, duration: 0.85, stagger: 0.13,
+            ease: "power3.out",
+            scrollTrigger: { trigger: ".homePriceMenu", start: "top 88%", once: true },
+          }
+        );
+        gsap.fromTo(
+          ".homePriceShell",
+          { autoAlpha: 0, y: 24 },
+          {
+            autoAlpha: 1, y: 0, duration: 0.95, ease: "power3.out",
+            scrollTrigger: { trigger: ".homePriceShell", start: "top 89%", once: true },
+          }
+        );
         document.querySelectorAll<HTMLElement>(".ritualFinderIntro, .signatureHeader, .ginamuAbout, .ginamuContact, .signatureMoreIntro").forEach(section => {
           const title = section.querySelector("h2");
           const words = title?.querySelectorAll(".motionWord");
