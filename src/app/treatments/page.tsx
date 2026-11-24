@@ -1,3 +1,4 @@
+import { getTreatments } from "@/lib/treatment-content";
 import { pageMetadata } from "@/lib/site";
 import Image from "next/image";
 import SiteHeader from "@/components/SiteHeader";
@@ -7,7 +8,8 @@ import MotionWords from "@/components/MotionWords";
 
 export const metadata = pageMetadata("Treatments & Prices | Ginamu Aesthetics", "Explore Ginamu Aesthetics treatment prices in Westlands, Nairobi. Facials, body care, sauna, steam bath, brows, lashes, nails and waxing. Book on WhatsApp.", "/treatments");
 
-export default function TreatmentsPage() {
+export default async function TreatmentsPage() {
+ const treatments = await getTreatments();
  return <><SiteHeader solid /><main className="treatmentPage" id="main-content"><span id="top" aria-hidden="true" />
   <section className="menuHero" aria-labelledby="menu-title">
    <div className="menuHeroCopy">
@@ -22,7 +24,7 @@ export default function TreatmentsPage() {
    </div>
    <div className="menuHeroVisual"><Image src="/images/brow-detail.webp" alt="Close-up beauty portrait with defined brows" fill priority sizes="(max-width: 760px) 100vw, 38vw" /><div className="menuImageCaption"><span>Ginamu Aesthetics</span><span>Westlands, Nairobi</span></div></div>
   </section>
-  <TreatmentMenu />
+  <TreatmentMenu treatments={treatments} />
   <section className="menuHelp" aria-labelledby="menu-help-title"><p className="menuEyebrow">A little guidance</p><h2 id="menu-help-title">Let’s find <em>your ritual.</em></h2><p>Tell us what you have in mind. We’ll help you choose a treatment and confirm availability.</p><a className="menuPrimary" href="https://wa.me/254741174816?text=Hi%20Ginamu%20Aesthetics%2C%20please%20help%20me%20choose%20a%20treatment." target="_blank" rel="noopener noreferrer">Speak with our team <span aria-hidden="true">↗</span></a></section>
  </main><Footer /></>;
 }
